@@ -571,6 +571,15 @@ h1, h2, h3 {
     margin-top: 40px;
 }
 
+.story-photo {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    display: block;
+}
+
 .story-drawing-frame .drawing-placeholder {
     min-height: 280px;
 }
@@ -842,7 +851,8 @@ h1, h2, h3 {
     /* Process-Schritte: Zahl kleiner */
     .step-number { font-size: 44px; }
 
-    /* Story: Zeichnung kleiner */
+    /* Story: Bild/Zeichnung kleiner */
+    .story-photo { height: 240px; }
     .story-drawing-frame .drawing-placeholder { min-height: 200px; }
 
     /* Section-Headline kleiner auf sehr kleinen Screens */
@@ -1221,6 +1231,98 @@ h1, h2, h3 {
     width: 100%;
     font-size: 17px;
     padding: 18px 28px;
+}
+
+/* ==================== Cookie Banner ==================== */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--pencil);
+    color: var(--paper);
+    padding: 20px clamp(20px, 5vw, 48px);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+}
+
+.cookie-banner[hidden] { display: none; }
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.cookie-text { flex: 1; }
+
+.cookie-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: var(--paper);
+}
+
+.cookie-desc {
+    font-size: 13px;
+    color: #bdb9af;
+    line-height: 1.5;
+}
+
+.cookie-link {
+    color: var(--crayon-sun);
+    text-decoration: underline;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.cookie-btn-accept {
+    background: var(--crayon-sun);
+    color: var(--pencil);
+    font-size: 14px;
+    padding: 12px 24px;
+    white-space: nowrap;
+}
+.cookie-btn-accept:hover { background: #e6b020; }
+
+.cookie-btn-decline {
+    background: transparent;
+    border: none;
+    color: #bdb9af;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    white-space: nowrap;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+.cookie-btn-decline:hover { color: var(--paper); }
+
+@media (max-width: 640px) {
+    .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+    .cookie-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .cookie-btn-accept {
+        width: 100%;
+        text-align: center;
+    }
+    .cookie-btn-decline {
+        text-align: center;
+    }
 }
 
 .quiz-result-cta-sub {
