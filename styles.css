@@ -424,13 +424,12 @@ h1, h2, h3 {
 .product-card {
     border: 1px solid var(--line);
     border-radius: 6px;
-    overflow: hidden;
     background: var(--paper);
     transition: border-color 0.2s ease;
 }
 .product-card:hover { border-color: var(--line-dashed); }
 
-.card-top-stripe { height: 6px; }
+.card-top-stripe { height: 6px; border-radius: 5px 5px 0 0; }
 
 .card-content {
     padding: 32px;
