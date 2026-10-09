@@ -23,7 +23,7 @@
                         <a href="#wie-funktioniert" class="nav-link">Wie es funktioniert</a>
                         <a href="#die-backups" class="nav-link">Die drei Backups</a>
                         <a href="#uber-uns" class="nav-link">Über uns</a>
-                        <a href="#backup-check" class="btn btn-primary nav-cta">Backup-Check starten</a>
+                        <button class="btn btn-primary nav-cta" data-quiz-open>Backup-Check starten</button>
                         <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
                             <span></span><span></span><span></span>
                         </button>
@@ -37,7 +37,7 @@
             <a href="#wie-funktioniert" class="mobile-nav-link">Wie es funktioniert</a>
             <a href="#die-backups" class="mobile-nav-link">Die drei Backups</a>
             <a href="#uber-uns" class="mobile-nav-link">Über uns</a>
-            <a href="#backup-check" class="btn btn-primary mobile-nav-cta">Backup-Check starten</a>
+            <button class="btn btn-primary mobile-nav-cta" data-quiz-open>Backup-Check starten</button>
         </div>
     </div>
 
@@ -55,7 +55,7 @@
                         1 von 4 Vätern wird vor der Rente berufsunfähig. Die gesetzliche Rente deckt dann im Schnitt 31 % des Einkommens. Den Rest trägt deine Familie – oder du hast ein Backup.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#backup-check" class="btn btn-primary">Jetzt Backup-Check starten – kostenlos</a>
+                        <button class="btn btn-primary" data-quiz-open>Jetzt Backup-Check starten – kostenlos</button>
                         <a href="#wie-funktioniert" class="btn btn-secondary">Erst mal verstehen</a>
                     </div>
                     <p class="hero-reassurance">Kein Formular. Kein Druck. 5 Minuten.</p>
@@ -148,7 +148,7 @@
                         <p class="card-product">Berufsunfähigkeits&shy;versicherung</p>
                         <p class="card-fact">bis zu <span class="fact-amount">2.000 €&thinsp;/&thinsp;Monat</span> bis du 67 bist</p>
                         <p class="card-description">Wenn du nicht mehr arbeiten kannst – durch Unfall, Burnout oder Krankheit – läuft dein Gehalt weiter. Die staatliche Erwerbsminderungsrente reicht dafür nicht.</p>
-                        <a href="#backup-check" class="text-link">Meinen Bedarf berechnen →</a>
+                        <button class="text-link" data-quiz-open>Meinen Bedarf berechnen →</button>
                     </div>
                 </article>
 
@@ -160,7 +160,7 @@
                         <p class="card-product">Schwere-Krankheiten-Versicherung</p>
                         <p class="card-fact"><span class="fact-amount">100.000 €</span> einmalig bei Diagnose</p>
                         <p class="card-description">Herzinfarkt, Schlaganfall, Krebs: Bei einer Diagnose bekommst du den Betrag sofort – egal ob du noch arbeiten kannst oder nicht. Zeit kaufen, wenn es drauf ankommt.</p>
-                        <a href="#backup-check" class="text-link">Meinen Bedarf berechnen →</a>
+                        <button class="text-link" data-quiz-open>Meinen Bedarf berechnen →</button>
                     </div>
                 </article>
 
@@ -172,7 +172,7 @@
                         <p class="card-product">Risikolebens&shy;versicherung</p>
                         <p class="card-fact"><span class="fact-amount">350.000 €</span> · Laufzeit wie dein Kredit</p>
                         <p class="card-description">Wenn dir etwas zustößt, ist der Kredit abbezahlt und deine Familie bleibt im Haus. Die günstigste Versicherung, die du je kaufst – solange du gesund bist.</p>
-                        <a href="#backup-check" class="text-link">Meinen Bedarf berechnen →</a>
+                        <button class="text-link" data-quiz-open>Meinen Bedarf berechnen →</button>
                     </div>
                 </article>
             </div>
@@ -260,7 +260,7 @@
                 <h2 class="cta-headline">Deine Lücke in 5 Minuten berechnet.</h2>
                 <p class="cta-subline">Beantworte 5 Fragen – und ich zeige dir genau, wo deine Familie ungeschützt ist. Kostenlos. Ohne Abschluss. Ohne Druck.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary btn-large">Backup-Check starten</a>
+                    <button class="btn btn-primary btn-large" data-quiz-open>Backup-Check starten</button>
                     <p class="cta-reassurance">Kein Formular · kein Vertrag · 5 Minuten</p>
                 </div>
             </div>
@@ -284,6 +284,31 @@
         </div>
     </footer>
 
+    <!-- Quiz Overlay -->
+    <div class="quiz-overlay" id="quiz-overlay" hidden aria-modal="true" role="dialog" aria-label="Backup-Check">
+        <div class="quiz-modal">
+
+            <!-- Header -->
+            <div class="quiz-header">
+                <div class="quiz-logo">
+                    <span class="logo-text">backupyourlife</span>
+                    <div class="logo-stroke"></div>
+                </div>
+                <button class="quiz-close" aria-label="Quiz schließen" id="quiz-close">✕</button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="quiz-progress" aria-hidden="true">
+                <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+            </div>
+
+            <!-- Steps Container -->
+            <div class="quiz-body" id="quiz-body"></div>
+
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="quiz.js"></script>
 </body>
 </html>
