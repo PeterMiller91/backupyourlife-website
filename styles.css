@@ -480,8 +480,77 @@ h1, h2, h3 {
     line-height: 1.55;
 }
 
+/* Info Button + Tooltip */
+.card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.card-info-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.card-info-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line-dashed);
+    background: none;
+    color: var(--muted);
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-style: italic;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: border-color 0.15s, color 0.15s;
+    padding: 0;
+}
+.card-info-btn:hover,
+.card-info-wrap:focus-within .card-info-btn {
+    border-color: var(--pencil);
+    color: var(--pencil);
+}
+
+.card-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    right: 0;
+    width: 230px;
+    background: var(--pencil);
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 12px 14px;
+    border-radius: 8px;
+    z-index: 20;
+    pointer-events: none;
+}
+.card-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 6px;
+    border: 6px solid transparent;
+    border-top-color: var(--pencil);
+}
+.card-info-wrap:hover .card-tooltip,
+.card-info-wrap:focus-within .card-tooltip {
+    display: block;
+}
+
 @media (max-width: 768px) {
     .cards-grid { grid-template-columns: 1fr; }
+    .card-tooltip { right: auto; left: 0; }
+    .card-tooltip::after { right: auto; left: 6px; }
 }
 
 /* Garantie – Hormozi: Risiko umkehren */
@@ -1279,8 +1348,9 @@ h1, h2, h3 {
     font-size: 12px;
     font-weight: 500;
 }
-.quiz-status-pill.ok    { background: var(--crayon-sun); color: var(--pencil); }
-.quiz-status-pill.gap   { background: var(--crayon-red); color: var(--paper); }
+.quiz-status-pill.ok      { background: var(--crayon-sun); color: var(--pencil); }
+.quiz-status-pill.gap     { background: var(--crayon-red); color: var(--paper); }
+.quiz-status-pill.neutral { background: var(--line); color: var(--muted); }
 
 .quiz-result-urgency {
     font-family: 'Caveat Brush', cursive;

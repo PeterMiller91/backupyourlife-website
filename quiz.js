@@ -377,6 +377,10 @@ function renderResult() {
                     <span class="quiz-status-name">Familie absichern (Risikoleben)</span>
                     <span class="quiz-status-pill ${rlOk ? 'ok' : 'gap'}">${rlOk ? '✓ gesichert' : '✕ Lücke'}</span>
                 </div>
+                <div class="quiz-status-row">
+                    <span class="quiz-status-name">Schwere Krankheiten (SK)</span>
+                    <span class="quiz-status-pill neutral">→ Im Gespräch klären</span>
+                </div>
             </div>
 
             <p class="quiz-result-summary">${summaryText}</p>
