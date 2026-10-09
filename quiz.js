@@ -342,6 +342,17 @@ function renderContact(step) {
     });
 }
 
+// ==================== Lead Notification ====================
+async function sendLead(payload) {
+    try {
+        await fetch('/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
+    } catch (_) { /* silent – UI nicht blockieren */ }
+}
+
 // ==================== Result Screen ====================
 function renderResult() {
     progressBar.style.width = '100%';
@@ -353,6 +364,8 @@ function renderResult() {
     const rlOk = state.answers.rl === 'ja';
     const skOk = state.answers.sk === 'ja';
     const gaps  = [!buOk, !rlOk, !skOk].filter(Boolean).length;
+
+    sendLead({ name: state.name, email: state.email, answers: state.answers, luecke, gaps });
 
     const firstName = state.name || 'du';
 
