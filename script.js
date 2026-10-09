@@ -1,47 +1,62 @@
-// ==================== Scroll Animations ====================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+// ==================== Hamburger Menu ====================
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-handwrite');
-            observer.unobserve(entry.target);
+if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!isOpen));
+        mobileMenu.hidden = isOpen;
+    });
+
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.hidden = true;
+        });
+    });
+
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.hidden = true;
         }
     });
-}, observerOptions);
-
-// Observe all elements with animate-handwrite class
-document.querySelectorAll('.animate-handwrite').forEach(el => {
-    observer.observe(el);
-});
-
-// ==================== Button Interactions ====================
-document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-    button.addEventListener('click', (e) => {
-        // Add ripple effect or other interactions here
-        console.log('Button clicked');
-    });
-});
+}
 
 // ==================== Smooth Scroll ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
+        const target = href !== '#' && document.querySelector(href);
+        if (target) {
             e.preventDefault();
-            document.querySelector(href).scrollIntoView({
-                behavior: 'smooth'
-            });
+            target.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
-// ==================== Accessibility: Reduced Motion ====================
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// ==================== Scroll Animations ====================
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.clipPath = 'inset(0 0% 0 0)';
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-if (prefersReducedMotion) {
+document.querySelectorAll('.child-voice').forEach(el => {
+    if (!el.classList.contains('hero-child-voice')) {
+        el.style.clipPath = 'inset(0 100% 0 0)';
+        el.style.transition = 'clip-path 0.6s cubic-bezier(.6,0,.2,1)';
+        observer.observe(el);
+    }
+});
+
+// ==================== Reduced Motion ====================
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.style.scrollBehavior = 'auto';
 }

@@ -127,10 +127,13 @@ h1, h2, h3 {
 }
 
 /* ==================== Header ==================== */
-.header {
+.header-wrapper {
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+.header {
     height: 72px;
     background: var(--paper);
     border-bottom: 1px solid var(--line);
@@ -714,6 +717,145 @@ h1, h2, h3 {
 /* ==================== Animations ==================== */
 @keyframes stroke-draw {
     to { clip-path: inset(0 0% 0 0); }
+}
+
+/* ==================== Hamburger ==================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--pencil);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==================== Mobile Menu ==================== */
+.mobile-menu {
+    position: relative;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+}
+
+.mobile-menu[hidden] { display: none; }
+
+.mobile-nav-link {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--pencil);
+    text-decoration: none;
+    padding: 14px clamp(20px, 5vw, 40px);
+    border-bottom: 1px solid var(--line);
+    transition: background 0.15s ease;
+}
+.mobile-nav-link:hover { background: #f9f7f4; }
+
+.mobile-nav-cta {
+    margin: 16px clamp(20px, 5vw, 40px) 4px;
+    text-align: center;
+    border-radius: 999px;
+}
+
+/* ==================== Mobile Overrides ==================== */
+@media (max-width: 900px) {
+    /* Header: Hamburger sichtbar, Desktop-CTA weg */
+    .hamburger { display: flex; }
+    .nav-cta { display: none; }
+
+    /* Hero: Zeichnung oben, Text darunter, weniger Abstand */
+    .hero-content { gap: 32px; }
+    .hero-drawing-frame { order: -1; }
+    .drawing-placeholder { min-height: 200px; }
+
+    /* Buttons: volle Breite auf Mobile */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+    }
+
+    /* CTA-Section: Button volle Breite */
+    .cta-buttons { align-items: stretch; }
+    .cta-buttons .btn { text-align: center; white-space: normal; }
+
+    /* Garantie-Block: kein max-width auf Mobile */
+    .guarantee-block { max-width: 100%; padding: 24px; }
+
+    /* Footer: gestapelt, zentriert */
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .footer-links { gap: 16px; }
+}
+
+@media (max-width: 640px) {
+    /* Proof-Numbers: 2-Spalten-Grid statt Flex-Reihe */
+    .proof-numbers {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+    }
+    .proof-item { padding: 16px 16px; }
+    .proof-divider { display: none; }
+    /* Dritte Zahl volle Breite */
+    .proof-item:last-child {
+        grid-column: 1 / -1;
+        border-top: 1px solid var(--line);
+    }
+
+    /* Lückenrechner: Schrift kleiner damit Zahlen nicht brechen */
+    .gap-row { font-size: 14px; }
+    .gap-row .mono { font-size: 13px; }
+
+    /* Cards: weniger Padding */
+    .card-content { padding: 24px; }
+
+    /* Process-Schritte: Zahl kleiner */
+    .step-number { font-size: 44px; }
+
+    /* Story: Zeichnung kleiner */
+    .story-drawing-frame .drawing-placeholder { min-height: 200px; }
+
+    /* Section-Headline kleiner auf sehr kleinen Screens */
+    .section-headline { font-size: 24px; }
+    .problem-headline { font-size: 22px; }
+
+    /* Sticky Header bleibt sticky auch auf kleinen Screens */
+    .header { position: sticky; }
 }
 
 /* ==================== Reduced Motion ==================== */

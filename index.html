@@ -10,23 +10,36 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="/" class="logo" aria-label="backupyourlife Startseite">
-                    <span class="logo-text">backupyourlife</span>
-                    <div class="logo-stroke"></div>
-                </a>
-                <nav class="nav" aria-label="Hauptnavigation">
-                    <a href="#wie-funktioniert" class="nav-link">Wie es funktioniert</a>
-                    <a href="#die-backups" class="nav-link">Die drei Backups</a>
-                    <a href="#uber-uns" class="nav-link">Über uns</a>
-                    <a href="#backup-check" class="btn btn-primary">Backup-Check starten</a>
-                </nav>
+    <!-- Header wrapper: sticky + hält das Mobile-Menu -->
+    <div class="header-wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="/" class="logo" aria-label="backupyourlife Startseite">
+                        <span class="logo-text">backupyourlife</span>
+                        <div class="logo-stroke"></div>
+                    </a>
+                    <nav class="nav" aria-label="Hauptnavigation">
+                        <a href="#wie-funktioniert" class="nav-link">Wie es funktioniert</a>
+                        <a href="#die-backups" class="nav-link">Die drei Backups</a>
+                        <a href="#uber-uns" class="nav-link">Über uns</a>
+                        <a href="#backup-check" class="btn btn-primary nav-cta">Backup-Check starten</a>
+                        <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                            <span></span><span></span><span></span>
+                        </button>
+                    </nav>
+                </div>
             </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <a href="#wie-funktioniert" class="mobile-nav-link">Wie es funktioniert</a>
+            <a href="#die-backups" class="mobile-nav-link">Die drei Backups</a>
+            <a href="#uber-uns" class="mobile-nav-link">Über uns</a>
+            <a href="#backup-check" class="btn btn-primary mobile-nav-cta">Backup-Check starten</a>
         </div>
-    </header>
+    </div>
 
     <!-- Hero -->
     <section class="hero">
@@ -57,7 +70,7 @@
         </div>
     </section>
 
-    <!-- Sozialer Beweis / Zahlen -->
+    <!-- Sozialer Beweis -->
     <section class="social-proof">
         <div class="container">
             <div class="proof-numbers">
@@ -117,7 +130,7 @@
         </div>
     </section>
 
-    <!-- Grand Slam Offer: Die drei Backups -->
+    <!-- Die drei Backups -->
     <section class="backups-section" id="die-backups">
         <div class="container">
             <p class="section-eyebrow">Das Backup-Konzept</p>
@@ -127,8 +140,6 @@
             <p class="section-subline">Kein Einzelprodukt löst das Problem. Erst alle drei zusammen schließen die Lücke – genau auf deinen Kredit, dein Einkommen und deine Familie zugeschnitten.</p>
 
             <div class="cards-grid">
-
-                <!-- Backup 1 -->
                 <article class="product-card">
                     <div class="card-top-stripe" style="background: var(--crayon-sky);"></div>
                     <div class="card-content">
@@ -141,7 +152,6 @@
                     </div>
                 </article>
 
-                <!-- Backup 2 -->
                 <article class="product-card">
                     <div class="card-top-stripe" style="background: var(--crayon-sun);"></div>
                     <div class="card-content">
@@ -154,7 +164,6 @@
                     </div>
                 </article>
 
-                <!-- Backup 3 -->
                 <article class="product-card">
                     <div class="card-top-stripe" style="background: var(--crayon-red);"></div>
                     <div class="card-content">
@@ -166,19 +175,14 @@
                         <a href="#backup-check" class="text-link">Meinen Bedarf berechnen →</a>
                     </div>
                 </article>
-
             </div>
 
-            <!-- Garantie -->
             <div class="guarantee-block">
-                <div class="guarantee-content">
-                    <p class="guarantee-label">Unsere Garantie</p>
-                    <p class="guarantee-text">
-                        Wenn du nach unserem 20-Minuten-Gespräch kein klareres Bild deiner Absicherung hast als davor – sage ich dir selbst, dass du nichts brauchst.
-                    </p>
-                </div>
+                <p class="guarantee-label">Unsere Garantie</p>
+                <p class="guarantee-text">
+                    Wenn du nach unserem 20-Minuten-Gespräch kein klareres Bild deiner Absicherung hast als davor – sage ich dir selbst, dass du nichts brauchst.
+                </p>
             </div>
-
         </div>
     </section>
 
@@ -188,28 +192,24 @@
             <p class="section-eyebrow">Der Ablauf</p>
             <h2 class="section-headline">In 3 Schritten zu deinem Backup-Konzept</h2>
             <div class="process-steps">
-
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <h3>5 Fragen beantworten</h3>
                     <p>Einkommen, Kredit, Kinder – mehr brauche ich nicht, um deine Lücke zu berechnen.</p>
                     <p class="step-meta">Dauer: 5 Minuten</p>
                 </div>
-
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>20 Minuten sprechen</h3>
                     <p>Ich zeige dir genau, wo deine Lücken sind und was ein Konzept kostet – mit echten Zahlen, nicht mit Schätzungen.</p>
                     <p class="step-meta">Kostenlos · Unverbindlich</p>
                 </div>
-
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <h3>Konzept erhalten</h3>
                     <p>Du bekommst ein schriftliches Konzept, das auf deinen Kredit, dein Einkommen und deine Familie zugeschnitten ist.</p>
                     <p class="step-meta">Kein Abschluss nötig</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -252,7 +252,7 @@
         </div>
     </section>
 
-    <!-- Scarcity + CTA -->
+    <!-- CTA -->
     <section class="cta-section" id="backup-check">
         <div class="container">
             <div class="cta-content">
