@@ -3,157 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>backupyourlife – Papa kann alles reparieren. Außer sich selbst.</title>
+    <title>backupyourlife – Deine Familie ist abgesichert. Egal was passiert.</title>
+    <meta name="description" content="Jeder 4. Vater wird berufsunfähig, bevor er 67 wird. Kostenloser Backup-Check in 5 Minuten – sieh genau, wo deine Lücken sind.">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <a href="/" class="logo" aria-label="backupyourlife Startseite">
                     <span class="logo-text">backupyourlife</span>
                     <div class="logo-stroke"></div>
-                </div>
-                <nav class="nav">
+                </a>
+                <nav class="nav" aria-label="Hauptnavigation">
                     <a href="#wie-funktioniert" class="nav-link">Wie es funktioniert</a>
                     <a href="#die-backups" class="nav-link">Die drei Backups</a>
                     <a href="#uber-uns" class="nav-link">Über uns</a>
-                    <a href="#backup-check" class="nav-link">Backup-Check</a>
-                    <button class="btn btn-primary">Backup-Check starten</button>
+                    <a href="#backup-check" class="btn btn-primary">Backup-Check starten</a>
                 </nav>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h2 class="hero-subtitle animate-handwrite">Mein Papa hat ein Backup.</h2>
-                    <h1 class="hero-headline">Papa kann alles reparieren. Außer sich selbst.</h1>
-                    <p class="hero-description">Deine echte Geschichte. Was dir passiert ist und was du heute anders machst.</p>
+                    <p class="hero-child-voice">Mein Papa hat ein Backup.</p>
+                    <h1 class="hero-headline">
+                        Papa kann alles reparieren.<br>
+                        Außer sich selbst.
+                    </h1>
+                    <p class="hero-description">
+                        1 von 4 Vätern wird vor der Rente berufsunfähig. Die gesetzliche Rente deckt dann im Schnitt 31 % des Einkommens. Den Rest trägt deine Familie – oder du hast ein Backup.
+                    </p>
                     <div class="hero-buttons">
-                        <button class="btn btn-primary">Meine Geschichte lesen ↓</button>
-                        <button class="btn btn-secondary">20 Min. Gespräch</button>
+                        <a href="#backup-check" class="btn btn-primary">Jetzt Backup-Check starten – kostenlos</a>
+                        <a href="#wie-funktioniert" class="btn btn-secondary">Erst mal verstehen</a>
                     </div>
+                    <p class="hero-reassurance">Kein Formular. Kein Druck. 5 Minuten.</p>
                 </div>
-                <div class="hero-image">
-                    <img src="placeholder-hero.jpg" alt="Du mit deinen Kindern">
+                <div class="hero-drawing-frame" aria-label="Kinderzeichnung: Mein Papa und ich">
+                    <div class="drawing-placeholder">
+                        <span class="drawing-placeholder-text">Zeichnung eines Kindes</span>
+                    </div>
+                    <p class="drawing-caption">Mira, 6 · „Mein Papa und ich"</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
+    <!-- Sozialer Beweis / Zahlen -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="proof-numbers">
+                <div class="proof-item">
+                    <span class="proof-number">1 von 4</span>
+                    <span class="proof-label">Väter wird vor 67 berufsunfähig</span>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <span class="proof-number">31 %</span>
+                    <span class="proof-label">des Einkommens zahlt der Staat im Schnitt</span>
+                </div>
+                <div class="proof-divider"></div>
+                <div class="proof-item">
+                    <span class="proof-number">20 Min.</span>
+                    <span class="proof-label">bis du weißt, wo deine Lücken sind</span>
+                </div>
+            </div>
+            <p class="proof-source">Quellen: Deutsche Rentenversicherung 2023 · GDV Statistik 2022</p>
+        </div>
+    </section>
+
+    <!-- Das Problem -->
     <section class="problem-section">
         <div class="container">
             <div class="problem-content">
                 <div class="problem-stat">
-                    <p class="problem-number">Jeder 4. wird vor der Rente berufsunfähig.</p>
-                    <p class="problem-source">Quelle: Deutsche Rentenversicherung</p>
+                    <h2 class="problem-headline">
+                        Jeder 4. Vater wird berufsunfähig – <span class="highlight">bevor er 67 wird.</span>
+                    </h2>
+                    <p class="problem-body">
+                        Der Staat zahlt dir dann durchschnittlich 31 % deines letzten Nettogehalts. Wer 5.000 € netto verdient, bekommt rund 1.550 € – und muss damit Kredit, Kinder und Alltag finanzieren.
+                    </p>
+                    <p class="problem-body">
+                        Nicht morgen. Nicht irgendwann. Jetzt – weil du heute gesund bist und die günstigsten Konditionen bekommst.
+                    </p>
                 </div>
-                <div class="problem-quote">
-                    <p class="animate-handwrite">„Ich dachte, ich wär abgesichert. Ich war es nicht."</p>
+                <div class="problem-quote-block">
+                    <p class="child-voice">Ich dachte, Papas werden nie krank.</p>
+                    <div class="gap-calc">
+                        <p class="gap-label">Beispiel: Deine Lücke bei BU</p>
+                        <div class="gap-row">
+                            <span>Nettoeinkommen</span>
+                            <span class="mono">5.000 € / Monat</span>
+                        </div>
+                        <div class="gap-row">
+                            <span>Staatliche Rente</span>
+                            <span class="mono">1.550 € / Monat</span>
+                        </div>
+                        <div class="gap-row gap-row--red">
+                            <span>Deine Lücke</span>
+                            <span class="mono">−3.450 € / Monat</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Die drei Backups -->
+    <!-- Grand Slam Offer: Die drei Backups -->
     <section class="backups-section" id="die-backups">
         <div class="container">
-            <h2 class="section-title">Die 3 Backups, die mir gefehlt haben</h2>
+            <p class="section-eyebrow">Das Backup-Konzept</p>
+            <h2 class="section-headline">
+                Drei Backups. Ein Konzept. <span class="highlight">Deine Familie abgesichert.</span>
+            </h2>
+            <p class="section-subline">Kein Einzelprodukt löst das Problem. Erst alle drei zusammen schließen die Lücke – genau auf deinen Kredit, dein Einkommen und deine Familie zugeschnitten.</p>
+
             <div class="cards-grid">
-                <!-- Card 1: Berufsunfähigkeit -->
-                <div class="product-card">
-                    <div class="card-top-stripe" style="background-color: var(--crayon-sky);"></div>
-                    <div class="card-content">
-                        <p class="card-quote animate-handwrite">Papa geht arbeiten, damit wir ein Haus haben.</p>
-                        <h3 class="card-title">Berufsunfähigkeit</h3>
-                        <p class="card-fact"><span class="fact-amount">bis zu 2.000 € / Monat</span> bis 67</p>
-                        <p class="card-description">Eine private Berufsunfähigkeitsversicherung sichert dein Einkommen, wenn du nicht mehr arbeiten kannst. Die gesetzliche Erwerbsminderungsrente reicht oft nicht aus.</p>
-                        <a href="#" class="text-link">Mehr erfahren →</a>
-                    </div>
-                </div>
 
-                <!-- Card 2: Schwere Krankheiten -->
-                <div class="product-card">
-                    <div class="card-top-stripe" style="background-color: var(--crayon-sun);"></div>
+                <!-- Backup 1 -->
+                <article class="product-card">
+                    <div class="card-top-stripe" style="background: var(--crayon-sky);"></div>
                     <div class="card-content">
-                        <p class="card-quote animate-handwrite">Wenn Papa krank ist, bleibt er bei mir.</p>
-                        <h3 class="card-title">Schwere Krankheiten</h3>
+                        <p class="card-quote">Papa geht arbeiten, damit wir ein Haus haben.</p>
+                        <h3 class="card-title">Backup 1 · Einkommen</h3>
+                        <p class="card-product">Berufsunfähigkeits&shy;versicherung</p>
+                        <p class="card-fact">bis zu <span class="fact-amount">2.000 €&thinsp;/&thinsp;Monat</span> bis du 67 bist</p>
+                        <p class="card-description">Wenn du nicht mehr arbeiten kannst – durch Unfall, Burnout oder Krankheit – läuft dein Gehalt weiter. Die staatliche Erwerbsminderungsrente reicht dafür nicht.</p>
+                        <a href="#backup-check" class="text-link">Meinen Bedarf berechnen →</a>
+                    </div>
+                </article>
+
+                <!-- Backup 2 -->
+                <article class="product-card">
+                    <div class="card-top-stripe" style="background: var(--crayon-sun);"></div>
+                    <div class="card-content">
+                        <p class="card-quote">Wenn Papa krank ist, bleibt er bei mir.</p>
+                        <h3 class="card-title">Backup 2 · Gesundheit</h3>
+                        <p class="card-product">Schwere-Krankheiten-Versicherung</p>
                         <p class="card-fact"><span class="fact-amount">100.000 €</span> einmalig bei Diagnose</p>
-                        <p class="card-description">Eine Dread-Disease-Versicherung zahlt einen Einmalbetrag, wenn du eine schwere Krankheit diagnostiziert bekommst. Das gibt dir Zeit und Luft zum Atmen.</p>
-                        <a href="#" class="text-link">Mehr erfahren →</a>
+                        <p class="card-description">Herzinfarkt, Schlaganfall, Krebs: Bei einer Diagnose bekommst du den Betrag sofort – egal ob du noch arbeiten kannst oder nicht. Zeit kaufen, wenn es drauf ankommt.</p>
+                        <a href="#backup-check" class="text-link">Meinen Bedarf berechnen →</a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Card 3: Risikoleben -->
-                <div class="product-card">
-                    <div class="card-top-stripe" style="background-color: var(--crayon-red);"></div>
+                <!-- Backup 3 -->
+                <article class="product-card">
+                    <div class="card-top-stripe" style="background: var(--crayon-red);"></div>
                     <div class="card-content">
-                        <p class="card-quote animate-handwrite">Unser Haus bleibt unser Haus.</p>
-                        <h3 class="card-title">Risikoleben</h3>
-                        <p class="card-fact"><span class="fact-amount">350.000 €</span>, Laufzeit wie der Kredit</p>
-                        <p class="card-description">Eine Risikolebensversicherung zahlt an deine Familie, wenn dir etwas zustößt. Sie deckt deine Schulden und sichert die Zukunft deiner Kinder.</p>
-                        <a href="#" class="text-link">Mehr erfahren →</a>
+                        <p class="card-quote">Unser Haus bleibt unser Haus.</p>
+                        <h3 class="card-title">Backup 3 · Familie</h3>
+                        <p class="card-product">Risikolebens&shy;versicherung</p>
+                        <p class="card-fact"><span class="fact-amount">350.000 €</span> · Laufzeit wie dein Kredit</p>
+                        <p class="card-description">Wenn dir etwas zustößt, ist der Kredit abbezahlt und deine Familie bleibt im Haus. Die günstigste Versicherung, die du je kaufst – solange du gesund bist.</p>
+                        <a href="#backup-check" class="text-link">Meinen Bedarf berechnen →</a>
                     </div>
+                </article>
+
+            </div>
+
+            <!-- Garantie -->
+            <div class="guarantee-block">
+                <div class="guarantee-content">
+                    <p class="guarantee-label">Unsere Garantie</p>
+                    <p class="guarantee-text">
+                        Wenn du nach unserem 20-Minuten-Gespräch kein klareres Bild deiner Absicherung hast als davor – sage ich dir selbst, dass du nichts brauchst.
+                    </p>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Ablauf Section -->
+    <!-- Wie es funktioniert -->
     <section class="process-section" id="wie-funktioniert">
         <div class="container">
-            <h2 class="section-title">So läuft's ab</h2>
+            <p class="section-eyebrow">Der Ablauf</p>
+            <h2 class="section-headline">In 3 Schritten zu deinem Backup-Konzept</h2>
             <div class="process-steps">
+
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <h3>Du antwortest 5 Fragen</h3>
-                    <p>In 5 Minuten sehe ich deine aktuelle Absicherung.</p>
+                    <h3>5 Fragen beantworten</h3>
+                    <p>Einkommen, Kredit, Kinder – mehr brauche ich nicht, um deine Lücke zu berechnen.</p>
+                    <p class="step-meta">Dauer: 5 Minuten</p>
                 </div>
+
                 <div class="process-step">
                     <div class="step-number">2</div>
-                    <h3>Wir sprechen 20 Minuten</h3>
-                    <p>Ich zeige dir, wo die Lücken sind und wie wir sie schließen.</p>
+                    <h3>20 Minuten sprechen</h3>
+                    <p>Ich zeige dir genau, wo deine Lücken sind und was ein Konzept kostet – mit echten Zahlen, nicht mit Schätzungen.</p>
+                    <p class="step-meta">Kostenlos · Unverbindlich</p>
                 </div>
+
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <h3>Du bekommst ein Konzept</h3>
-                    <p>Persönlich zugeschnitten auf deine Familie. Völlig unverbindlich.</p>
+                    <h3>Konzept erhalten</h3>
+                    <p>Du bekommst ein schriftliches Konzept, das auf deinen Kredit, dein Einkommen und deine Familie zugeschnitten ist.</p>
+                    <p class="step-meta">Kein Abschluss nötig</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Fathers Stories Section -->
+    <!-- Väter erzählen -->
     <section class="stories-section" id="uber-uns">
         <div class="container">
-            <h2 class="section-title">Väter erzählen</h2>
+            <p class="section-eyebrow">Väter erzählen</p>
+            <h2 class="section-headline">„Ich dachte, ich wär abgesichert. Ich war es nicht."</h2>
             <div class="story-container">
-                <div class="story-image">
-                    <img src="placeholder-father.jpg" alt="Vater mit Kind">
+                <div class="story-drawing-frame" aria-label="Zeichnung von Thomas' Kind">
+                    <div class="drawing-placeholder">
+                        <span class="drawing-placeholder-text">Kinderzeichnung</span>
+                    </div>
+                    <p class="drawing-caption">Leon, 7 · „Papa hebt mich hoch"</p>
                 </div>
                 <div class="story-text">
                     <blockquote class="story-quote">
-                        „Meine Lücke war 2.940 € pro Monat. Ich habe es erst gemerkt, als es zu spät war."
+                        „Nach dem Burnout war mein Einkommen weg. Meine BU über den Arbeitgeber hat nicht gezahlt – die Klauseln stimmten nicht. Meine Frau ist wieder arbeiten gegangen, unser Sohn hat das gemerkt. Das Gespräch mit backupyourlife hat mir in 20 Minuten gezeigt, was drei Beratergespräche vorher nicht geschafft haben."
                     </blockquote>
-                    <p class="story-source">Thomas, 42, Vater von Mira und Jonas</p>
+                    <p class="story-source">Thomas R., 44 · Projektleiter · Vater von Leon und Maja</p>
+                    <div class="story-backup-status">
+                        <p class="backup-status-label">Thomas' Backup-Status heute</p>
+                        <div class="status-row">
+                            <span>Einkommen</span>
+                            <span class="status-pill status-pill--ok">✓ gesichert</span>
+                        </div>
+                        <div class="status-row">
+                            <span>Gesundheit</span>
+                            <span class="status-pill status-pill--ok">✓ gesichert</span>
+                        </div>
+                        <div class="status-row">
+                            <span>Familie</span>
+                            <span class="status-pill status-pill--ok">✓ gesichert</span>
+                        </div>
+                        <p class="child-voice story-child-voice">Fast fertig, Papa!</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Scarcity + CTA -->
     <section class="cta-section" id="backup-check">
         <div class="container">
-            <h2 class="cta-title">Deine Lücke in 5 Minuten berechnet</h2>
-            <p class="cta-subtitle">Backup-Check starten – kostenlos und unverbindlich</p>
-            <button class="btn btn-primary btn-large">Backup-Check starten</button>
+            <div class="cta-content">
+                <p class="section-eyebrow cta-eyebrow">Nur noch wenige Plätze diese Woche</p>
+                <h2 class="cta-headline">Deine Lücke in 5 Minuten berechnet.</h2>
+                <p class="cta-subline">Beantworte 5 Fragen – und ich zeige dir genau, wo deine Familie ungeschützt ist. Kostenlos. Ohne Abschluss. Ohne Druck.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">Backup-Check starten</a>
+                    <p class="cta-reassurance">Kein Formular · kein Vertrag · 5 Minuten</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -165,11 +275,11 @@
                     <span class="logo-text">backupyourlife</span>
                     <div class="logo-stroke"></div>
                 </div>
-                <div class="footer-links">
+                <nav class="footer-links" aria-label="Rechtliches">
                     <a href="#" class="footer-link">Impressum</a>
                     <a href="#" class="footer-link">Datenschutz</a>
-                    <a href="#" class="footer-link">Erstinformation §34d</a>
-                </div>
+                    <a href="#" class="footer-link">Erstinformation §&thinsp;15 VersVermV</a>
+                </nav>
             </div>
         </div>
     </footer>
