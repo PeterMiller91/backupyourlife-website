@@ -1,6 +1,5 @@
 {
   "buildCommand": "exit 0",
-  "public": true,
   "cleanUrls": true,
   "headers": [
     {
