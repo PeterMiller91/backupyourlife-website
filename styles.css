@@ -107,7 +107,7 @@ h1, h2, h3 {
 }
 
 .logo-img {
-    height: 52px;
+    height: 60px;
     width: auto;
     display: block;
 }
@@ -120,7 +120,7 @@ h1, h2, h3 {
 }
 
 .header {
-    height: 88px;
+    height: 96px;
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     display: flex;
@@ -209,12 +209,21 @@ h1, h2, h3 {
     color: var(--muted);
 }
 
-/* Kinderzeichnungs-Rahmen */
+/* Bild- und Zeichnungs-Rahmen */
 .hero-drawing-frame,
 .story-drawing-frame {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.hero-photo {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    display: block;
 }
 
 .drawing-placeholder {
@@ -243,6 +252,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
     .hero-content { grid-template-columns: 1fr; gap: 40px; }
     .hero-drawing-frame { order: -1; }
+    .hero-photo { height: 280px; border-radius: 8px; }
     .drawing-placeholder { min-height: 220px; }
 }
 
@@ -680,7 +690,7 @@ h1, h2, h3 {
 }
 
 .footer-logo .logo-img {
-    height: 44px;
+    height: 60px;
 }
 
 .footer-links {
@@ -885,7 +895,7 @@ h1, h2, h3 {
     flex-shrink: 0;
 }
 
-.quiz-logo .logo-img { height: 30px; }
+.quiz-logo .logo-img { height: 44px; }
 
 .quiz-close {
     width: 36px;
