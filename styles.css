@@ -102,28 +102,14 @@ h1, h2, h3 {
 /* ==================== Logo ==================== */
 .logo {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
+    align-items: center;
     text-decoration: none;
 }
 
-.logo-text {
-    font-family: 'Caveat Brush', cursive;
-    font-size: 28px;
-    color: var(--pencil);
-    line-height: 1;
-}
-
-.logo-stroke {
-    height: 10px;
-    width: 100%;
-    background: var(--crayon-red);
-    border-radius: 4px;
-    transform: skewX(-20deg) rotate(-1.5deg);
-    /* Ogilvy: Marke sofort erkennbar – roter Strich als Signatur */
-    clip-path: inset(0 100% 0 0);
-    animation: stroke-draw 0.5s cubic-bezier(.6, 0, .2, 1) 0.2s forwards;
+.logo-img {
+    height: 38px;
+    width: auto;
+    display: block;
 }
 
 /* ==================== Header ==================== */
@@ -691,12 +677,9 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
-.footer-logo .logo-text {
-    color: var(--paper);
-    font-size: 36px;
+.footer-logo .logo-img {
+    height: 44px;
 }
-
-.footer-logo .logo-stroke { background: var(--crayon-red); }
 
 .footer-links {
     display: flex;
@@ -900,11 +883,7 @@ h1, h2, h3 {
     flex-shrink: 0;
 }
 
-.quiz-logo .logo-text { font-size: 22px; }
-.quiz-logo .logo-stroke {
-    clip-path: inset(0 0% 0 0);
-    animation: none;
-}
+.quiz-logo .logo-img { height: 30px; }
 
 .quiz-close {
     width: 36px;
