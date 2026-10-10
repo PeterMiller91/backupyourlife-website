@@ -27,10 +27,16 @@ if (!$token || !$chatId) {
 }
 
 // ── Request Body lesen ────────────────────────────────────────────────────────
-$body    = json_decode(file_get_contents('php://input'), true);
-$name    = $body['name']    ?? '';
-$email   = $body['email']   ?? '';
-$phone   = $body['phone']   ?? '';
+$body = json_decode(file_get_contents('php://input'), true);
+if (!is_array($body)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Ungültiger Request-Body']);
+    exit;
+}
+
+$name    = htmlspecialchars($body['name']  ?? '', ENT_QUOTES, 'UTF-8');
+$email   = htmlspecialchars($body['email'] ?? '', ENT_QUOTES, 'UTF-8');
+$phone   = htmlspecialchars($body['phone'] ?? '', ENT_QUOTES, 'UTF-8');
 $answers = $body['answers'] ?? [];
 $luecke  = $body['luecke']  ?? 0;
 $gaps    = $body['gaps']    ?? 0;
