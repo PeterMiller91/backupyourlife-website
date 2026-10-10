@@ -22,7 +22,7 @@
                     <nav class="nav" aria-label="Hauptnavigation">
                         <a href="#wie-funktioniert" class="nav-link">Wie es funktioniert</a>
                         <a href="#die-backups" class="nav-link">Die drei Backups</a>
-                        <a href="#uber-uns" class="nav-link">Über uns</a>
+                        <a href="ueber-uns.html" class="nav-link">Über uns</a>
                         <button class="btn btn-primary nav-cta" data-quiz-open>Backup-Check starten</button>
                         <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
                             <span></span><span></span><span></span>
@@ -36,7 +36,7 @@
         <div class="mobile-menu" id="mobile-menu" hidden>
             <a href="#wie-funktioniert" class="mobile-nav-link">Wie es funktioniert</a>
             <a href="#die-backups" class="mobile-nav-link">Die drei Backups</a>
-            <a href="#uber-uns" class="mobile-nav-link">Über uns</a>
+            <a href="ueber-uns.html" class="mobile-nav-link">Über uns</a>
             <button class="btn btn-primary mobile-nav-cta" data-quiz-open>Backup-Check starten</button>
         </div>
     </div>
@@ -209,6 +209,79 @@
         </div>
     </section>
 
+    <!-- Für wen das ist (B-2a-B) -->
+    <section class="for-whom-section" id="fur-wen">
+        <div class="container">
+            <p class="section-eyebrow">Passt das zu dir?</p>
+            <h2 class="section-headline">Kommt dir das <span class="highlight">bekannt</span> vor?</h2>
+
+            <div class="tabs-pills" role="tablist">
+                <button class="tab-pill" role="tab" aria-selected="true" aria-controls="tab-papa" id="btn-papa">Gerade Papa geworden</button>
+                <button class="tab-pill" role="tab" aria-selected="false" aria-controls="tab-haus" id="btn-haus">Haus gekauft</button>
+                <button class="tab-pill" role="tab" aria-selected="false" aria-controls="tab-fuehrung" id="btn-fuehrung">Neue Führungsrolle</button>
+            </div>
+
+            <div id="tab-papa" class="tab-panel" role="tabpanel" aria-labelledby="btn-papa" aria-hidden="false">
+                <p class="tab-panel-text">Ein Kind verändert die Rechnung. Ab jetzt hängt nicht nur dein Leben an deinem Einkommen. Die meisten Verträge stammen aus der Zeit davor und passen nicht mehr.</p>
+                <ul class="tab-questions">
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Reicht die BU-Rente für zwei Kinder?</li>
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Wer zahlt die Kita, wenn du ausfällst?</li>
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Ist deine Partnerin mit abgesichert?</li>
+                </ul>
+            </div>
+
+            <div id="tab-haus" class="tab-panel" role="tabpanel" aria-labelledby="btn-haus" aria-hidden="true">
+                <p class="tab-panel-text">[Text analog: Kredit läuft 20–30 Jahre, die Rate hängt an deinem Gehalt.]</p>
+                <ul class="tab-questions">
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Deckt die Risikoleben die heutige Restschuld?</li>
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Kann deine Familie die Rate allein zahlen?</li>
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Sinkt die Summe mit dem Kredit?</li>
+                </ul>
+            </div>
+
+            <div id="tab-fuehrung" class="tab-panel" role="tabpanel" aria-labelledby="btn-fuehrung" aria-hidden="true">
+                <p class="tab-panel-text">[Text analog: Gehalt gestiegen, Absicherung ist gleich geblieben.]</p>
+                <ul class="tab-questions">
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Passt die BU-Rente noch zum neuen Gehalt?</li>
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Was gilt bei der Firmen-BU beim nächsten Jobwechsel?</li>
+                    <li class="tab-question"><span class="tab-question-arrow">→</span> Kannst du ohne neue Gesundheitsfragen erhöhen?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mythos vs. Realität (B-2a-C) -->
+    <section class="myth-section">
+        <div class="container">
+            <p class="section-eyebrow">Häufige Annahmen</p>
+            <h2 class="section-headline">„Ich bin doch über die <span class="highlight">Firma</span> versichert."</h2>
+
+            <table class="myth-table">
+                <thead>
+                    <tr>
+                        <th>Was viele denken</th>
+                        <th>Was gilt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Der Staat zahlt, wenn ich nicht mehr arbeiten kann.</td>
+                        <td>Volle Erwerbsminderungsrente nur, wenn du unter 3 Std. am Tag irgendeinen Job machen kannst. Kein Berufsschutz für Jahrgänge ab 1961.</td>
+                    </tr>
+                    <tr>
+                        <td>Die Firmen-BU reicht.</td>
+                        <td>Oft gedeckelt und an den Arbeitgeber gebunden. Bei Jobwechsel [prüfen].</td>
+                    </tr>
+                    <tr>
+                        <td>Die Risikoleben läuft ja.</td>
+                        <td>Summe passt oft nicht mehr zum heutigen Kredit und zu Kindern.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="myth-note">⚠ Informationen ohne Gewähr. Vor Vertragsschluss individuell prüfen lassen.</p>
+        </div>
+    </section>
+
     <!-- Wie es funktioniert -->
     <section class="process-section" id="wie-funktioniert">
         <div class="container">
@@ -264,6 +337,33 @@
         </div>
     </section>
 
+    <!-- Vertrauen (B-2a-D) -->
+    <section class="trust-section">
+        <div class="container">
+            <p class="section-eyebrow">Warum backupyourlife</p>
+            <h2 class="section-headline">Was du von mir <span class="highlight">erwarten</span> kannst</h2>
+
+            <div class="trust-grid">
+                <div class="trust-tile">
+                    <p class="trust-tile-title">Unabhängig</p>
+                    <p class="trust-tile-text">Vergleich aus [x] Versicherern – kein gebundener Vertrieb.</p>
+                </div>
+                <div class="trust-tile">
+                    <p class="trust-tile-title">Registriert</p>
+                    <p class="trust-tile-text">§ 34d GewO · Reg.-Nr. [D-XXXX-XXXXX-XX]</p>
+                </div>
+                <div class="trust-tile">
+                    <p class="trust-tile-title">Persönlich</p>
+                    <p class="trust-tile-text">Ein Ansprechpartner, kein Callcenter.</p>
+                </div>
+                <div class="trust-tile">
+                    <p class="trust-tile-title">Selbst betroffen</p>
+                    <p class="trust-tile-text">Ich weiß, wie sich die Lücke anfühlt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section" id="backup-check">
         <div class="container">
@@ -290,6 +390,7 @@
                     <a href="#" class="footer-link">Impressum</a>
                     <a href="#" class="footer-link">Datenschutz</a>
                     <a href="#" class="footer-link">Erstinformation §&thinsp;15 VersVermV</a>
+                    <a href="fragen.html" class="footer-link">Fragen</a>
                 </nav>
             </div>
         </div>

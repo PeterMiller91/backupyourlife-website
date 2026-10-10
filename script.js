@@ -60,3 +60,24 @@ document.querySelectorAll('.child-voice').forEach(el => {
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.style.scrollBehavior = 'auto';
 }
+
+// ==================== Tabs (B-2a-B) ====================
+const tabPills = document.querySelectorAll('.tab-pill');
+tabPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+        const targetId = pill.getAttribute('aria-controls');
+        tabPills.forEach(p => p.setAttribute('aria-selected', 'false'));
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.setAttribute('aria-hidden', 'true'));
+        pill.setAttribute('aria-selected', 'true');
+        document.getElementById(targetId).setAttribute('aria-hidden', 'false');
+    });
+});
+
+// ==================== Accordion (B-2e) ====================
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+        trigger.nextElementSibling.classList.toggle('open', !isOpen);
+    });
+});

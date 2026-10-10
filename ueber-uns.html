@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich – backupyourlife</title>
+    <meta name="description" content="Ich bin [Name]. Ich hab backupyourlife gegründet, weil es mir selbst gefehlt hat. Hier findest du meine Geschichte und wofür ich stehe.">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header-wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo" aria-label="backupyourlife Startseite">
+                        <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img">
+                    </a>
+                    <nav class="nav" aria-label="Hauptnavigation">
+                        <a href="index.html#wie-funktioniert" class="nav-link">Wie es funktioniert</a>
+                        <a href="index.html#die-backups" class="nav-link">Die drei Backups</a>
+                        <a href="ueber-uns.html" class="nav-link">Über uns</a>
+                        <button class="btn btn-primary nav-cta" data-quiz-open>Backup-Check starten</button>
+                        <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                            <span></span><span></span><span></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <a href="index.html#wie-funktioniert" class="mobile-nav-link">Wie es funktioniert</a>
+            <a href="index.html#die-backups" class="mobile-nav-link">Die drei Backups</a>
+            <a href="ueber-uns.html" class="mobile-nav-link">Über uns</a>
+            <button class="btn btn-primary mobile-nav-cta" data-quiz-open>Backup-Check starten</button>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <p class="page-hero-eyebrow">Über mich</p>
+            <h1 class="page-hero-h1">Ich bin [Name].<br>Ich hab das gebaut,<br>weil es mir gefehlt hat.</h1>
+        </div>
+    </section>
+
+    <!-- Story + Drawing -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+
+                <div class="about-photo-col">
+                    <!-- [Foto: Alltagsfoto mit Familie, Tageslicht, kein Studio] -->
+                    <div class="drawing-placeholder" style="min-height: 320px;">
+                        <span class="drawing-placeholder-text">[Foto: du mit Familie, Tageslicht, kein Studio]</span>
+                    </div>
+
+                    <div class="about-drawing-frame">
+                        <div class="drawing-placeholder drawing-placeholder--small">
+                            <span class="drawing-placeholder-text">[Kinderzeichnung – nur mit Einwilligung der Eltern]</span>
+                        </div>
+                        <p class="drawing-caption">[Name], [Alter] · „[Titel der Zeichnung]"</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="section-headline">Meine Geschichte</h2>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-year">[Jahr]</span>
+                            <p class="timeline-text">Job, Familie, Haus. Ich dachte, alles ist geregelt.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">[Jahr]</span>
+                            <p class="timeline-text">[Ereignis]. Plötzlich stand das Einkommen still.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">[Jahr]</span>
+                            <p class="timeline-text">Lücke von [x] € im Monat. Gelernt, was im Kleingedruckten steht.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-year">[Jahr]</span>
+                            <p class="timeline-text">backupyourlife gegründet.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-headline" style="margin-top: 48px; margin-bottom: 0;">Wofür ich stehe</h2>
+
+                    <div class="values-list">
+                        <div>
+                            <p class="value-title">Ehrlich.</p>
+                            <p class="value-text">Wenn du gut versichert bist, sag ich dir das.</p>
+                        </div>
+                        <div>
+                            <p class="value-title">Verständlich.</p>
+                            <p class="value-text">Jeder Begriff wird erklärt.</p>
+                        </div>
+                        <div>
+                            <p class="value-title">Erreichbar.</p>
+                            <p class="value-text">Auch wenn du mich brauchst, nicht nur beim Abschluss.</p>
+                        </div>
+                    </div>
+
+                    <div class="qualification-block">
+                        <p class="qualification-text">Versicherungsmakler § 34d Abs. 1 GewO · Reg.-Nr. [D-XXXX-XXXXX-XX] · [Weiterbildung / Zertifikat]</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <p class="section-eyebrow cta-eyebrow">Kostenlos · Unverbindlich · Kein Abschlusszwang</p>
+                <h2 class="cta-headline">Klingt gut? Dann fangen wir an.</h2>
+                <p class="cta-subline">Beantworte fünf kurze Fragen – und bekomm eine klare Grundlage für deine nächsten Entscheidungen.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary btn-large" data-quiz-open>Backup-Check starten</button>
+                    <p class="cta-reassurance">5 Minuten · Kostenlos · Unverbindlich</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo/logo-dark.svg" alt="backupyourlife" class="logo-img">
+                </div>
+                <nav class="footer-links" aria-label="Rechtliches">
+                    <a href="#" class="footer-link">Impressum</a>
+                    <a href="#" class="footer-link">Datenschutz</a>
+                    <a href="#" class="footer-link">Erstinformation §&thinsp;15 VersVermV</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quiz Overlay -->
+    <div class="quiz-overlay" id="quiz-overlay" hidden aria-modal="true" role="dialog" aria-label="Backup-Check">
+        <div class="quiz-modal">
+            <div class="quiz-header">
+                <div class="quiz-logo">
+                    <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img">
+                </div>
+                <button class="quiz-close" aria-label="Quiz schließen" id="quiz-close">✕</button>
+            </div>
+            <div class="quiz-progress" aria-hidden="true">
+                <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+            </div>
+            <div class="quiz-body" id="quiz-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+    <script src="cookie.js"></script>
+</body>
+</html>

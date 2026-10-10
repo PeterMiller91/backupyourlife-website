@@ -1531,3 +1531,346 @@ h1, h2, h3 {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ==================== For Whom – Tabs (B-2a-B) ==================== */
+.for-whom-section {
+    padding: clamp(64px, 10vw, 128px) 0;
+    border-top: 1px solid var(--line);
+}
+
+.tabs-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 24px 0 0;
+}
+
+.tab-pill {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: 2px solid var(--pencil);
+    background: transparent;
+    color: var(--pencil);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tab-pill[aria-selected="true"] {
+    background: var(--pencil);
+    color: var(--paper);
+}
+
+.tab-panel[aria-hidden="true"] { display: none; }
+.tab-panel[aria-hidden="false"] {
+    display: block;
+    padding-top: 32px;
+}
+
+.tab-panel-text {
+    font-size: 17px;
+    color: var(--body);
+    line-height: 1.55;
+    max-width: 62ch;
+    margin-bottom: 20px;
+}
+
+.tab-questions {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tab-question {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 16px;
+    color: var(--pencil);
+}
+
+.tab-question-arrow {
+    color: var(--crayon-sky);
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+/* ==================== Myth vs Reality (B-2a-C) ==================== */
+.myth-section {
+    padding: clamp(64px, 10vw, 128px) 0;
+    border-top: 1px solid var(--line);
+}
+
+.myth-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--pencil);
+    border-radius: 6px;
+    margin-top: 32px;
+    overflow: hidden;
+}
+
+.myth-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    background: #f5f4f1;
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 2px solid var(--pencil);
+}
+
+.myth-table th:first-child { border-right: 1px solid var(--line); }
+
+.myth-table td {
+    padding: 16px 20px;
+    font-size: 16px;
+    color: var(--body);
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+
+.myth-table td:first-child {
+    border-right: 1px solid var(--line);
+    color: var(--muted);
+    font-style: italic;
+}
+
+.myth-table tr:last-child td { border-bottom: none; }
+
+.myth-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+    .myth-table, .myth-table thead, .myth-table tbody,
+    .myth-table th, .myth-table td, .myth-table tr { display: block; }
+    .myth-table thead tr { display: none; }
+    .myth-table td { border-bottom: 1px solid var(--line); }
+    .myth-table td:first-child { border-right: none; padding-bottom: 4px; }
+    .myth-table tr { border-bottom: 2px solid var(--pencil); }
+    .myth-table tr:last-child { border-bottom: none; }
+}
+
+/* ==================== Trust Tiles (B-2a-D) ==================== */
+.trust-section {
+    padding: clamp(64px, 10vw, 128px) 0;
+    border-top: 1px solid var(--line);
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.trust-tile {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 28px 24px;
+}
+
+.trust-tile-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--pencil);
+    margin-bottom: 8px;
+}
+
+.trust-tile-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+@media (max-width: 900px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .trust-grid { grid-template-columns: 1fr; } }
+
+/* ==================== Accordion (B-2e / fragen.html) ==================== */
+.faq-page-section {
+    padding: clamp(64px, 10vw, 128px) 0;
+}
+
+.accordion-section {
+    margin-bottom: 48px;
+}
+
+.accordion-group-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--pencil);
+    margin-bottom: 4px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--line);
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--pencil);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    gap: 16px;
+}
+
+.accordion-icon {
+    font-size: 22px;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+    line-height: 1;
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+    transform: rotate(45deg);
+    color: var(--pencil);
+}
+
+.accordion-content {
+    display: none;
+    padding: 0 0 20px;
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.6;
+    max-width: 62ch;
+}
+
+.accordion-content.open { display: block; }
+
+/* ==================== Subpage Styles ==================== */
+.page-hero {
+    padding: clamp(48px, 8vw, 96px) 0 clamp(32px, 5vw, 64px);
+    border-bottom: 1px solid var(--line);
+}
+
+.page-hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.page-hero-h1 {
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.08;
+}
+
+/* ==================== About Page (B-2d) ==================== */
+.about-section {
+    padding: clamp(64px, 10vw, 128px) 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.about-photo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-drawing-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.drawing-placeholder--small { min-height: 160px !important; }
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    margin: 24px 0 0;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline-item:last-child { border-bottom: none; }
+
+.timeline-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    padding-top: 3px;
+}
+
+.timeline-text {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.55;
+}
+
+.values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 24px 0 0;
+}
+
+.value-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--pencil);
+}
+
+.value-text {
+    font-size: 16px;
+    color: var(--body);
+}
+
+.qualification-block {
+    margin-top: 32px;
+    padding: 20px 24px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+.qualification-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+}
