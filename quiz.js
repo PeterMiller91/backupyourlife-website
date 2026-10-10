@@ -318,7 +318,7 @@ function clearFieldError(id) {
 // ==================== Lead Notification ====================
 async function sendLead(payload) {
     try {
-        await fetch('/api/lead', {
+        await fetch('/api/lead.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
