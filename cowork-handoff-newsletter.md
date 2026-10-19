@@ -139,10 +139,10 @@ Nicht jede Mail drängt auf den Termin. Wechsle bewusst:
 
 - **An:** dschultes91@gmail.com (nur als Ablage – wird nicht versendet)
 - **Betreff:** siehe Abschnitt 7
-- **Body:** HTML (mit Plain-Text-Alternative), mobil lesbar, eine Spalte, max. 600 px.
-  - Farben: Text `#1A1A1A`, Links/CTA-Button `#2B59C3` (weiße Schrift),
-    Highlight `#FFC531`, Akzent `#E8412C`. Hintergrund weiß.
-  - Kinderstimme kursiv in Blau `#2B59C3`.
+- **Body:** HTML (mit Plain-Text-Alternative) auf Basis von
+  **`newsletter-design/template.html`** – Design-Regeln siehe
+  **`newsletter-design/DESIGN-NEWSLETTER.md`** (verbindlich). Nur die Platzhalter
+  ersetzen, Struktur und Styles nicht verändern.
 - Ganz oben im Entwurf (grau, klein) ein **interner Kopfblock**:
   ```
   INTERN – vor Versand entfernen
