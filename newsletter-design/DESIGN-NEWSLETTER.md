@@ -119,16 +119,30 @@ Damit gibt es über die Wochen ein wiedererkennbares System, ohne dass die Mail 
 | `{{CTA_TEXT}}`, `{{CTA_LINK}}`, `{{CTA_MICROCOPY}}` | aus Abschnitt 6 | |
 | `{{GRUSS}}` | „Bis Freitag,“ (Di-Ausgabe) / „Bis Dienstag,“ (Fr-Ausgabe) | |
 | `{{NAME}}`, `{{PS}}`, `{{QUELLE}}` | | |
-| `{{SITE_URL}}` | Website-Domain ohne `/` am Ende (für Logos) | https://backupyourlife.de |
+| `{{SITE_URL}}` | Website-Domain ohne `/` am Ende | https://backupyourlife.de |
+| `{{LOGO_URL_LIGHT}}`, `{{LOGO_URL_DARK}}` | öffentliche URL der Logo-PNGs (nur Newsletter-Tool; im Gmail-Entwurf Text-Wortmarke) | {{SITE_URL}}/newsletter-design/assets/logo-light@2x.png |
 | `{{REG_NR}}`, `{{LINK_IMPRESSUM}}`, `{{LINK_DATENSCHUTZ}}`, `{{LINK_ERSTINFO}}`, `{{UNSUBSCRIBE}}` | Pflichtangaben | |
 
 **Logos:** liegen als PNG (2× Auflösung) in `newsletter-design/assets/` und werden über
-`{{SITE_URL}}/newsletter-design/assets/logo-light@2x.png` bzw. `logo-dark@2x.png` geladen.
+`{{LOGO_URL_LIGHT}}` / `{{LOGO_URL_DARK}}` geladen (z. B. `{{SITE_URL}}/newsletter-design/assets/logo-light@2x.png`).
 Gmail zeigt **keine SVGs** – nur diese PNGs verwenden. Solange `{{SITE_URL}}` nicht
 feststeht, bleibt der Platzhalter stehen und wird im Intern-Kopf als Prüfpunkt geführt
 (der `alt`-Text „backupyourlife“ erscheint dann statt des Logos).
 
 ## 8. Technische E-Mail-Regeln
+
+**Gmail-Entwurf (wichtig, getestet):** Beim Anlegen eines Entwurfs über die Gmail-Schnittstelle
+bereinigt Gmail das HTML:
+- **Bilder werden entfernt** (auch eingebettete). → Im Entwurf die **Text-Wortmarke** aus dem
+  Template verwenden (steht dort als Kommentar unter dem Logo, Header und Footer). Im
+  Newsletter-Tool später wieder das Logo-Bild nutzen.
+- **CSS-Kurzform `background:` wird entfernt.** → Farbflächen immer mit `bgcolor="…"` am `<td>`
+  plus `background-color:…` setzen (so wie im Template). Für den Highlighter
+  `background-color` am `<span>`.
+- **Links mit `{{…}}` werden unbrauchbar.** → Im Entwurf noch fehlende Links als
+  `https://platzhalter.invalid/<name>` eintragen (z. B. `/backup-check`, `/impressum`) und im
+  Intern-Kopf unter „Offene Prüfpunkte“ auflisten.
+- HTML-Kommentare und der `<style>`-Block gehen verloren – nichts Wichtiges darin ablegen.
 
 - Layout nur mit `<table role="presentation">`, alle Styles **inline**. Der `<style>`-Block im Template enthält nur Mobile-Anpassungen (optional, Gmail-App ignoriert ihn teils).
 - Breite 600 px, Seitenabstand 40 px (mobil 20 px).

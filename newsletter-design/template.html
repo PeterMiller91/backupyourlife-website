@@ -15,22 +15,22 @@
   }
 </style>
 </head>
-<body style="margin:0;padding:0;background:#FFFFFF;">
+<body style="margin:0;padding:0;background-color:#FFFFFF;">
 <!-- PREHEADER (unsichtbar, erscheint in der Posteingangs-Vorschau) -->
 <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{PREHEADER}}&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;&#8199;&#847;</div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#FFFFFF;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF" style="background-color:#FFFFFF;">
 <tr><td align="center" style="padding:0;">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:#FFFFFF;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#FFFFFF;">
 
   <!-- [INTERN] Kopfblock – nur im Gmail-Entwurf, vor Versand löschen -->
   <tr><td class="byl-pad" style="padding:16px 40px 0 40px;">
-    <div style="font-family:'IBM Plex Mono',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:1.5;color:#6B6862;background:#F5F3EE;border-left:4px solid #FFC531;padding:10px 14px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="#F5F3EE" style="background-color:#F5F3EE;border-left:4px solid #FFC531;padding:10px 14px;font-family:'IBM Plex Mono',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:1.5;color:#6B6862;">
       <strong style="color:#1A1A1A;">INTERN – vor Versand entfernen</strong><br>
       Ausgabe: #{{AUSGABE_NR}} · Säule: {{SAEULE}} · CTA: {{CTA_TYP}}<br>
       Preheader: {{PREHEADER}}<br>
       Offene Prüfpunkte: {{PRUEFPUNKTE}}
-    </div>
+    </td></tr></table>
   </td></tr>
   <!-- [/INTERN] -->
 
@@ -38,7 +38,12 @@
   <tr><td class="byl-pad" style="padding:24px 40px 20px 40px;border-bottom:1px solid #E6E3DC;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
       <td align="left" valign="middle">
-        <a href="{{SITE_URL}}" style="text-decoration:none;"><img src="{{SITE_URL}}/newsletter-design/assets/logo-light@2x.png" width="120" height="56" alt="backupyourlife" style="display:block;border:0;width:120px;height:auto;"></a>
+        <!-- LOGO: im Newsletter-Tool das Bild verwenden. Im Gmail-Entwurf entfernt Gmail Bilder –
+             dort stattdessen die Text-Wortmarke darunter verwenden (Bild-Zeile löschen). -->
+        <a href="{{SITE_URL}}" style="text-decoration:none;"><img src="{{LOGO_URL_LIGHT}}" width="120" height="56" alt="backupyourlife" style="display:block;border:0;width:120px;height:auto;"></a>
+        <!-- WORTMARKE (Text-Fallback für Gmail-Entwürfe):
+        <a href="{{SITE_URL}}" style="text-decoration:none;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="font-family:'Caveat Brush','Segoe Print','Bradley Hand','Comic Sans MS',cursive;font-size:26px;line-height:1;color:#1A1A1A;">backup<span style="color:#2B59C3;">your</span>life</td></tr><tr><td height="6" bgcolor="#FFC531" style="height:6px;line-height:6px;font-size:0;background-color:#FFC531;border-radius:4px;">&nbsp;</td></tr></table></a>
+        -->
       </td>
       <td align="right" valign="middle" style="font-family:'IBM Plex Mono',Menlo,Consolas,'Courier New',monospace;font-size:12px;line-height:1.4;color:#6B6862;">
         Das Backup-Briefing<br>#{{AUSGABE_NR}} · {{DATUM}}
@@ -49,11 +54,11 @@
   <!-- KINDERSTIMME + roter Wachsstrich -->
   <tr><td class="byl-pad" style="padding:36px 40px 0 40px;">
     <p class="byl-kid" style="margin:0;font-family:'Caveat Brush','Segoe Print','Bradley Hand','Comic Sans MS',cursive;font-size:32px;line-height:1.1;color:#2B59C3;">{{KINDERSTIMME}}</p>
-    <div style="margin-top:10px;width:72px;height:6px;line-height:6px;font-size:0;background:#E8412C;border-radius:4px;">&nbsp;</div>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;"><tr><td width="72" height="6" bgcolor="#E8412C" style="width:72px;height:6px;line-height:6px;font-size:0;background-color:#E8412C;border-radius:4px;">&nbsp;</td></tr></table>
   </td></tr>
 
   <!-- HEADLINE (Faktenstimme) – max. ein Wort im gelben Highlighter:
-       <span style="background:#FFC531;padding:0 4px;">Wort</span> -->
+       <span style="background-color:#FFC531;padding:0 4px;">Wort</span> -->
   <tr><td class="byl-pad" style="padding:24px 40px 0 40px;">
     <h1 class="byl-h1" style="margin:0;font-family:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:28px;line-height:1.12;letter-spacing:-0.02em;color:#1A1A1A;">{{HEADLINE}}</h1>
   </td></tr>
@@ -66,7 +71,7 @@
   <!-- 2-MINUTEN-CHECK: Card mit Wachsstreifen in Säulenfarbe -->
   <tr><td class="byl-pad" style="padding:12px 40px 0 40px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #E6E3DC;border-radius:6px;border-collapse:separate;">
-      <tr><td style="height:6px;line-height:6px;font-size:0;background:{{SAEULE_FARBE}};border-radius:6px 6px 0 0;">&nbsp;</td></tr>
+      <tr><td height="6" bgcolor="{{SAEULE_FARBE}}" style="height:6px;line-height:6px;font-size:0;background-color:{{SAEULE_FARBE}};border-radius:6px 6px 0 0;">&nbsp;</td></tr>
       <tr><td style="padding:20px 24px 22px 24px;">
         <p style="margin:0 0 8px 0;font-family:'IBM Plex Mono',Menlo,Consolas,'Courier New',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#6B6862;">Dein 2-Minuten-Check</p>
         <p style="margin:0;font-family:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;color:#1A1A1A;">{{CHECK_TEXT}}</p>
@@ -78,7 +83,7 @@
   <tr><td class="byl-pad" style="padding:28px 40px 0 40px;font-family:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;color:#3A3835;">
     <p style="margin:0 0 20px 0;">{{CTA_UEBERLEITUNG}}</p>
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>
-      <td align="center" bgcolor="#2B59C3" style="border-radius:999px;">
+      <td align="center" bgcolor="#2B59C3" style="background-color:#2B59C3;border-radius:999px;">
         <a href="{{CTA_LINK}}" style="display:inline-block;padding:16px 30px;font-family:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:16px;line-height:1;color:#FFFFFF;text-decoration:none;border-radius:999px;">{{CTA_TEXT}}</a>
       </td>
     </tr></table>
@@ -97,8 +102,11 @@
   </td></tr>
 
   <!-- FOOTER: Bleistift-Fläche -->
-  <tr><td class="byl-pad" bgcolor="#1A1A1A" style="background:#1A1A1A;padding:28px 40px;">
-    <img src="{{SITE_URL}}/newsletter-design/assets/logo-dark@2x.png" width="96" height="46" alt="backupyourlife" style="display:block;border:0;width:96px;height:auto;margin-bottom:14px;">
+  <tr><td class="byl-pad" bgcolor="#1A1A1A" style="background-color:#1A1A1A;padding:28px 40px;">
+    <img src="{{LOGO_URL_DARK}}" width="96" height="46" alt="backupyourlife" style="display:block;border:0;width:96px;height:auto;margin-bottom:14px;">
+    <!-- WORTMARKE DUNKEL (Text-Fallback für Gmail-Entwürfe):
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;"><tr><td style="font-family:'Caveat Brush','Segoe Print','Bradley Hand','Comic Sans MS',cursive;font-size:22px;line-height:1;color:#FFFFFF;">backup<span style="color:#FFC531;">your</span>life</td></tr><tr><td height="5" bgcolor="#E8412C" style="height:5px;line-height:5px;font-size:0;background-color:#E8412C;border-radius:4px;">&nbsp;</td></tr></table>
+    -->
     <p style="margin:0;font-family:'IBM Plex Mono',Menlo,Consolas,'Courier New',monospace;font-size:11px;line-height:1.7;color:#BDB9AF;">
       Versicherungsmakler § 34d Abs. 1 GewO · Reg.-Nr. {{REG_NR}}<br>
       <a href="{{LINK_IMPRESSUM}}" style="color:#FFFFFF;text-decoration:underline;">Impressum</a> ·
