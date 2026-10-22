@@ -1909,3 +1909,443 @@ h1, h2, h3 {
 @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
 }
+
+/* ==================== Vertrauen: neue Startseiten-Sektionen ==================== */
+
+/* Navigation: mehr Links → Hamburger früher einblenden */
+@media (max-width: 1080px) {
+    .nav-link { display: none; }
+    .nav { gap: 0; padding-left: 0; }
+    .hamburger { display: flex; }
+}
+
+.proof-source a,
+.transparency-text a,
+.transparency-note a,
+.case-assumptions a,
+.accordion-content a {
+    color: var(--crayon-sky);
+    text-underline-offset: 3px;
+}
+.proof-source--left { text-align: left; }
+.proof-label sup, .proof-source sup { font-size: 0.75em; }
+
+/* Gemeinsame Sektions-Hülle */
+.person-section,
+.transparency-section,
+.proof-section,
+.honest-faq-section,
+.privacy-section {
+    padding: clamp(64px, 10vw, 128px) 0;
+    border-top: 1px solid var(--line);
+}
+
+/* 04 · Wer berät dich? */
+.person-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 64px;
+    align-items: start;
+    margin-top: 40px;
+}
+
+.person-photo-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.person-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+.person-photo-placeholder {
+    width: 100%;
+    min-height: 360px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.about-photo-col,
+.person-text { min-width: 0; }
+
+.person-text p { margin-bottom: 16px; max-width: 60ch; }
+
+.person-subhead {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 32px 0 12px;
+}
+
+.lessons-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.lessons-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: var(--pencil);
+}
+
+.lessons-mark {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: var(--crayon-sun);
+    color: var(--pencil);
+    font-size: 13px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+}
+
+/* 05 · Transparenz */
+.transparency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.transparency-card {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 28px 24px;
+}
+
+.transparency-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+.transparency-title {
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--pencil);
+    margin-bottom: 8px;
+    overflow-wrap: anywhere;
+}
+
+.transparency-text {
+    font-size: 16px;
+    color: var(--body);
+}
+
+.transparency-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 24px;
+}
+
+/* 06 · Muster-Auswertung */
+.sample-report {
+    border: 2px solid var(--pencil);
+    border-radius: 6px;
+    padding: clamp(20px, 4vw, 40px);
+    max-width: 760px;
+}
+
+.sample-report-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+}
+
+.sample-report-title {
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--pencil);
+}
+
+.sample-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    background: var(--crayon-sun);
+    color: var(--pencil);
+    border-radius: 999px;
+    padding: 4px 12px;
+    white-space: nowrap;
+}
+
+.sample-report-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.gap-row small {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.gap-row > span:first-child { padding-right: 16px; }
+.gap-row .mono { white-space: nowrap; font-size: 14px; color: var(--pencil); }
+
+.sample-status {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.status-pill--part {
+    background: var(--paper);
+    color: var(--pencil);
+    border: 2px solid var(--crayon-red);
+}
+
+.sample-steps {
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sample-steps li { color: var(--body); }
+.sample-steps strong { color: var(--pencil); }
+
+.proof-subheadline {
+    font-size: clamp(22px, 3vw, 26px);
+    line-height: 1.15;
+    margin: clamp(48px, 8vw, 80px) 0 4px;
+    text-wrap: balance;
+}
+.proof-subheadline--flush { margin-top: 0; }
+
+/* Rechenbeispiele */
+.case-table { max-width: 760px; }
+
+.case-assumptions {
+    font-size: 15px;
+    color: var(--body);
+    max-width: 62ch;
+    margin-top: 16px;
+}
+
+/* Notfallrechner */
+.calc-box {
+    margin-top: clamp(48px, 8vw, 80px);
+    background: #faf8f4;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(20px, 4vw, 40px);
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-areas:
+        "intro intro"
+        "form  result";
+    gap: 24px 40px;
+}
+
+.calc-intro { grid-area: intro; }
+.calc-intro p { color: var(--body); max-width: 60ch; }
+.calc-form {
+    grid-area: form;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.calc-result { grid-area: result; }
+
+.calc-field label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--pencil);
+    margin-bottom: 6px;
+}
+
+.calc-optional { color: var(--muted); }
+
+.calc-input-wrap {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--pencil);
+    border-radius: 6px;
+    background: var(--paper);
+    height: 56px;
+    padding-right: 14px;
+}
+
+.calc-input-wrap:focus-within {
+    outline: 3px solid var(--crayon-sun);
+    outline-offset: 2px;
+}
+
+.calc-input-wrap input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 0 14px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 17px; /* ≥16px verhindert Auto-Zoom auf iOS */
+    color: var(--pencil);
+    -moz-appearance: textfield;
+}
+.calc-input-wrap input:focus { outline: none; }
+.calc-input-wrap input::-webkit-outer-spin-button,
+.calc-input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.calc-input-wrap span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.calc-hint {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.calc-result {
+    background: var(--paper);
+    border: 2px solid var(--pencil);
+    border-radius: 6px;
+    padding: 24px;
+    align-self: start;
+}
+
+.calc-result-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.calc-result-amount {
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 48px);
+    letter-spacing: -0.02em;
+    color: var(--pencil);
+    line-height: 1.1;
+    margin: 8px 0 4px;
+}
+.calc-result-amount.is-gap { color: var(--crayon-red); }
+
+.calc-result-total {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--pencil);
+    min-height: 1.4em;
+}
+
+.calc-result-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 16px 0 20px;
+    line-height: 1.45;
+}
+
+/* Ablauf: Fragen vor dem Gespräch */
+.qa-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.qa-item {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 24px;
+}
+.qa-item--wide { grid-column: 1 / -1; border-color: var(--pencil); }
+
+.qa-q {
+    font-weight: 800;
+    color: var(--pencil);
+    margin-bottom: 6px;
+}
+
+.qa-a { font-size: 16px; color: var(--body); }
+
+/* Ehrliches FAQ */
+.accordion-section--home { max-width: 760px; margin: 24px 0 24px; }
+
+/* Datenschutz */
+.privacy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.privacy-card {
+    border-left: 4px solid var(--crayon-sky);
+    padding: 4px 0 4px 20px;
+}
+
+.privacy-title {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--pencil);
+    margin-bottom: 6px;
+}
+
+.privacy-text { font-size: 16px; color: var(--body); max-width: 52ch; }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+    .calc-box {
+        grid-template-columns: 1fr;
+        grid-template-areas: "intro" "form" "result";
+    }
+}
+
+/* ---------- Mobil ---------- */
+@media (max-width: 768px) {
+    .person-grid { grid-template-columns: 1fr; gap: 32px; margin-top: 24px; }
+    .person-photo { aspect-ratio: 4 / 3; }
+    .person-photo-placeholder { min-height: 240px; }
+    .transparency-grid,
+    .qa-grid,
+    .privacy-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (max-width: 560px) {
+    .calc-form { grid-template-columns: 1fr; }
+    .gap-row { align-items: flex-start; font-size: 15px; }
+    .gap-row .mono { font-size: 13px; }
+    .tabs-pills { gap: 6px; }
+    .tab-pill { font-size: 14px; padding: 9px 14px; }
+    .calc-result .btn { width: 100%; text-align: center; white-space: normal; }
+    .sample-report { border-width: 1px; }
+}
+
+/* Fakten-Liste (Über mich): lange Werte dürfen umbrechen */
+.gap-calc--facts .mono { white-space: normal; text-align: right; }
+
+@media (max-width: 560px) {
+    .gap-calc--facts .gap-row { flex-direction: column; align-items: flex-start; gap: 2px; }
+    .gap-calc--facts .mono { text-align: left; }
+}

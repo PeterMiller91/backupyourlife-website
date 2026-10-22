@@ -4,7 +4,7 @@
     const decline = document.getElementById('cookie-decline');
     const KEY     = 'byl_cookie_consent';
 
-    if (localStorage.getItem(KEY)) return;
+    if (!banner || localStorage.getItem(KEY)) return;
 
     // Kurze Verzögerung – erst zeigen wenn Seite geladen
     setTimeout(() => { banner.hidden = false; }, 800);
