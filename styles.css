@@ -2302,18 +2302,20 @@ h1, h2, h3 {
 }
 
 .privacy-card {
+    border: 1px solid var(--line);
     border-left: 4px solid var(--crayon-sky);
-    padding: 4px 0 4px 20px;
+    border-radius: 6px;
+    padding: 28px 24px;
 }
 
 .privacy-title {
     font-weight: 800;
     font-size: 18px;
     color: var(--pencil);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
-.privacy-text { font-size: 16px; color: var(--body); max-width: 52ch; }
+.privacy-text { font-size: 16px; color: var(--body); }
 
 /* ---------- Tablet ---------- */
 @media (max-width: 900px) {
