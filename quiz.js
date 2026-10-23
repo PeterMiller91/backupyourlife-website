@@ -29,10 +29,10 @@ const steps = [
         subtitle: 'Was verdienst du netto im Monat?',
         type: 'choice',
         options: [
-            { value: 'u3k',   label: 'bis 3.000 €',     sub: 'Staat zahlt ~775 €/Monat bei BU' },
-            { value: '3-5k',  label: '3.000 – 5.000 €', sub: 'Staat zahlt ~1.240 €/Monat bei BU' },
-            { value: '5-8k',  label: '5.000 – 8.000 €', sub: 'Staat zahlt ~2.015 €/Monat bei BU' },
-            { value: 'ue8k',  label: 'über 8.000 €',    sub: 'Staat zahlt ~2.790 €/Monat bei BU' },
+            { value: 'u3k',   label: 'bis 3.000 €',     sub: 'Grobe Schätzung: Staat zahlt ~775 €/Monat bei voller EM' },
+            { value: '3-5k',  label: '3.000 – 5.000 €', sub: 'Grobe Schätzung: Staat zahlt ~1.240 €/Monat bei voller EM' },
+            { value: '5-8k',  label: '5.000 – 8.000 €', sub: 'Grobe Schätzung: Staat zahlt ~2.015 €/Monat bei voller EM' },
+            { value: 'ue8k',  label: 'über 8.000 €',    sub: 'Grobe Schätzung: Staat zahlt ~2.790 €/Monat bei voller EM' },
         ],
         insight: {
             always: true,
@@ -232,7 +232,7 @@ function renderContact(step) {
             </div>
             <label class="quiz-optin">
                 <input type="checkbox" id="quiz-optin" ${state.optin ? 'checked' : ''}>
-                <span>Ich bin einverstanden, dass backupyourlife mich per E-Mail und Telefon kontaktiert. Keine Weitergabe an Dritte. Widerruf jederzeit möglich.</span>
+                <span>Ich bin einverstanden, dass backupyourlife mich per E-Mail und Telefon kontaktiert. Keine Weitergabe zu Werbezwecken. Widerruf jederzeit möglich.</span>
             </label>
             <span class="quiz-field-error" id="err-optin"></span>
             <p class="quiz-privacy">Kein Spam. Nur dein Ergebnis. Datenschutz gemäß DSGVO.</p>
@@ -364,7 +364,7 @@ function renderResult() {
             <div class="quiz-result-gap-card">
                 <p class="quiz-result-gap-label">Monatliche Lücke bei Berufsunfähigkeit</p>
                 <p class="quiz-result-gap-amount">−${luecke.toLocaleString('de-DE')} €</p>
-                <p class="quiz-result-gap-compare">Staat zahlt ${inc.staat.toLocaleString('de-DE')} € · dein Netto: ${inc.net.toLocaleString('de-DE')} €</p>
+                <p class="quiz-result-gap-compare">Grobe Schätzung: Staat zahlt ca. ${inc.staat.toLocaleString('de-DE')} € · dein Netto ca. ${inc.net.toLocaleString('de-DE')} € · deine echten Werte klären wir im Gespräch</p>
             </div>
 
             <div class="quiz-result-status">
@@ -389,7 +389,7 @@ function renderResult() {
                 <a href="#" class="btn btn-primary btn-large" onclick="closeQuiz()">
                     Kostenloses Gespräch buchen →
                 </a>
-                <p class="quiz-result-cta-sub">20 Minuten · kostenlos · unverbindlich · nur ${Math.max(1, 8 - new Date().getDay())} Plätze diese Woche</p>
+                <p class="quiz-result-cta-sub">20 Minuten · kostenlos · unverbindlich · kein Abschlusszwang</p>
             </div>
         </div>`;
 }

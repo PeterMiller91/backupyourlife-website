@@ -20,9 +20,10 @@
                         <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img">
                     </a>
                     <nav class="nav" aria-label="Hauptnavigation">
-                        <a href="#wie-funktioniert" class="nav-link">Wie es funktioniert</a>
                         <a href="#die-backups" class="nav-link">Die drei Backups</a>
-                        <a href="ueber-uns.html" class="nav-link">Über uns</a>
+                        <a href="#muster-auswertung" class="nav-link">Beispiel-Auswertung</a>
+                        <a href="#wie-funktioniert" class="nav-link">Ablauf</a>
+                        <a href="ueber-uns.html" class="nav-link">Über mich</a>
                         <button class="btn btn-primary nav-cta" data-quiz-open>Backup-Check starten</button>
                         <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
                             <span></span><span></span><span></span>
@@ -34,9 +35,13 @@
 
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobile-menu" hidden>
-            <a href="#wie-funktioniert" class="mobile-nav-link">Wie es funktioniert</a>
             <a href="#die-backups" class="mobile-nav-link">Die drei Backups</a>
-            <a href="ueber-uns.html" class="mobile-nav-link">Über uns</a>
+            <a href="#muster-auswertung" class="mobile-nav-link">Beispiel-Auswertung</a>
+            <a href="#notfallrechner" class="mobile-nav-link">Notfallrechner</a>
+            <a href="#wie-funktioniert" class="mobile-nav-link">Ablauf</a>
+            <a href="#transparenz" class="mobile-nav-link">Transparenz</a>
+            <a href="#fragen" class="mobile-nav-link">Fragen</a>
+            <a href="ueber-uns.html" class="mobile-nav-link">Über mich</a>
             <button class="btn btn-primary mobile-nav-cta" data-quiz-open>Backup-Check starten</button>
         </div>
     </div>
@@ -73,27 +78,30 @@
         </div>
     </section>
 
-    <!-- Sozialer Beweis -->
-    <!-- TODO: Vor Livegang prüfen: Stützen DRV 2023 und GDV 2022 die Aussage "1 von 4 Väter vor 67" für genau diese Bezugsgruppe und Zeitspanne? Bis zur Bestätigung Formulierung vorsichtiger halten. -->
-    <section class="social-proof">
+    <!-- 02 · Problem: belegbare Fakten statt ungeprüfter Quoten -->
+    <!-- TODO: „1 von 4 wird vor 67 berufsunfähig“ erst wieder aufnehmen, wenn eine Originalquelle Bezugsgruppe und Zeitraum genau so stützt. -->
+    <section class="social-proof" aria-label="Fakten zur gesetzlichen Absicherung">
         <div class="container">
             <div class="proof-numbers">
                 <div class="proof-item">
-                    <span class="proof-number">1 von 4</span>
-                    <span class="proof-label">Berufstätige wird vor 67 berufsunfähig</span>
+                    <span class="proof-number">1961</span>
+                    <span class="proof-label">Wer ab 2.1.1961 geboren ist, hat keinen gesetzlichen Berufsschutz mehr<sup>1</sup></span>
                 </div>
                 <div class="proof-divider"></div>
                 <div class="proof-item">
-                    <span class="proof-number">31 %</span>
-                    <span class="proof-label">des Einkommens leistet der Staat im Schnitt</span>
+                    <span class="proof-number">&lt; 3 Std.</span>
+                    <span class="proof-label">Erst dann gibt es die volle Erwerbs&shy;minderungs&shy;rente – bezogen auf jeden Job<sup>2</sup></span>
                 </div>
                 <div class="proof-divider"></div>
                 <div class="proof-item">
-                    <span class="proof-number">20 Min.</span>
-                    <span class="proof-label">bis du weißt, wo deine Lücken sind</span>
+                    <span class="proof-number">5 + 20 Min.</span>
+                    <span class="proof-label">Check + Gespräch, bis du weißt, wo deine Lücken sind</span>
                 </div>
             </div>
-            <p class="proof-source">Quellen: Deutsche Rentenversicherung 2023 · GDV Statistik 2022</p>
+            <p class="proof-source">
+                <sup>1</sup> <a href="https://www.gesetze-im-internet.de/sgb_6/__240.html" target="_blank" rel="noopener">§ 240 SGB VI</a> (Berufsschutz nur für vor dem 2.1.1961 Geborene) ·
+                <sup>2</sup> <a href="https://www.gesetze-im-internet.de/sgb_6/__43.html" target="_blank" rel="noopener">§ 43 SGB VI</a> (weniger als 3 Std. täglich auf dem allgemeinen Arbeitsmarkt; 3 bis unter 6 Std.: halbe Rente) · Stand: geltendes Recht
+            </p>
         </div>
     </section>
 
@@ -115,13 +123,13 @@
                 <div class="problem-quote-block">
                     <p class="child-voice">Ich dachte, Papas werden nie krank.</p>
                     <div class="gap-calc">
-                        <p class="gap-label">Beispiel: Deine Lücke bei BU</p>
+                        <p class="gap-label">Fiktives Beispiel: Lücke bei Berufsunfähigkeit</p>
                         <div class="gap-row">
                             <span>Nettoeinkommen</span>
                             <span class="mono">5.000 € / Monat</span>
                         </div>
                         <div class="gap-row">
-                            <span>Staatliche Rente</span>
+                            <span>Angenommene Erwerbsminderungsrente</span>
                             <span class="mono">1.550 € / Monat</span>
                         </div>
                         <div class="gap-row gap-row--red">
@@ -129,20 +137,20 @@
                             <span class="mono">−3.450 € / Monat</span>
                         </div>
                     </div>
-                    <p class="proof-source">Vereinfachtes Rechenbeispiel. Die 1.550 € sind keine allgemeingültige Aussage. Die tatsächliche Leistung wird individuell berechnet.</p>
+                    <p class="proof-source proof-source--left">Vereinfachtes Rechenbeispiel. Die 1.550 € sind keine allgemeingültige Aussage – deine tatsächliche Erwerbsminderungsrente steht in deiner jährlichen Renteninformation.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Die drei Backups -->
+    <!-- 03 · Lösung: Die drei Backups -->
     <section class="backups-section" id="die-backups">
         <div class="container">
             <p class="section-eyebrow">Das Backup-Konzept</p>
             <h2 class="section-headline">
-                Dein Einkommen. Deine Gesundheit. Dein Haus. <span class="highlight">Alles abgesichert – mit einem Konzept.</span>
+                Dein Einkommen. Deine Gesundheit. Deine Familie. <span class="highlight">Drei mögliche Backups.</span>
             </h2>
-            <p class="section-subline">Kein Einzelprodukt löst das Problem. Erst alle drei zusammen schließen die Lücke – genau auf deinen Kredit, dein Einkommen und deine Familie zugeschnitten.</p>
+            <p class="section-subline">Nicht jede Familie braucht alle drei. Wir schauen gemeinsam, welche Bausteine für deinen Kredit, dein Einkommen und deine Familie wirklich wichtig sind – und welche du schon hast.</p>
 
             <div class="cards-grid">
                 <article class="product-card">
@@ -157,8 +165,8 @@
                             </div>
                         </div>
                         <p class="card-product">Berufsunfähigkeits&shy;versicherung</p>
-                        <p class="card-fact">Beispiel: bis zu <span class="fact-amount">2.000 €&thinsp;/&thinsp;Monat</span> bis du 67 bist</p>
-                        <p class="card-description">Burnout, Rückenprobleme oder Herzinfarkt – wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst, kann eine BU-Versicherung eine vereinbarte monatliche Rente leisten. Die staatliche Erwerbsminderungsrente reicht für den gewohnten Lebensstandard nicht aus.</p>
+                        <p class="card-fact">Beispiel: <span class="fact-amount">2.000 €&thinsp;/&thinsp;Monat</span> bis 67</p>
+                        <p class="card-description">Burnout, Rückenprobleme oder Herzinfarkt – wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst, kann eine BU-Versicherung eine vereinbarte monatliche Rente leisten, sofern die Vertragsbedingungen erfüllt sind.</p>
                         <button class="text-link" data-quiz-open>Meinen Bedarf berechnen →</button>
                     </div>
                 </article>
@@ -175,8 +183,8 @@
                             </div>
                         </div>
                         <p class="card-product">Schwere-Krankheiten-Versicherung</p>
-                        <p class="card-fact"><span class="fact-amount">100.000 €</span> einmalig bei Diagnose (Beispiel)</p>
-                        <p class="card-description">Herzinfarkt, Schlaganfall, Krebs: Bei einer versicherten Diagnose kann die SK-Versicherung eine vereinbarte Einmalzahlung leisten – egal ob du anschließend noch arbeiten kannst oder nicht. Das gibt dir finanziellen Spielraum für das, was wirklich zählt.</p>
+                        <p class="card-fact">Beispiel: <span class="fact-amount">100.000 €</span> einmalig bei Diagnose</p>
+                        <p class="card-description">Bei einer versicherten Diagnose wie z.&thinsp;B. Krebs, Herzinfarkt oder Schlaganfall kann eine vereinbarte Einmalzahlung fließen – egal ob du anschließend noch arbeiten kannst. Nicht jede Erkrankung ist versichert; es kommt auf die Bedingungen an.</p>
                         <button class="text-link" data-quiz-open>Meinen Bedarf berechnen →</button>
                     </div>
                 </article>
@@ -189,19 +197,19 @@
                             <h3 class="card-title">Backup 3 · Familie</h3>
                             <div class="card-info-wrap">
                                 <button class="card-info-btn" type="button" aria-label="Was ist eine Risikolebensversicherung?">i</button>
-                                <div class="card-tooltip" role="tooltip">Eine Risikolebensversicherung kann im Todesfall eine vereinbarte Summe an deine Hinterbliebenen auszahlen – damit der Kredit getilgt und das Haus gesichert ist. Versicherungssumme, Laufzeit und Beitrag sollten zu deiner persönlichen Situation passen.</div>
+                                <div class="card-tooltip" role="tooltip">Eine Risikolebensversicherung kann im Todesfall eine vereinbarte Summe an deine Hinterbliebenen auszahlen – zum Beispiel, um einen Kredit zu tilgen. Versicherungssumme, Laufzeit und Beitrag sollten zu deiner persönlichen Situation passen.</div>
                             </div>
                         </div>
                         <p class="card-product">Risikolebens&shy;versicherung</p>
-                        <p class="card-fact"><span class="fact-amount">350.000 €</span> (Beispiel) · Laufzeit wie dein Kredit</p>
-                        <p class="card-description">Wenn dir etwas passiert, kann die Risikolebensversicherung den Kredit tilgen – deine Familie behält ihr Zuhause. Versicherungssumme und Laufzeit sollten zu deinem Kredit und deiner Familiensituation passen.</p>
+                        <p class="card-fact">Beispiel: <span class="fact-amount">350.000 €</span> · Laufzeit wie dein Kredit</p>
+                        <p class="card-description">Wenn dir etwas passiert, kann die vereinbarte Summe den Kredit tilgen und laufende Kosten tragen – deine Familie bekommt finanziellen Spielraum. Summe und Laufzeit sollten zu Kredit und Familie passen.</p>
                         <button class="text-link" data-quiz-open>Meinen Bedarf berechnen →</button>
                     </div>
                 </article>
             </div>
 
             <div class="guarantee-block">
-                <p class="guarantee-label">Unsere Garantie</p>
+                <p class="guarantee-label">Mein Versprechen</p>
                 <p class="guarantee-text">
                     Wenn du nach unserem Gespräch nicht klarer siehst als vorher, habe ich meinen Job nicht gut genug gemacht. Und wenn du bereits gut abgesichert bist, sage ich dir das genauso.
                 </p>
@@ -209,48 +217,50 @@
         </div>
     </section>
 
-    <!-- Für wen das ist (B-2a-B) -->
+    <!-- Für wen das ist -->
     <section class="for-whom-section" id="fur-wen">
         <div class="container">
             <p class="section-eyebrow">Passt das zu dir?</p>
             <h2 class="section-headline">Kommt dir das <span class="highlight">bekannt</span> vor?</h2>
 
-            <div class="tabs-pills" role="tablist">
-                <button class="tab-pill" role="tab" aria-selected="true" aria-controls="tab-papa" id="btn-papa">Gerade Papa geworden</button>
-                <button class="tab-pill" role="tab" aria-selected="false" aria-controls="tab-haus" id="btn-haus">Haus gekauft</button>
-                <button class="tab-pill" role="tab" aria-selected="false" aria-controls="tab-fuehrung" id="btn-fuehrung">Neue Führungsrolle</button>
-            </div>
+            <div class="tabs-group">
+                <div class="tabs-pills" role="tablist">
+                    <button class="tab-pill" role="tab" aria-selected="true" aria-controls="tab-papa" id="btn-papa">Gerade Papa geworden</button>
+                    <button class="tab-pill" role="tab" aria-selected="false" aria-controls="tab-haus" id="btn-haus">Haus gekauft</button>
+                    <button class="tab-pill" role="tab" aria-selected="false" aria-controls="tab-fuehrung" id="btn-fuehrung">Neue Führungsrolle</button>
+                </div>
 
-            <div id="tab-papa" class="tab-panel" role="tabpanel" aria-labelledby="btn-papa" aria-hidden="false">
-                <p class="tab-panel-text">Ein Kind verändert die Rechnung. Ab jetzt hängt nicht nur dein Leben an deinem Einkommen. Die meisten Verträge stammen aus der Zeit davor und passen nicht mehr.</p>
-                <ul class="tab-questions">
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Reicht die BU-Rente für zwei Kinder?</li>
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Wer zahlt die Kita, wenn du ausfällst?</li>
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Ist deine Partnerin mit abgesichert?</li>
-                </ul>
-            </div>
+                <div id="tab-papa" class="tab-panel" role="tabpanel" aria-labelledby="btn-papa" aria-hidden="false">
+                    <p class="tab-panel-text">Ein Kind verändert die Rechnung. Ab jetzt hängt nicht nur dein Leben an deinem Einkommen. Viele Verträge stammen aus der Zeit davor und passen nicht mehr.</p>
+                    <ul class="tab-questions">
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Reicht die BU-Rente auch mit Kind?</li>
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Wer zahlt die Kita, wenn du ausfällst?</li>
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Ist deine Partnerin mit abgesichert?</li>
+                    </ul>
+                </div>
 
-            <div id="tab-haus" class="tab-panel" role="tabpanel" aria-labelledby="btn-haus" aria-hidden="true">
-                <p class="tab-panel-text">[Text analog: Kredit läuft 20–30 Jahre, die Rate hängt an deinem Gehalt.]</p>
-                <ul class="tab-questions">
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Deckt die Risikoleben die heutige Restschuld?</li>
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Kann deine Familie die Rate allein zahlen?</li>
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Sinkt die Summe mit dem Kredit?</li>
-                </ul>
-            </div>
+                <div id="tab-haus" class="tab-panel" role="tabpanel" aria-labelledby="btn-haus" aria-hidden="true">
+                    <p class="tab-panel-text">Ein Immobilienkredit läuft oft 20 bis 30 Jahre – und die Rate hängt an deinem Gehalt. Fällt es weg oder passiert dir etwas, muss deine Familie die Rate trotzdem stemmen.</p>
+                    <ul class="tab-questions">
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Deckt die Risikoleben die heutige Restschuld?</li>
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Kann deine Familie die Rate allein zahlen?</li>
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Sinkt die Summe mit dem Kredit?</li>
+                    </ul>
+                </div>
 
-            <div id="tab-fuehrung" class="tab-panel" role="tabpanel" aria-labelledby="btn-fuehrung" aria-hidden="true">
-                <p class="tab-panel-text">[Text analog: Gehalt gestiegen, Absicherung ist gleich geblieben.]</p>
-                <ul class="tab-questions">
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Passt die BU-Rente noch zum neuen Gehalt?</li>
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Was gilt bei der Firmen-BU beim nächsten Jobwechsel?</li>
-                    <li class="tab-question"><span class="tab-question-arrow">→</span> Kannst du ohne neue Gesundheitsfragen erhöhen?</li>
-                </ul>
+                <div id="tab-fuehrung" class="tab-panel" role="tabpanel" aria-labelledby="btn-fuehrung" aria-hidden="true">
+                    <p class="tab-panel-text">Dein Gehalt ist gestiegen, deine Absicherung ist gleich geblieben. Eine BU-Rente von früher passt oft nicht mehr zu deinen heutigen Ausgaben.</p>
+                    <ul class="tab-questions">
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Passt die BU-Rente noch zum neuen Gehalt?</li>
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Was gilt bei der Firmen-BU beim nächsten Jobwechsel?</li>
+                        <li class="tab-question"><span class="tab-question-arrow">→</span> Kannst du ohne neue Gesundheitsfragen erhöhen?</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Mythos vs. Realität (B-2a-C) -->
+    <!-- Mythos vs. Realität -->
     <section class="myth-section">
         <div class="container">
             <p class="section-eyebrow">Häufige Annahmen</p>
@@ -267,24 +277,220 @@
                     <tbody>
                         <tr>
                             <td data-label="Was viele denken">Der Staat zahlt, wenn ich nicht mehr arbeiten kann.</td>
-                            <td data-label="Was gilt">Volle Erwerbsminderungsrente nur, wenn du unter 3 Std. am Tag irgendeinen Job machen kannst. Kein Berufsschutz für Jahrgänge ab 1961.</td>
+                            <td data-label="Was gilt">Volle Erwerbsminderungsrente nur, wenn du weniger als 3 Std. am Tag irgendeinen Job machen kannst. Kein Berufsschutz für Jahrgänge ab 2.1.1961.</td>
                         </tr>
                         <tr>
                             <td data-label="Was viele denken">Die Firmen-BU reicht.</td>
-                            <td data-label="Was gilt">Oft gedeckelt und an den Arbeitgeber gebunden. Bei Jobwechsel [prüfen].</td>
+                            <td data-label="Was gilt">Oft gedeckelt und an den Arbeitgeber gebunden. Bei einem Jobwechsel kann der Schutz enden oder nur zu anderen Bedingungen weiterlaufen – vorher prüfen.</td>
                         </tr>
                         <tr>
                             <td data-label="Was viele denken">Die Risikoleben läuft ja.</td>
-                            <td data-label="Was gilt">Summe passt oft nicht mehr zum heutigen Kredit und zu Kindern.</td>
+                            <td data-label="Was gilt">Die Summe passt oft nicht mehr zum heutigen Kredit und zu den Kindern.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p class="myth-note">⚠ Informationen ohne Gewähr. Vor Vertragsschluss individuell prüfen lassen.</p>
+            <p class="myth-note">⚠ Allgemeine Informationen ohne Gewähr. Vor Vertragsschluss individuell prüfen lassen.</p>
         </div>
     </section>
 
-    <!-- Wie es funktioniert -->
+    <!-- 04 · Persönliches Vertrauen: Geschichte, Gesicht, Motivation -->
+    <!-- TODO: Text ist ein Entwurf auf Basis deiner Notizen – bitte mit deinen eigenen Worten und echten Daten prüfen. -->
+    <section class="person-section" id="ueber-mich">
+        <div class="container">
+            <p class="section-eyebrow">Wer berät dich?</p>
+            <h2 class="section-headline">Ich weiß, wie es ist, wenn das Leben <span class="highlight">nicht</span> nach Plan läuft.</h2>
+            <div class="person-grid">
+                <figure class="person-photo-frame">
+                    <!-- TODO: echtes Foto einsetzen, z. B. <img src="Bilder%20Website/ich.jpg" alt="[Vorname Nachname] mit Familie" class="person-photo"> -->
+                    <div class="drawing-placeholder person-photo-placeholder">
+                        <span class="drawing-placeholder-text">[Echtes Foto von dir – Tageslicht, kein Studio]</span>
+                    </div>
+                    <figcaption class="drawing-caption">[Vorname Nachname] · Gründer von backupyourlife · Versicherungsmakler</figcaption>
+                </figure>
+                <div class="person-text">
+                    <p class="story-quote">Mit [Alter] bekam ich die Diagnose Krebs. Von einem Tag auf den anderen ging es nicht mehr um Karriere oder Urlaubspläne – sondern um Behandlung, um meine Familie und um die Frage, wie lange das Geld reicht.</p>
+                    <p>In dieser Zeit habe ich gelernt, was im Kleingedruckten steht. Welche Absicherung wirklich trägt. Und wie sehr es entlastet, wenn man sich nicht auch noch ums Geld sorgen muss.</p>
+                    <p><strong>Deshalb habe ich backupyourlife gegründet:</strong> damit andere Väter und Familien ihre finanzielle Verwundbarkeit verstehen, bevor sie sie spüren.</p>
+
+                    <p class="person-subhead">Was ich heute anders mache</p>
+                    <ul class="lessons-list">
+                        <li><span class="lessons-mark" aria-hidden="true">✓</span> Erst schauen wir, was schon da ist – dann reden wir über Neues.</li>
+                        <li><span class="lessons-mark" aria-hidden="true">✓</span> Ich erkläre Bedingungen, bevor es um Beiträge geht.</li>
+                        <li><span class="lessons-mark" aria-hidden="true">✓</span> Wenn du gut abgesichert bist, sage ich dir das – auch wenn ich dann nichts verdiene.</li>
+                    </ul>
+                    <a href="ueber-uns.html" class="text-link">Meine ganze Geschichte lesen →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 · Kompetenz & Transparenz -->
+    <!-- TODO: Alle Angaben in [Klammern] durch deine echten Daten ersetzen. Status und Vergütung nur so stehen lassen, wenn sie exakt zutreffen. -->
+    <section class="transparency-section" id="transparenz">
+        <div class="container">
+            <p class="section-eyebrow">Transparenz</p>
+            <h2 class="section-headline">Überprüfbar statt <span class="highlight">nur</span> sympathisch</h2>
+            <p class="section-subline">Bevor du mir deine Zahlen anvertraust, solltest du wissen, wer ich bin, was ich darf und wie ich bezahlt werde.</p>
+
+            <div class="transparency-grid">
+                <div class="transparency-card">
+                    <p class="transparency-label">Status</p>
+                    <p class="transparency-title">Versicherungsmakler</p>
+                    <p class="transparency-text">Mit Erlaubnis nach § 34d Abs. 1 GewO. Als Makler stehe ich auf deiner Seite – nicht auf der eines Versicherers.</p>
+                </div>
+                <div class="transparency-card">
+                    <p class="transparency-label">Registrierung</p>
+                    <p class="transparency-title">Reg.-Nr. [D-XXXX-XXXXX-XX]</p>
+                    <p class="transparency-text">Selbst prüfbar im offiziellen <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener">Vermittlerregister</a> der IHK. Zuständig: [IHK …].</p>
+                </div>
+                <div class="transparency-card">
+                    <p class="transparency-label">Vergleichsumfang</p>
+                    <p class="transparency-title">[x] Versicherer im Vergleich</p>
+                    <p class="transparency-text">Ich bin an keine Gesellschaft gebunden. Ich vergleiche u.&thinsp;a. Tarife von [Versicherer A], [Versicherer B] und [Versicherer C].</p>
+                </div>
+                <div class="transparency-card">
+                    <p class="transparency-label">Vergütung</p>
+                    <p class="transparency-title">Für dich kostenlos</p>
+                    <p class="transparency-text">Schließt du über mich einen Vertrag ab, zahlt mir der Versicherer eine Provision (Courtage). Sie ist im Beitrag enthalten – du zahlst nichts extra. Schließt du nichts ab, verdiene ich nichts. Auch das ist in Ordnung.</p>
+                </div>
+            </div>
+            <p class="transparency-note">Alle Pflichtangaben findest du in der <a href="#">Erstinformation nach § 15 VersVermV</a>.</p>
+        </div>
+    </section>
+
+    <!-- 06 · Belege: Muster-Auswertung, Rechenbeispiele, Notfallrechner -->
+    <section class="proof-section" id="muster-auswertung">
+        <div class="container">
+            <p class="section-eyebrow">Was du konkret bekommst</p>
+            <h2 class="section-headline">So sieht deine Auswertung <span class="highlight">aus</span></h2>
+            <p class="section-subline">Nach dem Backup-Check und unserem Gespräch bekommst du eine Übersicht wie diese – mit deinen eigenen Zahlen.</p>
+
+            <div class="sample-report">
+                <div class="sample-report-head">
+                    <p class="sample-report-title">Muster-Auswertung · Familie M.</p>
+                    <span class="sample-badge">Fiktives Beispiel</span>
+                </div>
+                <p class="sample-report-meta">Vater, 36, angestellt · Partnerin in Teilzeit · 2 Kinder (3 und 6) · Mietwohnung</p>
+
+                <div class="gap-calc sample-report-table">
+                    <div class="gap-row">
+                        <span>Monatlicher Finanzbedarf der Familie</span>
+                        <span class="mono">3.900 €</span>
+                    </div>
+                    <div class="gap-row">
+                        <span>Voraussichtliche staatliche Leistung <small>(volle EM-Rente lt. Renteninformation)</small></span>
+                        <span class="mono">− 1.300 €</span>
+                    </div>
+                    <div class="gap-row">
+                        <span>Bereits vorhanden <small>(Einkommen Partnerin, BU über Arbeitgeber)</small></span>
+                        <span class="mono">− 1.700 €</span>
+                    </div>
+                    <div class="gap-row gap-row--red">
+                        <span>Geschätzte Versorgungslücke</span>
+                        <span class="mono">900 € / Monat</span>
+                    </div>
+                </div>
+
+                <div class="sample-status">
+                    <div class="status-row"><span>Einkommen</span><span class="status-pill status-pill--gap">✕ Lücke</span></div>
+                    <div class="status-row"><span>Familie</span><span class="status-pill status-pill--part">◐ zu niedrig</span></div>
+                    <div class="status-row"><span>Gesundheit</span><span class="status-pill status-pill--ok">✓ ausreichend</span></div>
+                </div>
+
+                <p class="person-subhead">Priorisierte nächste Schritte</p>
+                <ol class="sample-steps">
+                    <li><strong>Einkommenslücke schließen:</strong> eigene BU über rund 900 € prüfen – unabhängig vom Arbeitgeber.</li>
+                    <li><strong>Risikoleben anpassen:</strong> Summe passt nicht mehr zu zwei Kindern – Erhöhung prüfen.</li>
+                    <li><strong>Firmen-BU klären:</strong> Was passiert beim Jobwechsel? Bedingungen anfordern.</li>
+                </ol>
+                <p class="proof-source proof-source--left">Alle Zahlen sind frei erfunden und dienen nur der Veranschaulichung. Keine Leistungszusage, keine individuelle Berechnung.</p>
+            </div>
+
+            <!-- Rechenbeispiele -->
+            <h3 class="proof-subheadline">„Was passiert, wenn …?“ – drei Rechenbeispiele</h3>
+            <div class="tabs-group">
+                <div class="tabs-pills" role="tablist">
+                    <button class="tab-pill" role="tab" aria-selected="true" aria-controls="case-kind" id="btn-case-kind">Vater mit kleinem Kind</button>
+                    <button class="tab-pill" role="tab" aria-selected="false" aria-controls="case-kredit" id="btn-case-kredit">Familie mit Kredit</button>
+                    <button class="tab-pill" role="tab" aria-selected="false" aria-controls="case-selbst" id="btn-case-selbst">Selbstständiger</button>
+                </div>
+
+                <div id="case-kind" class="tab-panel" role="tabpanel" aria-labelledby="btn-case-kind" aria-hidden="false">
+                    <p class="tab-panel-text">Tim, 32, Elektriker, angestellt. Tochter 1 Jahr, Partnerin in Elternzeit. Was passiert, wenn Tim dauerhaft nicht mehr arbeiten kann?</p>
+                    <div class="gap-calc case-table">
+                        <div class="gap-row"><span>Nettoeinkommen</span><span class="mono">3.200 €</span></div>
+                        <div class="gap-row"><span>Laufende Kosten der Familie</span><span class="mono">2.700 €</span></div>
+                        <div class="gap-row"><span>Mögliche staatliche Leistung <small>(angenommene volle EM-Rente)</small></span><span class="mono">1.000 €</span></div>
+                        <div class="gap-row gap-row--red"><span>Verbleibende Lücke</span><span class="mono">1.700 € / Monat</span></div>
+                    </div>
+                    <p class="case-assumptions"><strong>Annahmen:</strong> volle Erwerbsminderung, keine private BU, Elterngeld nicht berücksichtigt. Bei nur teilweiser Erwerbsminderung fällt die Leistung niedriger aus.</p>
+                </div>
+
+                <div id="case-kredit" class="tab-panel" role="tabpanel" aria-labelledby="btn-case-kredit" aria-hidden="true">
+                    <p class="tab-panel-text">Familie K.: Jonas, 40, Projektleiter, Hauptverdiener. Zwei Kinder, Haus mit 280.000 € Restschuld, Kreditrate 1.600 €.</p>
+                    <div class="gap-calc case-table">
+                        <div class="gap-row"><span>Nettoeinkommen Jonas</span><span class="mono">4.800 €</span></div>
+                        <div class="gap-row"><span>Laufende Kosten inkl. Kreditrate</span><span class="mono">4.100 €</span></div>
+                        <div class="gap-row"><span>Mögliche staatliche Leistung <small>(angenommene volle EM-Rente)</small></span><span class="mono">1.450 €</span></div>
+                        <div class="gap-row gap-row--red"><span>Verbleibende Lücke</span><span class="mono">2.650 € / Monat</span></div>
+                    </div>
+                    <p class="case-assumptions"><strong>Annahmen:</strong> Einkommen der Partnerin deckt nur ihren eigenen Anteil. Im Todesfall bliebe zusätzlich die Restschuld von 280.000 € – ohne Risikolebensversicherung müsste die Familie sie allein tragen.</p>
+                </div>
+
+                <div id="case-selbst" class="tab-panel" role="tabpanel" aria-labelledby="btn-case-selbst" aria-hidden="true">
+                    <p class="tab-panel-text">Sven, 38, selbstständiger Grafikdesigner, ein Kind. Zahlt seit Jahren nicht mehr in die gesetzliche Rentenversicherung ein.</p>
+                    <div class="gap-calc case-table">
+                        <div class="gap-row"><span>Nettoeinkommen</span><span class="mono">4.000 €</span></div>
+                        <div class="gap-row"><span>Laufende Kosten</span><span class="mono">3.200 €</span></div>
+                        <div class="gap-row"><span>Mögliche staatliche Leistung</span><span class="mono">0 €</span></div>
+                        <div class="gap-row gap-row--red"><span>Verbleibende Lücke</span><span class="mono">3.200 € / Monat</span></div>
+                    </div>
+                    <p class="case-assumptions"><strong>Annahmen:</strong> Für eine Erwerbsminderungsrente braucht man in der Regel 3 Jahre Pflichtbeiträge in den letzten 5 Jahren (<a href="https://www.gesetze-im-internet.de/sgb_6/__43.html" target="_blank" rel="noopener">§ 43 SGB VI</a>). Ohne diese Beiträge gibt es keinen gesetzlichen Schutz.</p>
+                </div>
+            </div>
+            <p class="proof-source proof-source--left">Alle drei Fälle sind fiktiv. Die angenommenen Renten sind Beispielwerte – die tatsächliche Leistung hängt von deinem Versicherungsverlauf ab und steht in deiner Renteninformation.</p>
+
+            <!-- Notfallrechner -->
+            <div class="calc-box" id="notfallrechner">
+                <div class="calc-intro">
+                    <h3 class="proof-subheadline proof-subheadline--flush">Dein Familien-Notfallrechner</h3>
+                    <p>Grob überschlagen, ohne Anmeldung. Deine Eingaben bleiben in deinem Browser – nichts wird gespeichert oder gesendet.</p>
+                </div>
+                <form class="calc-form" id="calc-form" novalidate>
+                    <div class="calc-field">
+                        <label for="calc-kosten">Monatliche Kosten der Familie</label>
+                        <div class="calc-input-wrap"><input id="calc-kosten" type="number" inputmode="numeric" min="0" step="50" placeholder="z. B. 3500"><span>€</span></div>
+                        <p class="calc-hint">Miete/Kredit, Lebensmittel, Kita, Versicherungen, Auto …</p>
+                    </div>
+                    <div class="calc-field">
+                        <label for="calc-staat">Erwerbsminderungsrente</label>
+                        <div class="calc-input-wrap"><input id="calc-staat" type="number" inputmode="numeric" min="0" step="50" placeholder="z. B. 1200"><span>€</span></div>
+                        <p class="calc-hint">Steht in deiner jährlichen Renteninformation („Rente wegen voller Erwerbsminderung“).</p>
+                    </div>
+                    <div class="calc-field">
+                        <label for="calc-vorhanden">Vorhandene Absicherung &amp; weitere Einnahmen</label>
+                        <div class="calc-input-wrap"><input id="calc-vorhanden" type="number" inputmode="numeric" min="0" step="50" placeholder="z. B. 800"><span>€</span></div>
+                        <p class="calc-hint">BU-Rente, Einkommen der Partnerin für die Familie …</p>
+                    </div>
+                    <div class="calc-field">
+                        <label for="calc-alter">Dein Alter <span class="calc-optional">(optional)</span></label>
+                        <div class="calc-input-wrap"><input id="calc-alter" type="number" inputmode="numeric" min="18" max="66" placeholder="z. B. 36"><span>J.</span></div>
+                        <p class="calc-hint">Für die Summe bis zum Rentenalter 67.</p>
+                    </div>
+                </form>
+                <div class="calc-result" id="calc-result" aria-live="polite">
+                    <p class="calc-result-label">Deine grobe monatliche Lücke</p>
+                    <p class="calc-result-amount" id="calc-amount">–</p>
+                    <p class="calc-result-total" id="calc-total"></p>
+                    <p class="calc-result-note">Vereinfachte Rechnung: Kosten minus Leistungen. Keine Steuern, Inflation oder Sozialabgaben berücksichtigt – und keine individuelle Leistungszusage.</p>
+                    <button class="btn btn-primary" data-quiz-open>Ergebnis gemeinsam prüfen</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 · Ablauf -->
     <section class="process-section" id="wie-funktioniert">
         <div class="container">
             <p class="section-eyebrow">Dein Weg zum Backup</p>
@@ -294,79 +500,136 @@
                     <div class="step-number">1</div>
                     <h3>5 Fragen beantworten</h3>
                     <p>Du beantwortest fünf kurze Fragen zu deiner Familiensituation, deinem Einkommen und deiner bestehenden Absicherung. So schaffen wir eine erste Grundlage, um mögliche Lücken zu erkennen.</p>
-                    <p class="step-meta">Dauer: 5 Minuten</p>
+                    <p class="step-meta">Dauer: 5 Minuten · online</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>20 Minuten sprechen</h3>
                     <p>Wir gehen deine Situation gemeinsam durch. Du erfährst, welche Risiken bereits abgesichert sind und wo möglicher Handlungsbedarf besteht – ohne Fachbegriffe, ohne Zahlen, die du nicht nachvollziehen kannst.</p>
-                    <p class="step-meta">Kostenlos · Unverbindlich</p>
+                    <p class="step-meta">Dauer: 20 Minuten · kostenlos · unverbindlich</p>
                 </div>
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <h3>Konzept erhalten</h3>
-                    <p>Du erhältst eine nachvollziehbare Übersicht über deine Ausgangssituation und mögliche nächste Schritte. Wenn du eine konkrete Absicherung möchtest, schauen wir uns die passenden Möglichkeiten und deren Kosten an.</p>
+                    <h3>Auswertung erhalten</h3>
+                    <p>Du erhältst eine nachvollziehbare Übersicht wie die Muster-Auswertung oben. Wenn du eine konkrete Absicherung möchtest, schauen wir uns passende Möglichkeiten und deren Kosten an.</p>
                     <p class="step-meta">Kein Abschluss nötig</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Über uns -->
-    <section class="stories-section" id="uber-uns">
-        <div class="container">
-            <p class="section-eyebrow">Über uns</p>
-            <h2 class="section-headline">Ich weiß, dass das Leben nicht immer nach Plan läuft.</h2>
-            <div class="story-container">
-                <div class="story-drawing-frame" aria-label="Leon, 7 – Papa und ich beim Fußballspielen">
-                    <img
-                        src="Bilder%20Website/Papa%20und%20ich%20beim%20Fu%C3%9Fball.png"
-                        alt="Papa und Sohn beim Fußballspielen"
-                        class="story-photo"
-                        loading="lazy"
-                    >
-                    <p class="drawing-caption">Leon, 7 · „Papa und ich beim Fußballspielen"</p>
+            <!-- So läuft die Beratung ab -->
+            <!-- TODO: Antworten nur so stehen lassen, wenn sie deinem tatsächlichen Ablauf entsprechen. -->
+            <h3 class="proof-subheadline">Gut zu wissen vor dem Gespräch</h3>
+            <div class="qa-grid">
+                <div class="qa-item">
+                    <p class="qa-q">Muss ich bestehende Verträge mitbringen?</p>
+                    <p class="qa-a">Nein. Wenn du sie zur Hand hast, hilft das. Sonst reicht, was du weißt – Unterlagen können wir auch später anschauen.</p>
                 </div>
-                <div class="story-text">
-                    <p class="story-quote">Manchmal verändert eine einzige Diagnose den Blick auf alles.</p>
-                    <p>Plötzlich werden Dinge wichtig, über die man sich vorher kaum Gedanken gemacht hat: Wie lange reicht das Geld? Was passiert mit der Familie? Und was, wenn man selbst nicht mehr derjenige sein kann, der alles zusammenhält?</p>
-                    <p>Genau deshalb sollte finanzielle Absicherung kein Thema sein, das man endlos aufschiebt. Nicht, weil du ständig mit dem Schlimmsten rechnen sollst. Sondern weil du die Menschen liebst, für die du heute Verantwortung trägst.</p>
-                    <p><strong>backupyourlife hilft dir, aus einem diffusen Risiko einen konkreten Plan zu machen.</strong></p>
-                    <p>Denn Vorsorge bedeutet nicht, Angst vor der Zukunft zu haben. Es bedeutet, ihr vorbereitet entgegenzugehen.</p>
-                    <p class="child-voice story-child-voice">Fast fertig, Papa!</p>
+                <div class="qa-item">
+                    <p class="qa-q">Muss ich Gesundheitsfragen beantworten?</p>
+                    <p class="qa-a">Nicht im Erstgespräch. Gesundheitsfragen stellt der Versicherer erst, wenn du dich für einen Antrag entscheidest.</p>
+                </div>
+                <div class="qa-item">
+                    <p class="qa-q">Muss ich meine Versicherungen wechseln?</p>
+                    <p class="qa-a">Nein. Gute Verträge bleiben. Oft ist Ergänzen sinnvoller als Ersetzen.</p>
+                </div>
+                <div class="qa-item">
+                    <p class="qa-q">Ist das Gespräch kostenlos?</p>
+                    <p class="qa-a">Ja. Backup-Check und Erstgespräch kosten dich nichts.</p>
+                </div>
+                <div class="qa-item qa-item--wide">
+                    <p class="qa-q">Werde ich danach unter Druck gesetzt?</p>
+                    <p class="qa-a">Nein. Du musst im Erstgespräch nichts abschließen. Wir schauen zuerst, was bereits vorhanden ist und was dir noch fehlt. Wenn du Nein sagst, ist das ein Nein.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vertrauen (B-2a-D) -->
-    <section class="trust-section">
+    <!-- 07 · Ehrliches FAQ -->
+    <!-- Kundenstimmen: erst einbauen, wenn echte, freigegebene Erfahrungsberichte vorliegen. Bis dahin ersetzt die Muster-Auswertung den Beleg. -->
+    <section class="honest-faq-section" id="fragen">
         <div class="container">
-            <p class="section-eyebrow">Warum backupyourlife</p>
-            <h2 class="section-headline">Was du von mir <span class="highlight">erwarten</span> kannst</h2>
-
-            <div class="trust-grid">
-                <div class="trust-tile">
-                    <p class="trust-tile-title">Unabhängig</p>
-                    <p class="trust-tile-text">Vergleich aus [x] Versicherern – kein gebundener Vertrieb.</p>
+            <p class="section-eyebrow">Ehrliche Antworten</p>
+            <h2 class="section-headline">Die Fragen, die du <span class="highlight">wirklich</span> stellen willst</h2>
+            <div class="accordion-section accordion-section--home">
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-1">
+                        Was verdienst du an mir?
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="hf-1">
+                        Nur dann etwas, wenn du über mich einen Vertrag abschließt: Dann zahlt mir der Versicherer eine Provision (Courtage), die im Beitrag bereits enthalten ist. Du zahlst nichts extra. Für Beratung, Check und Auswertung bezahlst du nichts.
+                    </div>
                 </div>
-                <div class="trust-tile">
-                    <p class="trust-tile-title">Registriert</p>
-                    <p class="trust-tile-text">§ 34d GewO · Reg.-Nr. [D-XXXX-XXXXX-XX]</p>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-2">
+                        Was, wenn ich bereits gut versichert bin?
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="hf-2">
+                        Dann sage ich dir das – schwarz auf weiß. Auch das ist ein gutes Ergebnis: Du weißt dann, dass deine Familie geschützt ist, und musst nicht mehr darüber nachgrübeln.
+                    </div>
                 </div>
-                <div class="trust-tile">
-                    <p class="trust-tile-title">Persönlich</p>
-                    <p class="trust-tile-text">Ein Ansprechpartner, kein Callcenter.</p>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-3">
+                        Kann ich mir eine Berufsunfähigkeitsversicherung überhaupt leisten?
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="hf-3">
+                        Der Beitrag hängt von Beruf, Alter, Gesundheit und Rentenhöhe ab. Wir suchen eine Höhe, die zu deinem Budget passt – eine kleinere BU ist oft besser als gar keine. Konkrete Beiträge nenne ich erst nach einem echten Vergleich, nicht vorher.
+                    </div>
                 </div>
-                <div class="trust-tile">
-                    <p class="trust-tile-title">Selbst betroffen</p>
-                    <p class="trust-tile-text">Ich weiß, wie sich die Lücke anfühlt.</p>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-4">
+                        Was passiert bei Vorerkrankungen?
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="hf-4">
+                        Das hängt von der Erkrankung ab. Möglich sind eine normale Annahme, ein Ausschluss, ein Zuschlag oder auch eine Ablehnung. Damit du keinen Antrag stellst, der dann abgelehnt wird, frage ich vorab anonym bei mehreren Versicherern an, wie sie dich einstufen würden.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-5">
+                        Kann ich mich erst einmal nur informieren?
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="hf-5">
+                        Ja. Nutze den <a href="#notfallrechner">Notfallrechner</a> und die Rechenbeispiele ohne Anmeldung. Und auch das Gespräch kannst du nur zum Verstehen buchen – ohne Abschluss.
+                    </div>
                 </div>
             </div>
+            <a href="fragen.html" class="text-link">Alle Fragen und Antworten →</a>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- 07 · Datenschutz verständlich -->
+    <!-- TODO: Mit deiner Datenschutzerklärung abgleichen (Speicherdauer, Kontakt-E-Mail, eingesetzte Dienste). -->
+    <section class="privacy-section" id="daten">
+        <div class="container">
+            <p class="section-eyebrow">Deine Daten</p>
+            <h2 class="section-headline">Was passiert mit deinen <span class="highlight">Angaben</span>?</h2>
+            <div class="privacy-grid">
+                <div class="privacy-card">
+                    <p class="privacy-title">Was ich frage – und wofür</p>
+                    <p class="privacy-text">Im Backup-Check: Anzahl der Kinder, Einkommensspanne, ob du eine BU oder Risikoleben hast, dazu Vorname, E-Mail und Handynummer. Nur, um dir dein Ergebnis zu erklären und das Gespräch zu vereinbaren.</p>
+                </div>
+                <div class="privacy-card">
+                    <p class="privacy-title">Keine Gesundheitsdaten</p>
+                    <p class="privacy-text">Im Check und im Erstgespräch frage ich keine Gesundheitsdaten ab. Die werden erst für einen Antrag nötig – und dann nur so viel wie erforderlich, besonders geschützt.</p>
+                </div>
+                <div class="privacy-card">
+                    <p class="privacy-title">Wer die Daten erhält</p>
+                    <p class="privacy-text">Nur ich. Technisch laufen sie über meinen Webserver, eine Benachrichtigung per Telegram und mein Kundenverwaltungssystem (monday.com). Keine Weitergabe zu Werbezwecken.</p>
+                </div>
+                <div class="privacy-card">
+                    <p class="privacy-title">Speicherdauer &amp; deine Rechte</p>
+                    <p class="privacy-text">Ich lösche deine Daten nach [x Monaten], wenn keine Beratung zustande kommt. Du kannst jederzeit Auskunft, Berichtigung oder Löschung verlangen: [E-Mail].</p>
+                </div>
+            </div>
+            <p class="transparency-note">Der Notfallrechner auf dieser Seite speichert und sendet nichts. Alle Details: <a href="#">Datenschutzerklärung</a>.</p>
+        </div>
+    </section>
+
+    <!-- 08 · Handlung -->
     <section class="cta-section" id="backup-check">
         <div class="container">
             <div class="cta-content">
@@ -375,7 +638,7 @@
                 <p class="cta-subline">Du hast schon genug zu tun. Beantworte fünf kurze Fragen – und bekomm eine klare Grundlage für deine nächsten Entscheidungen. Du musst heute nichts abschließen. Du musst nur den ersten Schritt machen.</p>
                 <div class="cta-buttons">
                     <button class="btn btn-primary btn-large" data-quiz-open>Jetzt kostenlosen Backup-Check starten</button>
-                    <p class="cta-reassurance">5 Minuten · Kostenlos · Unverbindlich · Kein Abschlusszwang</p>
+                    <p class="cta-reassurance">5 Minuten Check · 20 Minuten Gespräch · Kostenlos · Kein Abschlusszwang</p>
                 </div>
             </div>
         </div>
@@ -393,6 +656,7 @@
                     <a href="#" class="footer-link">Datenschutz</a>
                     <a href="#" class="footer-link">Erstinformation §&thinsp;15 VersVermV</a>
                     <a href="fragen.html" class="footer-link">Fragen</a>
+                    <a href="#daten" class="footer-link">Deine Daten</a>
                 </nav>
             </div>
         </div>

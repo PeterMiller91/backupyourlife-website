@@ -61,15 +61,15 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.style.scrollBehavior = 'auto';
 }
 
-// ==================== Tabs (B-2a-B) ====================
-const tabPills = document.querySelectorAll('.tab-pill');
-tabPills.forEach(pill => {
+// ==================== Tabs (B-2a-B, Rechenbeispiele) ====================
+// Jede .tabs-group schaltet nur ihre eigenen Pills und Panels um.
+document.querySelectorAll('.tab-pill').forEach(pill => {
     pill.addEventListener('click', () => {
-        const targetId = pill.getAttribute('aria-controls');
-        tabPills.forEach(p => p.setAttribute('aria-selected', 'false'));
-        document.querySelectorAll('.tab-panel').forEach(panel => panel.setAttribute('aria-hidden', 'true'));
+        const group = pill.closest('.tabs-group') || document;
+        group.querySelectorAll('.tab-pill').forEach(p => p.setAttribute('aria-selected', 'false'));
+        group.querySelectorAll('.tab-panel').forEach(panel => panel.setAttribute('aria-hidden', 'true'));
         pill.setAttribute('aria-selected', 'true');
-        document.getElementById(targetId).setAttribute('aria-hidden', 'false');
+        document.getElementById(pill.getAttribute('aria-controls')).setAttribute('aria-hidden', 'false');
     });
 });
 
@@ -81,3 +81,40 @@ document.querySelectorAll('.accordion-trigger').forEach(trigger => {
         trigger.nextElementSibling.classList.toggle('open', !isOpen);
     });
 });
+
+// ==================== Notfallrechner ====================
+// Rechnet nur im Browser – es wird nichts gespeichert oder gesendet.
+const calcForm = document.getElementById('calc-form');
+
+if (calcForm) {
+    const num = id => Math.max(0, parseFloat(document.getElementById(id).value) || 0);
+    const euro = n => n.toLocaleString('de-DE', { maximumFractionDigits: 0 }) + ' €';
+    const amountEl = document.getElementById('calc-amount');
+    const totalEl = document.getElementById('calc-total');
+
+    const updateCalc = () => {
+        const kosten = num('calc-kosten');
+        if (!kosten) {
+            amountEl.textContent = '–';
+            amountEl.classList.remove('is-gap');
+            totalEl.textContent = '';
+            return;
+        }
+        const luecke = Math.max(0, kosten - num('calc-staat') - num('calc-vorhanden'));
+        amountEl.textContent = luecke ? '−' + euro(luecke) : '0 €';
+        amountEl.classList.toggle('is-gap', luecke > 0);
+
+        const alter = num('calc-alter');
+        if (luecke && alter >= 18 && alter < 67) {
+            const jahre = 67 - alter;
+            totalEl.textContent = `≈ ${euro(luecke * 12 * jahre)} bis 67 (${jahre} Jahre)`;
+        } else if (!luecke) {
+            totalEl.textContent = 'Nach dieser groben Rechnung ist keine Lücke offen.';
+        } else {
+            totalEl.textContent = '';
+        }
+    };
+
+    calcForm.addEventListener('input', updateCalc);
+    calcForm.addEventListener('submit', e => e.preventDefault());
+}
