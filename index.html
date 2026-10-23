@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body class="has-jump-nav">
 
     <!-- Header wrapper: sticky + hält das Mobile-Menu -->
     <div class="header-wrapper">
@@ -20,10 +20,8 @@
                         <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img">
                     </a>
                     <nav class="nav" aria-label="Hauptnavigation">
-                        <a href="#die-backups" class="nav-link">Die drei Backups</a>
-                        <a href="#muster-auswertung" class="nav-link">Beispiel-Auswertung</a>
-                        <a href="#wie-funktioniert" class="nav-link">Ablauf</a>
                         <a href="ueber-uns.html" class="nav-link">Über mich</a>
+                        <a href="fragen.html" class="nav-link">Alle Fragen</a>
                         <button class="btn btn-primary nav-cta" data-quiz-open>Backup-Check starten</button>
                         <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
                             <span></span><span></span><span></span>
@@ -44,6 +42,19 @@
             <a href="ueber-uns.html" class="mobile-nav-link">Über mich</a>
             <button class="btn btn-primary mobile-nav-cta" data-quiz-open>Backup-Check starten</button>
         </div>
+
+        <!-- Sprungmenü: Kapitel der Startseite -->
+        <nav class="jump-nav" aria-label="Kapitel dieser Seite">
+            <div class="jump-nav-inner">
+                <a href="#das-risiko" class="jump-tab" data-chapter-link="risiko"><span class="jump-num">01</span>Das Risiko</a>
+                <a href="#die-backups" class="jump-tab" data-chapter-link="backups"><span class="jump-num">02</span>Die 3 Backups</a>
+                <a href="#ueber-mich" class="jump-tab" data-chapter-link="berater"><span class="jump-num">03</span>Wer berät dich</a>
+                <a href="#muster-auswertung" class="jump-tab" data-chapter-link="beispiel"><span class="jump-num">04</span>Beispiel &amp; Rechner</a>
+                <a href="#wie-funktioniert" class="jump-tab" data-chapter-link="ablauf"><span class="jump-num">05</span>Ablauf</a>
+                <a href="#fragen" class="jump-tab" data-chapter-link="fragen"><span class="jump-num">06</span>Fragen</a>
+            </div>
+            <span class="jump-progress" aria-hidden="true"></span>
+        </nav>
     </div>
 
     <!-- Hero -->
@@ -80,7 +91,7 @@
 
     <!-- 02 · Problem: belegbare Fakten statt ungeprüfter Quoten -->
     <!-- TODO: „1 von 4 wird vor 67 berufsunfähig“ erst wieder aufnehmen, wenn eine Originalquelle Bezugsgruppe und Zeitraum genau so stützt. -->
-    <section class="social-proof" aria-label="Fakten zur gesetzlichen Absicherung">
+    <section class="social-proof" id="das-risiko" data-chapter="risiko" aria-label="Fakten zur gesetzlichen Absicherung">
         <div class="container">
             <div class="proof-numbers">
                 <div class="proof-item">
@@ -143,8 +154,56 @@
         </div>
     </section>
 
+    <!-- Mythos vs. Realität -->
+    <section class="myth-section">
+        <div class="container">
+            <p class="section-eyebrow">Häufige Annahmen</p>
+            <h2 class="section-headline">„Ich bin doch über die <span class="highlight">Firma</span> versichert."</h2>
+
+            <div class="myth-table-wrap">
+                <table class="myth-table">
+                    <thead>
+                        <tr>
+                            <th>Was viele denken</th>
+                            <th>Was gilt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Was viele denken">Der Staat zahlt, wenn ich nicht mehr arbeiten kann.</td>
+                            <td data-label="Was gilt">Volle Erwerbsminderungsrente nur, wenn du weniger als 3 Std. am Tag irgendeinen Job machen kannst. Kein Berufsschutz für Jahrgänge ab 2.1.1961.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Was viele denken">Die Firmen-BU reicht.</td>
+                            <td data-label="Was gilt">Oft gedeckelt und an den Arbeitgeber gebunden. Bei einem Jobwechsel kann der Schutz enden oder nur zu anderen Bedingungen weiterlaufen – vorher prüfen.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Was viele denken">Die Risikoleben läuft ja.</td>
+                            <td data-label="Was gilt">Die Summe passt oft nicht mehr zum heutigen Kredit und zu den Kindern.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="myth-note">⚠ Allgemeine Informationen ohne Gewähr. Vor Vertragsschluss individuell prüfen lassen.</p>
+        </div>
+    </section>
+
+    <!-- Backup-Check-Band -->
+    <aside class="cta-band-wrap" aria-label="Backup-Check">
+        <div class="container">
+            <div class="cta-band">
+                <div class="cta-band-text">
+                    <p class="cta-band-kid">Wie groß wäre unsere Lücke, Papa?</p>
+                    <p class="cta-band-line">Finde in 5 Minuten heraus, was deiner Familie fehlen würde, wenn dein Einkommen wegfällt.</p>
+                    <p class="cta-band-meta">5 Min. · kostenlos · kein Abschlusszwang</p>
+                </div>
+                <button class="btn btn-primary" data-quiz-open>Backup-Check starten</button>
+            </div>
+        </div>
+    </aside>
+
     <!-- 03 · Lösung: Die drei Backups -->
-    <section class="backups-section" id="die-backups">
+    <section class="backups-section" data-chapter="backups" id="die-backups">
         <div class="container">
             <p class="section-eyebrow">Das Backup-Konzept</p>
             <h2 class="section-headline">
@@ -260,43 +319,23 @@
         </div>
     </section>
 
-    <!-- Mythos vs. Realität -->
-    <section class="myth-section">
+    <!-- Backup-Check-Band -->
+    <aside class="cta-band-wrap" aria-label="Backup-Check">
         <div class="container">
-            <p class="section-eyebrow">Häufige Annahmen</p>
-            <h2 class="section-headline">„Ich bin doch über die <span class="highlight">Firma</span> versichert."</h2>
-
-            <div class="myth-table-wrap">
-                <table class="myth-table">
-                    <thead>
-                        <tr>
-                            <th>Was viele denken</th>
-                            <th>Was gilt</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Was viele denken">Der Staat zahlt, wenn ich nicht mehr arbeiten kann.</td>
-                            <td data-label="Was gilt">Volle Erwerbsminderungsrente nur, wenn du weniger als 3 Std. am Tag irgendeinen Job machen kannst. Kein Berufsschutz für Jahrgänge ab 2.1.1961.</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Was viele denken">Die Firmen-BU reicht.</td>
-                            <td data-label="Was gilt">Oft gedeckelt und an den Arbeitgeber gebunden. Bei einem Jobwechsel kann der Schutz enden oder nur zu anderen Bedingungen weiterlaufen – vorher prüfen.</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Was viele denken">Die Risikoleben läuft ja.</td>
-                            <td data-label="Was gilt">Die Summe passt oft nicht mehr zum heutigen Kredit und zu den Kindern.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="cta-band">
+                <div class="cta-band-text">
+                    <p class="cta-band-kid">Und welches Backup fehlt bei uns?</p>
+                    <p class="cta-band-line">Finde in 5 Minuten heraus, welche der drei Lücken bei dir offen ist.</p>
+                    <p class="cta-band-meta">5 Min. · kostenlos · kein Abschlusszwang</p>
+                </div>
+                <button class="btn btn-primary" data-quiz-open>Backup-Check starten</button>
             </div>
-            <p class="myth-note">⚠ Allgemeine Informationen ohne Gewähr. Vor Vertragsschluss individuell prüfen lassen.</p>
         </div>
-    </section>
+    </aside>
 
     <!-- 04 · Persönliches Vertrauen: Geschichte, Gesicht, Motivation -->
     <!-- TODO: Text ist ein Entwurf auf Basis deiner Notizen – bitte mit deinen eigenen Worten und echten Daten prüfen. -->
-    <section class="person-section" id="ueber-mich">
+    <section class="person-section" data-chapter="berater" id="ueber-mich">
         <div class="container">
             <p class="section-eyebrow">Wer berät dich?</p>
             <h2 class="section-headline">Ich weiß, wie es ist, wenn das Leben <span class="highlight">nicht</span> nach Plan läuft.</h2>
@@ -360,7 +399,7 @@
     </section>
 
     <!-- 06 · Belege: Muster-Auswertung, Rechenbeispiele, Notfallrechner -->
-    <section class="proof-section" id="muster-auswertung">
+    <section class="proof-section" data-chapter="beispiel" id="muster-auswertung">
         <div class="container">
             <p class="section-eyebrow">Was du konkret bekommst</p>
             <h2 class="section-headline">So sieht deine Auswertung <span class="highlight">aus</span></h2>
@@ -405,6 +444,15 @@
                     <li><strong>Firmen-BU klären:</strong> Was passiert beim Jobwechsel? Bedingungen anfordern.</li>
                 </ol>
                 <p class="proof-source proof-source--left">Alle Zahlen sind frei erfunden und dienen nur der Veranschaulichung. Keine Leistungszusage, keine individuelle Berechnung.</p>
+            </div>
+
+            <div class="cta-band cta-band--inline">
+                <div class="cta-band-text">
+                    <p class="cta-band-kid">Und wie sieht das bei uns aus?</p>
+                    <p class="cta-band-line">Hol dir deine eigene Auswertung – mit deinen Zahlen statt mit Familie M.</p>
+                    <p class="cta-band-meta">5 Min. Check · 20 Min. Gespräch · kostenlos</p>
+                </div>
+                <button class="btn btn-primary" data-quiz-open>Backup-Check starten</button>
             </div>
 
             <!-- Rechenbeispiele -->
@@ -491,7 +539,7 @@
     </section>
 
     <!-- 07 · Ablauf -->
-    <section class="process-section" id="wie-funktioniert">
+    <section class="process-section" data-chapter="ablauf" id="wie-funktioniert">
         <div class="container">
             <p class="section-eyebrow">Dein Weg zum Backup</p>
             <h2 class="section-headline">Wie du in 25 Minuten weißt, wo du stehst</h2>
@@ -546,7 +594,7 @@
 
     <!-- 07 · Ehrliches FAQ -->
     <!-- Kundenstimmen: erst einbauen, wenn echte, freigegebene Erfahrungsberichte vorliegen. Bis dahin ersetzt die Muster-Auswertung den Beleg. -->
-    <section class="honest-faq-section" id="fragen">
+    <section class="honest-faq-section" data-chapter="fragen" id="fragen">
         <div class="container">
             <p class="section-eyebrow">Ehrliche Antworten</p>
             <h2 class="section-headline">Die Fragen, die du <span class="highlight">wirklich</span> stellen willst</h2>
@@ -643,6 +691,12 @@
             </div>
         </div>
     </section>
+
+    <!-- Mobile: Backup-Check-Leiste unten -->
+    <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+        <span class="sticky-cta-meta">5 Min.<br>kostenlos</span>
+        <button class="btn btn-primary" data-quiz-open tabindex="-1">Backup-Check starten</button>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
