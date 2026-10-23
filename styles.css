@@ -134,6 +134,9 @@ h1, h2, h3 {
     align-items: center;
 }
 
+/* Container im Flex-Header über die volle Breite, sonst rutscht alles in die Mitte */
+.header > .container { width: 100%; }
+
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -2521,4 +2524,34 @@ h1, h2, h3 {
 @media (prefers-reduced-motion: reduce) {
     .sticky-cta { transition: none; }
     .jump-nav-inner { scroll-behavior: auto; }
+}
+
+/* ==================== Sprungmenü wie im Mockup ==================== */
+/* Desktop: kompakter Header nur mit Logo + Button */
+@media (min-width: 769px) {
+    .has-jump-nav .header { height: 72px; }
+    .has-jump-nav .header .logo-img { height: 48px; }
+    .has-jump-nav .nav-cta { font-size: 15px; padding: 12px 22px; }
+}
+
+/* Mobil + Tablet: Tabs als Chips (Pillen), aktiver Chip schwarz gefüllt */
+@media (max-width: 900px) {
+    .jump-nav-inner { gap: 8px; padding: 10px 16px; }
+    .jump-tab {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--pencil);
+        padding: 7px 14px;
+        border: 2px solid var(--pencil);
+        border-radius: 999px;
+        background: var(--paper);
+        line-height: 1.2;
+    }
+    .jump-tab[aria-current="true"] {
+        background: var(--pencil);
+        color: var(--paper);
+        font-weight: 500;
+    }
+    .jump-tab[aria-current="true"]::after { display: none; }
+    .jump-num { display: none; }
 }
