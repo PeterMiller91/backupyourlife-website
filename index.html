@@ -6,7 +6,8 @@
     <title>backupyourlife – Wenn dein Einkommen wegfällt, bleibt deine Familie abgesichert.</title>
     <meta name="description" content="Wenn dein Einkommen wegfällt, laufen eure Kosten weiter. Finde in wenigen Minuten heraus, wie gut deine Familie finanziell geschützt ist – kostenlos und unverbindlich.">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261023b">
+    <link rel="preload" as="image" type="image/webp" imagesrcset="Bilder%20Website/papa-hebt-mich-hoch-720.webp 720w, Bilder%20Website/papa-hebt-mich-hoch-1200.webp 1200w" imagesizes="(max-width: 768px) 100vw, 560px" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css?v=20261104a">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 </head>
 <body class="has-jump-nav">
@@ -74,15 +75,25 @@
                     </div>
                     <p class="hero-reassurance">5 Minuten für den Check. 20 Minuten für Klarheit. Kostenlos und unverbindlich.</p>
                 </div>
-                <div class="hero-drawing-frame" aria-label="Mira, 6 – Mein Papa und ich">
-                    <img
-                        src="Bilder%20Website/Papa%20hebt%20mich%20hoch.png"
-                        alt="Papa hebt seine Tochter Mira hoch"
-                        class="hero-photo"
-                        loading="eager"
-                    >
-                    <p class="drawing-caption">Mira, 6 · „Mein Papa und ich"</p>
-                </div>
+                <figure class="hero-drawing-frame">
+                    <picture>
+                        <source type="image/webp"
+                            srcset="Bilder%20Website/papa-hebt-mich-hoch-720.webp 720w, Bilder%20Website/papa-hebt-mich-hoch-1200.webp 1200w"
+                            sizes="(max-width: 768px) 100vw, 560px">
+                        <img
+                            src="Bilder%20Website/papa-hebt-mich-hoch-1200.jpg"
+                            srcset="Bilder%20Website/papa-hebt-mich-hoch-720.jpg 720w, Bilder%20Website/papa-hebt-mich-hoch-1200.jpg 1200w"
+                            sizes="(max-width: 768px) 100vw, 560px"
+                            width="1200" height="1200"
+                            alt="Kinderzeichnung: Papa hebt seine Tochter Mira hoch, daneben Sonne, Wolken und ein Herz"
+                            class="hero-photo"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                        >
+                    </picture>
+                    <figcaption class="drawing-caption">Mira, 6 · „Mein Papa und ich"</figcaption>
+                </figure>
             </div>
         </div>
     </section>
@@ -182,23 +193,9 @@
                     </tbody>
                 </table>
             </div>
-            <p class="myth-note">⚠ Allgemeine Informationen ohne Gewähr. Vor Vertragsschluss individuell prüfen lassen.</p>
+            <p class="myth-note"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5L2.5 20h19L12 3.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.2v.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg> Allgemeine Informationen ohne Gewähr. Vor Vertragsschluss individuell prüfen lassen.</p>
         </div>
     </section>
-
-    <!-- Backup-Check-Band -->
-    <aside class="cta-band-wrap" aria-label="Backup-Check">
-        <div class="container">
-            <div class="cta-band">
-                <div class="cta-band-text">
-                    <p class="cta-band-kid">Wie groß wäre unsere Lücke, Papa?</p>
-                    <p class="cta-band-line">Finde in 5 Minuten heraus, was deiner Familie fehlen würde, wenn dein Einkommen wegfällt.</p>
-                    <p class="cta-band-meta">5 Min. · kostenlos · kein Abschlusszwang</p>
-                </div>
-                <button class="btn btn-primary" data-quiz-open>Backup-Check starten</button>
-            </div>
-        </div>
-    </aside>
 
     <!-- 03 · Lösung: Die drei Backups -->
     <section class="backups-section" data-chapter="backups" id="die-backups">
@@ -217,8 +214,8 @@
                         <div class="card-title-row">
                             <h3 class="card-title">Backup 1 · Einkommen</h3>
                             <div class="card-info-wrap">
-                                <button class="card-info-btn" type="button" aria-label="Was ist eine BU?">i</button>
-                                <div class="card-tooltip" role="tooltip">Eine Berufsunfähigkeitsversicherung kann eine vereinbarte monatliche Rente leisten, wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst – damit Wohnen, Alltag und Familienleben finanziell tragbar bleiben. Individuelle Leistung hängt von Einkommen, Beruf und Vertragsbedingungen ab.</div>
+                                <button class="card-info-btn" type="button" aria-label="Was ist eine BU?" aria-expanded="false" aria-controls="tip-1" aria-describedby="tip-1">i</button>
+                                <div class="card-tooltip" role="tooltip" id="tip-1">Eine Berufsunfähigkeitsversicherung kann eine vereinbarte monatliche Rente leisten, wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst – damit Wohnen, Alltag und Familienleben finanziell tragbar bleiben. Individuelle Leistung hängt von Einkommen, Beruf und Vertragsbedingungen ab.</div>
                             </div>
                         </div>
                         <p class="card-product">Berufsunfähigkeits&shy;versicherung</p>
@@ -235,8 +232,8 @@
                         <div class="card-title-row">
                             <h3 class="card-title">Backup 2 · Gesundheit</h3>
                             <div class="card-info-wrap">
-                                <button class="card-info-btn" type="button" aria-label="Was ist eine SK-Versicherung?">i</button>
-                                <div class="card-tooltip" role="tooltip">Eine Schwere-Krankheiten-Versicherung kann bei einer versicherten Erkrankung eine vereinbarte Einmalzahlung leisten – unabhängig davon, ob du anschließend weiterarbeiten kannst. Die versicherten Diagnosen und Bedingungen hängen vom konkreten Vertrag ab.</div>
+                                <button class="card-info-btn" type="button" aria-label="Was ist eine SK-Versicherung?" aria-expanded="false" aria-controls="tip-2" aria-describedby="tip-2">i</button>
+                                <div class="card-tooltip" role="tooltip" id="tip-2">Eine Schwere-Krankheiten-Versicherung kann bei einer versicherten Erkrankung eine vereinbarte Einmalzahlung leisten – unabhängig davon, ob du anschließend weiterarbeiten kannst. Die versicherten Diagnosen und Bedingungen hängen vom konkreten Vertrag ab.</div>
                             </div>
                         </div>
                         <p class="card-product">Schwere-Krankheiten-Versicherung</p>
@@ -253,8 +250,8 @@
                         <div class="card-title-row">
                             <h3 class="card-title">Backup 3 · Familie</h3>
                             <div class="card-info-wrap">
-                                <button class="card-info-btn" type="button" aria-label="Was ist eine Risikolebensversicherung?">i</button>
-                                <div class="card-tooltip" role="tooltip">Eine Risikolebensversicherung kann im Todesfall eine vereinbarte Summe an deine Hinterbliebenen auszahlen – zum Beispiel, um einen Kredit zu tilgen. Versicherungssumme, Laufzeit und Beitrag sollten zu deiner persönlichen Situation passen.</div>
+                                <button class="card-info-btn" type="button" aria-label="Was ist eine Risikolebensversicherung?" aria-expanded="false" aria-controls="tip-3" aria-describedby="tip-3">i</button>
+                                <div class="card-tooltip" role="tooltip" id="tip-3">Eine Risikolebensversicherung kann im Todesfall eine vereinbarte Summe an deine Hinterbliebenen auszahlen – zum Beispiel, um einen Kredit zu tilgen. Versicherungssumme, Laufzeit und Beitrag sollten zu deiner persönlichen Situation passen.</div>
                             </div>
                         </div>
                         <p class="card-product">Risikolebens&shy;versicherung</p>
@@ -352,9 +349,9 @@
 
                     <p class="person-subhead">Was ich heute anders mache</p>
                     <ul class="lessons-list">
-                        <li><span class="lessons-mark" aria-hidden="true">✓</span> Erst schauen wir, was schon da ist – dann reden wir über Neues.</li>
-                        <li><span class="lessons-mark" aria-hidden="true">✓</span> Ich erkläre Bedingungen, bevor es um Beiträge geht.</li>
-                        <li><span class="lessons-mark" aria-hidden="true">✓</span> Wenn du gut abgesichert bist, sage ich dir das – auch wenn ich dann nichts verdiene.</li>
+                        <li><span class="lessons-mark"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Erst schauen wir, was schon da ist – dann reden wir über Neues.</li>
+                        <li><span class="lessons-mark"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Ich erkläre Bedingungen, bevor es um Beiträge geht.</li>
+                        <li><span class="lessons-mark"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Wenn du gut abgesichert bist, sage ich dir das – auch wenn ich dann nichts verdiene.</li>
                     </ul>
                     <a href="ueber-uns.html" class="text-link">Meine ganze Geschichte lesen →</a>
                 </div>
@@ -430,9 +427,9 @@
                 </div>
 
                 <div class="sample-status">
-                    <div class="status-row"><span>Einkommen</span><span class="status-pill status-pill--gap">✕ Lücke</span></div>
-                    <div class="status-row"><span>Familie</span><span class="status-pill status-pill--part">◐ zu niedrig</span></div>
-                    <div class="status-row"><span>Gesundheit</span><span class="status-pill status-pill--ok">✓ ausreichend</span></div>
+                    <div class="status-row"><span>Einkommen</span><span class="status-pill status-pill--gap"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg> Lücke</span></div>
+                    <div class="status-row"><span>Familie</span><span class="status-pill status-pill--part"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 4a8 8 0 010 16z" fill="currentColor"/></svg> zu niedrig</span></div>
+                    <div class="status-row"><span>Gesundheit</span><span class="status-pill status-pill--ok"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> ausreichend</span></div>
                 </div>
 
                 <p class="person-subhead">Priorisierte nächste Schritte</p>
@@ -653,22 +650,42 @@
         <div class="container">
             <p class="section-eyebrow">Deine Daten</p>
             <h2 class="section-headline">Was passiert mit deinen <span class="highlight">Angaben</span>?</h2>
-            <div class="privacy-grid">
-                <div class="privacy-card">
-                    <p class="privacy-title">Was ich frage – und wofür</p>
-                    <p class="privacy-text">Im Backup-Check: Anzahl der Kinder, Einkommensspanne, ob du eine BU oder Risikoleben hast, dazu Vorname, E-Mail und Handynummer. Nur, um dir dein Ergebnis zu erklären und das Gespräch zu vereinbaren.</p>
+            <div class="accordion-section accordion-section--home">
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="pd-1">
+                        Was ich frage – und wofür
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="pd-1">
+                        Im Backup-Check: Anzahl der Kinder, Einkommensspanne, ob du eine BU oder Risikoleben hast, dazu Vorname, E-Mail und Handynummer. Nur, um dir dein Ergebnis zu erklären und das Gespräch zu vereinbaren.
+                    </div>
                 </div>
-                <div class="privacy-card">
-                    <p class="privacy-title">Keine Gesundheitsdaten</p>
-                    <p class="privacy-text">Im Check und im Erstgespräch frage ich keine Gesundheitsdaten ab. Die werden erst für einen Antrag nötig – und dann nur so viel wie erforderlich, besonders geschützt.</p>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="pd-2">
+                        Keine Gesundheitsdaten
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="pd-2">
+                        Im Check und im Erstgespräch frage ich keine Gesundheitsdaten ab. Die werden erst für einen Antrag nötig – und dann nur so viel wie erforderlich, besonders geschützt.
+                    </div>
                 </div>
-                <div class="privacy-card">
-                    <p class="privacy-title">Wer die Daten erhält</p>
-                    <p class="privacy-text">Nur ich. Technisch laufen sie über meinen Webserver, eine Benachrichtigung per Telegram und mein Kundenverwaltungssystem (monday.com). Keine Weitergabe zu Werbezwecken.</p>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="pd-3">
+                        Wer die Daten erhält
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="pd-3">
+                        Nur ich. Technisch laufen sie über meinen Webserver, eine Benachrichtigung per Telegram und mein Kundenverwaltungssystem (monday.com). Keine Weitergabe zu Werbezwecken.
+                    </div>
                 </div>
-                <div class="privacy-card">
-                    <p class="privacy-title">Speicherdauer &amp; deine Rechte</p>
-                    <p class="privacy-text">Ich lösche deine Daten nach [x Monaten], wenn keine Beratung zustande kommt. Du kannst jederzeit Auskunft, Berichtigung oder Löschung verlangen: [E-Mail].</p>
+                <div class="accordion-item">
+                    <button class="accordion-trigger" aria-expanded="false" aria-controls="pd-4">
+                        Speicherdauer &amp; deine Rechte
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="accordion-content" id="pd-4">
+                        Ich lösche deine Daten nach [x Monaten], wenn keine Beratung zustande kommt. Du kannst jederzeit Auskunft, Berichtigung oder Löschung verlangen: [E-Mail].
+                    </div>
                 </div>
             </div>
             <p class="transparency-note">Der Notfallrechner auf dieser Seite speichert und sendet nichts. Alle Details: <a href="#">Datenschutzerklärung</a>.</p>
@@ -724,7 +741,7 @@
                 <div class="quiz-logo">
                     <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img">
                 </div>
-                <button class="quiz-close" aria-label="Quiz schließen" id="quiz-close">✕</button>
+                <button class="quiz-close" type="button" aria-label="Backup-Check schließen" id="quiz-close"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
             </div>
 
             <!-- Progress Bar -->
@@ -738,22 +755,7 @@
         </div>
     </div>
 
-    <!-- Cookie Banner -->
-    <div class="cookie-banner" id="cookie-banner" hidden>
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p class="cookie-title">Diese Seite verwendet Cookies</p>
-                <p class="cookie-desc">Wir nutzen ausschließlich technisch notwendige Cookies. Keine Tracker, kein Remarketing, keine Weitergabe an Dritte. <a href="#" class="cookie-link">Datenschutz</a></p>
-            </div>
-            <div class="cookie-actions">
-                <button class="btn cookie-btn-accept" id="cookie-accept">Verstanden</button>
-                <button class="cookie-btn-decline" id="cookie-decline">Nur notwendige</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js?v=20261023b"></script>
-    <script src="quiz.js?v=20261023b"></script>
-    <script src="cookie.js?v=20261023b"></script>
+    <script src="script.js?v=20261104a"></script>
+    <script src="quiz.js?v=20261104a"></script>
 </body>
 </html>
