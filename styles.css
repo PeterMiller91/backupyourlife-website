@@ -3250,3 +3250,87 @@ ol.process-steps { list-style: none; }
     .header, .footer, .skip-link, .legal-print { display: none !important; }
     .page-hero { padding: 0 0 12px; }
 }
+
+/* ==================== Finanzgrafik im Muster-Lückenplan ==================== */
+/* Farben geprüft mit dem Dataviz-Validator (Lightness, Chroma, Farbenblindheit):
+   Blau = gesetzliche Leistung, Bernstein = bereits vorhanden, Rot = Lücke. */
+:root {
+    --seg-staat: #2B59C3;
+    --seg-da: #E0A800;
+    --seg-gap: #B8301F;
+}
+.plan-chart { display: flex; flex-direction: column; gap: 12px; }
+.plan-chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.plan-chart-head .plan-block-title { margin-bottom: 0; }
+.plan-chart-total { font-weight: 800; font-size: 22px; color: var(--pencil); }
+
+.seg-bar {
+    display: flex;
+    gap: 2px;                 /* Abstand zwischen den Teilen */
+    height: 28px;
+}
+.seg {
+    position: relative;
+    flex-basis: 0;
+    min-width: 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: visible;
+    cursor: default;
+    outline-offset: 2px;
+}
+.seg--staat { background: var(--seg-staat); color: #fff; }
+.seg--da { background: var(--seg-da); color: var(--pencil); }
+.seg--gap { background: var(--seg-gap); color: #fff; }
+
+/* Tooltip bei Hover und Tastaturfokus */
+.seg::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pencil);
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    z-index: 5;
+}
+.seg:first-child::after { left: 0; transform: none; }
+.seg:last-child::after { left: auto; right: 0; transform: none; }
+.seg:hover::after,
+.seg:focus-visible::after { opacity: 1; }
+
+.seg-legend {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    font-size: 14px;
+    color: var(--body);
+}
+.seg-legend li { display: flex; align-items: center; gap: 8px; }
+.seg-legend small { color: var(--muted); font-size: 13px; }
+.seg-key { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+/* Große Einzelzahl: proportionale Ziffern */
+.plan-kpi-value { font-variant-numeric: normal; }
+.plan-kpi-unit { font-size: 0.4em; letter-spacing: 0; font-weight: 800; }
+
+@media (prefers-reduced-motion: reduce) { .seg::after { transition: none; } }
+.seg-legend li { flex-wrap: wrap; }
+@media (max-width: 640px) {
+    .seg-legend { flex-direction: column; }
+    .seg-legend small { flex-basis: 100%; padding-left: 20px; }
+}
