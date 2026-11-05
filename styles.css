@@ -2258,7 +2258,6 @@ h1, h2, h3 {
 /* ---------- Mobil ---------- */
 @media (max-width: 768px) {
     .person-grid { grid-template-columns: 1fr; gap: 32px; margin-top: 24px; }
-    .person-photo { aspect-ratio: 4 / 3; }
     .person-photo-placeholder { min-height: 240px; }
     .transparency-grid,
     .qa-grid,
@@ -2780,7 +2779,11 @@ h1, h2, h3 {
 /* ==================== Echte Bilder: Porträt + Zeichnung ==================== */
 .person-photo-frame,
 .about-drawing-frame { margin: 0; }
-.person-photo { height: auto; object-position: center 30%; background: #e9e9e9; }
+/* Porträt immer im Originalformat, damit Kopf und Oberkörper ganz zu sehen sind */
+.person-photo { height: auto; aspect-ratio: 1000 / 1277; object-position: center top; background: #e9e9e9; }
+@media (max-width: 768px) {
+    .person-photo-frame, .about-photo-col .person-photo { max-width: 420px; }
+}
 .about-drawing {
     width: 100%;
     height: auto;
