@@ -94,7 +94,7 @@ const steps = [
             type: 'warning',
             getText: (val) => {
                 if (val === 'ag')   return '<strong>Gut zu prüfen:</strong> Eine BU über den Arbeitgeber ist oft gedeckelt. Bei einem Jobwechsel kann der Schutz enden oder nur zu anderen Bedingungen weiterlaufen.';
-                if (val === 'nein') return '<strong>Offene Lücke:</strong> Ohne eigene BU bleibt dir nur die gesetzliche Erwerbsminderungsrente – und die gibt es voll erst, wenn du weniger als 3 Stunden täglich irgendeinen Job machen kannst.';
+                if (val === 'nein') return '<strong>Offene Lücke:</strong> Ohne eigene BU bleibt dir nur die gesetzliche Erwerbsminderungsrente – und die gibt es voll erst, wenn du weniger als 3 Stunden täglich irgendeinen Job machen kannst. Je jünger und gesünder du bist, desto besser die Bedingungen.';
                 return '<strong>Das solltest du klären:</strong> Viele glauben abgesichert zu sein – und sind es nicht. In 20 Minuten wissen wir es genau.';
             },
         },
@@ -122,9 +122,9 @@ const steps = [
     },
     {
         id: 'kontakt',
-        meta: 'Schritt 5 von 5 – Fast fertig!',
-        title: 'Wohin schicke ich dein Ergebnis?',
-        subtitle: 'Deine persönliche Lückenanalyse – in 20 Minuten am Telefon erklärt.',
+        meta: 'Schritt 5 von 5 – gleich siehst du dein Ergebnis',
+        title: 'Für wen ist dein Ergebnis?',
+        subtitle: 'Danach siehst du sofort deine Lücke und bekommst den Notfallordner für deine Familie.',
         type: 'contact',
     },
 ];
@@ -151,7 +151,7 @@ function openQuiz(trigger) {
     lastTrigger = trigger || document.activeElement;
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
-    Object.assign(state, { current: 0, answers: {}, name: '', email: '', phone: '', optin: false, leadStatus: 'idle', choice: '', slotDay: '', slotTime: '', booked: false });
+    Object.assign(state, { current: 0, answers: {}, name: '', email: '', phone: '', optin: false, leadStatus: 'idle', choice: '', slotDay: '', slotTime: '', booked: false, phoneDraft: '' });
     renderStep();
 }
 
@@ -292,7 +292,7 @@ function renderContact(step) {
             <p class="quiz-step-subtitle">${step.subtitle}</p>
 
             <form id="quiz-contact" novalidate>
-                <p class="quiz-required-note">Alle Felder sind Pflichtfelder (*).</p>
+                <p class="quiz-required-note">Pflichtfelder sind mit * markiert.</p>
                 <div class="quiz-field">
                     <label for="quiz-name">Dein Vorname *</label>
                     <input class="quiz-input" id="quiz-name" name="name" type="text" placeholder="Max" autocomplete="given-name" required aria-describedby="err-name" value="${esc(state.name)}">
@@ -304,17 +304,17 @@ function renderContact(step) {
                     <span class="quiz-field-error" id="err-email"></span>
                 </div>
                 <div class="quiz-field">
-                    <label for="quiz-phone">Handynummer *</label>
+                    <label for="quiz-phone">Handynummer <span class="quiz-optional">(optional)</span></label>
                     <div class="quiz-phone-wrap">
                         <span class="quiz-phone-prefix" aria-hidden="true">+49</span>
-                        <input class="quiz-input quiz-input-phone" id="quiz-phone" name="phone" type="tel" inputmode="tel" placeholder="151 23456789" autocomplete="tel-national" required aria-describedby="hint-phone err-phone" value="${esc(state.phone.replace(/^\+49\s*/, ''))}">
+                        <input class="quiz-input quiz-input-phone" id="quiz-phone" name="phone" type="tel" inputmode="tel" placeholder="151 23456789" autocomplete="tel-national" aria-describedby="hint-phone err-phone" value="${esc(state.phone.replace(/^\+49\s*/, ''))}">
                     </div>
-                    <span class="quiz-field-hint" id="hint-phone">Nur für den Rückruf zu deinem 20-Minuten-Gespräch. Keine Werbeanrufe.</span>
+                    <span class="quiz-field-hint" id="hint-phone">Nur, wenn du lieber angerufen werden willst. Keine Werbeanrufe – ein Nein reicht.</span>
                     <span class="quiz-field-error" id="err-phone"></span>
                 </div>
                 <label class="quiz-optin">
                     <input type="checkbox" id="quiz-optin" aria-describedby="err-optin" ${state.optin ? 'checked' : ''}>
-                    <span>Ich bin einverstanden, dass backupyourlife mich per E-Mail und Telefon kontaktiert. Keine Weitergabe zu Werbezwecken. Widerruf jederzeit möglich.</span>
+                    <span>Ich bin einverstanden, dass backupyourlife mich per E-Mail und – falls angegeben – per Telefon zu meinem Ergebnis kontaktiert. Keine Weitergabe zu Werbezwecken. Widerruf jederzeit möglich.</span>
                 </label>
                 <span class="quiz-field-error" id="err-optin"></span>
                 <p class="quiz-privacy">Kein Spam. Nur dein Ergebnis. Datenschutz gemäß DSGVO.</p>
@@ -344,7 +344,7 @@ function renderContact(step) {
         if (invalid.length) { invalid[0].focus(); return; }
         state.name  = nameInput.value.trim();
         state.email = emailInput.value.trim();
-        state.phone = '+49 ' + phoneInput.value.trim().replace(/^(\+49|0049|0)/, '');
+        state.phone = normalizePhone(phoneInput.value);
         state.optin = optinInput.checked;
         submitLead();
     });
@@ -358,13 +358,20 @@ function renderContact(step) {
     });
 }
 
+// Telefonnummer prüfen und einheitlich speichern (+49 …)
+const isPhone = (v) => /^(0|\+49|0049)?[1-9][0-9]{8,12}$/.test(String(v).trim().replace(/[\s\-\/()]/g, ''));
+const normalizePhone = (v) => {
+    const raw = String(v).trim();
+    return raw ? '+49 ' + raw.replace(/^(\+49|0049|0)\s*/, '') : '';
+};
+
 const validators = {
     'quiz-name':  { err: 'err-name',  msg: 'Bitte gib deinen Vornamen ein (mindestens 2 Zeichen).',
                     ok: el => el.value.trim().length >= 2 },
     'quiz-email': { err: 'err-email', msg: 'Bitte prüfe deine E-Mail-Adresse – sie braucht ein @ und eine Endung wie .de.',
                     ok: el => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) },
     'quiz-phone': { err: 'err-phone', msg: 'Bitte gib deine Nummer ohne +49 ein, z. B. 151 23456789.',
-                    ok: el => /^(0|\+49|0049)?[1-9][0-9]{8,12}$/.test(el.value.trim().replace(/[\s\-\/()]/g, '')) },
+                    ok: el => !el.value.trim() || isPhone(el.value) },
     'quiz-optin': { err: 'err-optin', msg: 'Damit ich dir dein Ergebnis erklären kann, brauche ich dein Einverständnis.',
                     ok: el => el.checked },
 };
@@ -483,6 +490,26 @@ function nextStepHtml() {
             </div>`;
     }
 
+    // Rückruf gewünscht, aber noch keine Nummer
+    if (state.choice === 'anruf-nummer') {
+        return `
+            <div class="quiz-next-step" id="quiz-next-step">
+                <p class="quiz-next-step-title">${ICON.phone} Unter welcher Nummer erreiche ich dich?</p>
+                <div class="quiz-field quiz-field--late">
+                    <label for="quiz-late-phone">Handynummer *</label>
+                    <div class="quiz-phone-wrap">
+                        <span class="quiz-phone-prefix" aria-hidden="true">+49</span>
+                        <input class="quiz-input quiz-input-phone" id="quiz-late-phone" type="tel" inputmode="tel" placeholder="151 23456789" autocomplete="tel-national" value="${esc(state.phoneDraft || '')}">
+                    </div>
+                </div>
+                <p class="quiz-field-error" id="err-slot" role="alert"></p>
+                <div class="quiz-result-cta">
+                    <button class="btn btn-primary btn-large" type="button" id="quiz-call-confirm">Rückruf anfordern</button>
+                    <button class="quiz-link-btn" type="button" id="quiz-pick">Doch lieber selbst einen Termin wählen</button>
+                </div>
+            </div>`;
+    }
+
     // Bestätigung: lieber anrufen lassen
     if (state.choice === 'anruf') {
         return `
@@ -522,6 +549,14 @@ function nextStepHtml() {
                         return `<button type="button" class="quiz-slot${on ? ' selected' : ''}" role="radio" aria-checked="${on}" data-time="${t}">${t}</button>`;
                     }).join('')}
                 </div>
+                ${state.phone ? '' : `
+                <div class="quiz-field quiz-field--late">
+                    <label for="quiz-late-phone">Unter welcher Nummer rufe ich dich an? *</label>
+                    <div class="quiz-phone-wrap">
+                        <span class="quiz-phone-prefix" aria-hidden="true">+49</span>
+                        <input class="quiz-input quiz-input-phone" id="quiz-late-phone" type="tel" inputmode="tel" placeholder="151 23456789" autocomplete="tel-national" value="${esc(state.phoneDraft || '')}">
+                    </div>
+                </div>`}
                 <p class="quiz-field-error" id="err-slot" role="alert"></p>
                 <div class="quiz-result-cta">
                     <button class="btn btn-booking btn-large" type="button" id="quiz-book" ${state.slotTime ? '' : 'disabled'}>
@@ -548,8 +583,20 @@ function nextStepHtml() {
                 <p class="quiz-choice-or"><span>oder</span></p>
                 <button class="btn btn-secondary btn-large quiz-choice-alt" type="button" id="quiz-call">${ICON.phone} Ruf mich an, wenn es dir passt</button>
             </div>
-            <p class="quiz-result-cta-sub">20 Minuten · kostenlos · unverbindlich · kein Abschlusszwang</p>
+            <p class="quiz-result-cta-sub">20 Minuten · kostenlos · ein Nein reicht – kein Nachtelefonieren</p>
         </div>`;
+}
+
+// Sofort-Gewinn direkt nach dem Ergebnis: Notfallordner
+function fastWinHtml() {
+    return `
+        <a class="quiz-fastwin" href="notfallordner.html" target="_blank" rel="noopener">
+            <span class="quiz-fastwin-icon" aria-hidden="true">${ICON.check}</span>
+            <span>
+                <strong>Sofort für dich: der „Wenn Papa ausfällt“-Notfallordner</strong>
+                <span class="quiz-fastwin-sub">Vorlage zum Ausdrucken – damit deine Familie im Ernstfall weiß, was zu tun ist. Öffnet in neuem Tab.</span>
+            </span>
+        </a>`;
 }
 
 function rerenderNextStep(focusSel) {
@@ -594,15 +641,46 @@ function downloadIcs() {
 function bindNextStep() {
     const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', () => fn(el)); };
 
+    // Nachgetragene Telefonnummer übersteht das Neu-Zeichnen der Terminwahl
+    const late = document.getElementById('quiz-late-phone');
+    if (late) late.addEventListener('input', () => { state.phoneDraft = late.value; });
+    const takeLatePhone = () => {
+        if (state.phone) return true;
+        const el = document.getElementById('quiz-late-phone');
+        const err = document.getElementById('err-slot');
+        if (!el || !isPhone(el.value)) {
+            err.textContent = 'Bitte gib deine Nummer ohne +49 ein, z. B. 151 23456789.';
+            err.style.display = 'block';
+            if (el) { el.setAttribute('aria-invalid', 'true'); el.focus(); }
+            return false;
+        }
+        state.phone = normalizePhone(el.value);
+        return true;
+    };
+
     on('quiz-retry', retryLead);
     on('quiz-done', closeQuiz);
     on('quiz-ics', downloadIcs);
     on('quiz-pick', () => { state.choice = 'termin'; rerenderNextStep('.quiz-slots--times .quiz-slot'); });
     on('quiz-call', async (btn) => {
+        if (!state.phone) { state.choice = 'anruf-nummer'; rerenderNextStep('#quiz-late-phone'); return; }
         btn.disabled = true;
         state.choice = 'anruf';
         sendNote('anruf'); // nur Hinweis für dich – der Lead ist schon angekommen
         rerenderNextStep();
+    });
+    on('quiz-call-confirm', async (btn) => {
+        if (!takeLatePhone()) return;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="quiz-spinner" aria-hidden="true"></span> Wird gesendet …';
+        const ok = await sendNote('anruf');
+        if (ok) { state.choice = 'anruf'; rerenderNextStep(); return; }
+        state.phone = '';
+        btn.disabled = false;
+        btn.textContent = 'Nochmal versuchen';
+        const err = document.getElementById('err-slot');
+        err.textContent = 'Das ist leider nicht bei mir angekommen. Bitte versuch es noch einmal.';
+        err.style.display = 'block';
     });
 
     document.querySelectorAll('.quiz-slot[data-day]').forEach(b => b.addEventListener('click', () => {
@@ -616,6 +694,8 @@ function bindNextStep() {
 
     on('quiz-book', async (btn) => {
         if (!state.slotTime) return;
+        const hadPhone = !!state.phone;
+        if (!takeLatePhone()) return;
         btn.disabled = true;
         btn.setAttribute('aria-busy', 'true');
         btn.innerHTML = '<span class="quiz-spinner quiz-spinner--dark" aria-hidden="true"></span> Wird gebucht …';
@@ -624,6 +704,7 @@ function bindNextStep() {
             state.booked = true;
             rerenderNextStep('#quiz-ics');
         } else {
+            if (!hadPhone) state.phone = '';
             btn.disabled = false;
             btn.removeAttribute('aria-busy');
             btn.textContent = 'Nochmal versuchen';
@@ -688,6 +769,8 @@ function renderResult() {
             <p class="quiz-result-summary">${summaryText}</p>
 
             ${nextStepHtml()}
+
+            ${fastWinHtml()}
         </div>`;
 
     bindNextStep();
