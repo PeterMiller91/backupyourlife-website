@@ -3228,3 +3228,25 @@ ol.process-steps { list-style: none; }
 .calc-result .btn { white-space: normal; text-align: center; }
 .result-list a { display: inline-block; padding: 3px 0; }
 .cta-section .text-link { color: var(--pencil); }
+
+/* ==================== Rechtliche Seiten (Impressum, Erstinformation) ==================== */
+.legal-section { padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 8vw, 96px); }
+.legal { max-width: 760px; }
+.legal h2 {
+    font-size: 19px;
+    line-height: 1.3;
+    margin: 32px 0 8px;
+    letter-spacing: -0.01em;
+}
+.legal h2:first-child { margin-top: 0; }
+.legal p, .legal li { font-size: 16px; color: var(--body); line-height: 1.6; }
+.legal p + p { margin-top: 8px; }
+.legal ul { padding-left: 20px; }
+.legal a { color: var(--crayon-sky); overflow-wrap: anywhere; }
+.legal-intro { padding-bottom: 8px; }
+.legal-print { font-size: 16px; padding: 4px 0; }
+.legal-date { margin-top: 32px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted); }
+@media print {
+    .header, .footer, .skip-link, .legal-print { display: none !important; }
+    .page-hero { padding: 0 0 12px; }
+}
