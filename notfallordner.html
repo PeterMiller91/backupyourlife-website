@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wenn Papa ausfällt – Familien-Notfallordner | backupyourlife</title>
+    <meta name="description" content="Kostenlose Vorlage zum Ausdrucken: Wo liegen Verträge, Konten, Kontakte und Vollmachten – und was ist im Ernstfall zuerst zu tun?">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --paper: #FFFFFF;
+            --pencil: #1A1A1A;
+            --crayon-red: #E8412C;
+            --crayon-sun: #FFC531;
+            --crayon-sky: #2B59C3;
+            --line: #E6E3DC;
+            --muted: #6B6862;
+            --body: #3A3835;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--body);
+            background: #F6F4EF;
+        }
+        .sheet {
+            max-width: 820px;
+            margin: 24px auto;
+            background: var(--paper);
+            padding: clamp(20px, 5vw, 56px);
+            border-radius: 12px;
+            box-shadow: 0 6px 24px rgba(26, 26, 26, 0.06);
+        }
+        .toolbar {
+            max-width: 820px;
+            margin: 24px auto 0;
+            padding: 0 16px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .toolbar a { color: var(--crayon-sky); font-weight: 500; }
+        .btn-print {
+            font-family: inherit;
+            font-weight: 800;
+            font-size: 16px;
+            border: none;
+            border-radius: 999px;
+            padding: 14px 24px;
+            background: var(--crayon-sun);
+            color: var(--pencil);
+            box-shadow: 0 3px 0 var(--pencil);
+            cursor: pointer;
+        }
+        .btn-print:hover { background: #F2B400; }
+        :focus-visible { outline: 3px solid var(--crayon-sky); outline-offset: 3px; border-radius: 4px; }
+        .brand { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+        .brand img { height: 48px; width: auto; }
+        .kid {
+            font-family: 'Caveat Brush', cursive;
+            color: var(--crayon-sky);
+            font-size: clamp(30px, 6vw, 44px);
+            line-height: 1;
+            transform: rotate(-2deg);
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        h1 { font-weight: 800; font-size: clamp(26px, 5vw, 36px); line-height: 1.1; color: var(--pencil); letter-spacing: -0.02em; margin-bottom: 12px; }
+        .intro { max-width: 60ch; margin-bottom: 8px; }
+        .meta-row { display: flex; gap: 24px; flex-wrap: wrap; margin: 20px 0 8px; }
+        .meta-row label { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: baseline; }
+        .meta-row .fill { display: inline-block; min-width: 180px; border-bottom: 1px solid var(--pencil); height: 1.2em; }
+        h2 {
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--pencil);
+            margin: 36px 0 6px;
+            padding-top: 12px;
+            border-top: 3px solid var(--crayon-sun);
+            break-after: avoid;
+        }
+        h2 .num { font-family: 'IBM Plex Mono', monospace; color: var(--crayon-red); margin-right: 8px; }
+        .hint { font-size: 14px; color: var(--muted); margin-bottom: 12px; max-width: 65ch; }
+        .hint--warn { color: var(--pencil); background: #FFF6F4; border-left: 4px solid var(--crayon-red); padding: 10px 12px; border-radius: 0 6px 6px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; break-inside: auto; }
+        th, td { overflow-wrap: anywhere; hyphens: auto; }
+        @media (max-width: 640px) {
+            table { table-layout: fixed; font-size: 13px; }
+            th { font-size: 11px; letter-spacing: 0; padding: 6px 4px; }
+            td { padding: 0 4px; }
+            td:first-child { width: 34%; }
+            .meta-row .fill { min-width: 120px; }
+        }
+        th {
+            text-align: left;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 6px 8px;
+            border-bottom: 2px solid var(--pencil);
+        }
+        td { border-bottom: 1px solid #CFCAC0; padding: 0 8px; height: 38px; vertical-align: bottom; }
+        td:first-child { font-weight: 500; color: var(--pencil); width: 28%; }
+        tr { break-inside: avoid; }
+        .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .checklist li { display: flex; gap: 12px; align-items: flex-start; break-inside: avoid; }
+        .box { flex-shrink: 0; width: 20px; height: 20px; border: 2px solid var(--pencil); border-radius: 4px; margin-top: 2px; }
+        .checklist strong { color: var(--pencil); }
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .cta {
+            margin-top: 32px;
+            padding: 20px;
+            border: 2px solid var(--crayon-sky);
+            border-radius: 12px;
+        }
+        .cta p { margin-bottom: 8px; }
+        .cta a { color: var(--crayon-sky); font-weight: 800; }
+
+        @media print {
+            @page { size: A4; margin: 14mm; }
+            body { background: #fff; font-size: 11pt; }
+            .toolbar, .cta { display: none !important; }
+            .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+            h2 { margin-top: 20px; }
+            .page-break { break-before: page; }
+            td { height: 30px; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toolbar">
+        <a href="index.html">← Zur Startseite</a>
+        <button class="btn-print" type="button" onclick="window.print()">Ausdrucken oder als PDF speichern</button>
+    </div>
+
+    <main class="sheet">
+        <div class="brand">
+            <img src="logo/logo-light.svg" alt="backupyourlife" width="160" height="48">
+            <span class="kid" aria-hidden="true">Für den Fall der Fälle</span>
+        </div>
+
+        <h1>Wenn Papa ausfällt – unser Familien-Notfallordner</h1>
+        <p class="intro">Füll diese Seiten einmal in Ruhe aus und leg sie dorthin, wo deine Familie sie findet. Im Ernstfall weiß dann jeder, wo was liegt und wer anzurufen ist – ohne suchen zu müssen.</p>
+
+        <div class="meta-row">
+            <label>Ausgefüllt von <span class="fill"></span></label>
+            <label>Stand <span class="fill"></span></label>
+            <label>Ordner liegt in <span class="fill"></span></label>
+        </div>
+
+        <h2><span class="num">01</span>Wichtige Kontakte</h2>
+        <p class="hint">Wer muss informiert werden, wer kann helfen?</p>
+        <table>
+            <thead><tr><th>Wer</th><th>Name</th><th>Telefon / E-Mail</th></tr></thead>
+            <tbody>
+                <tr><td>Partner/in</td><td></td><td></td></tr>
+                <tr><td>Hausärztin / Hausarzt</td><td></td><td></td></tr>
+                <tr><td>Arbeitgeber / Personalabteilung</td><td></td><td></td></tr>
+                <tr><td>Krankenkasse</td><td></td><td></td></tr>
+                <tr><td>Versicherungsmakler</td><td></td><td></td></tr>
+                <tr><td>Bank (Konto & Kredit)</td><td></td><td></td></tr>
+                <tr><td>Steuerberater/in</td><td></td><td></td></tr>
+                <tr><td>Vermieter / Hausverwaltung</td><td></td><td></td></tr>
+                <tr><td>Vertrauensperson</td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2><span class="num">02</span>Versicherungen</h2>
+        <p class="hint">Gesellschaft, Vertragsnummer und wo die Police liegt. Gerade bei BU und Risikoleben zählt im Ernstfall jeder Tag.</p>
+        <table>
+            <thead><tr><th>Versicherung</th><th>Gesellschaft</th><th>Vertrags-Nr.</th><th>Police liegt …</th></tr></thead>
+            <tbody>
+                <tr><td>Berufsunfähigkeit (BU)</td><td></td><td></td><td></td></tr>
+                <tr><td>BU über den Arbeitgeber</td><td></td><td></td><td></td></tr>
+                <tr><td>Risikoleben</td><td></td><td></td><td></td></tr>
+                <tr><td>Schwere Krankheiten</td><td></td><td></td><td></td></tr>
+                <tr><td>Unfall</td><td></td><td></td><td></td></tr>
+                <tr><td>Kranken- / Zusatzversicherung</td><td></td><td></td><td></td></tr>
+                <tr><td>Haftpflicht</td><td></td><td></td><td></td></tr>
+                <tr><td>Hausrat / Wohngebäude</td><td></td><td></td><td></td></tr>
+                <tr><td>Sonstige</td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="page-break"><span class="num">03</span>Konten, Kredite & laufende Kosten</h2>
+        <p class="hint">Was geht jeden Monat raus, und von welchem Konto?</p>
+        <table>
+            <thead><tr><th>Was</th><th>Bank / Anbieter</th><th>Betrag pro Monat</th><th>Unterlagen liegen …</th></tr></thead>
+            <tbody>
+                <tr><td>Girokonto</td><td></td><td></td><td></td></tr>
+                <tr><td>Gemeinsames Konto</td><td></td><td></td><td></td></tr>
+                <tr><td>Immobilienkredit</td><td></td><td></td><td></td></tr>
+                <tr><td>Miete</td><td></td><td></td><td></td></tr>
+                <tr><td>Auto (Kredit / Leasing)</td><td></td><td></td><td></td></tr>
+                <tr><td>Sparverträge / Depots</td><td></td><td></td><td></td></tr>
+                <tr><td>Kita / Schule</td><td></td><td></td><td></td></tr>
+                <tr><td>Sonstiges</td><td></td><td></td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2><span class="num">04</span>Vollmachten & Verfügungen</h2>
+        <p class="hint">Ohne Vollmacht darf auch der Ehepartner vieles nicht entscheiden. Kreuze an, was es gibt, und wo es liegt.</p>
+        <table>
+            <thead><tr><th>Dokument</th><th>Vorhanden?</th><th>Liegt bei / in …</th></tr></thead>
+            <tbody>
+                <tr><td>Vorsorgevollmacht</td><td>☐ ja &nbsp; ☐ nein</td><td></td></tr>
+                <tr><td>Patientenverfügung</td><td>☐ ja &nbsp; ☐ nein</td><td></td></tr>
+                <tr><td>Bankvollmacht</td><td>☐ ja &nbsp; ☐ nein</td><td></td></tr>
+                <tr><td>Sorgerechtsverfügung</td><td>☐ ja &nbsp; ☐ nein</td><td></td></tr>
+                <tr><td>Testament</td><td>☐ ja &nbsp; ☐ nein</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2><span class="num">05</span>Digitales</h2>
+        <p class="hint hint--warn"><strong>Schreib hier keine Passwörter auf.</strong> Notiere nur, wo der Passwort-Manager ist und wer im Notfall Zugang bekommt.</p>
+        <table>
+            <thead><tr><th>Was</th><th>Wo / wie</th></tr></thead>
+            <tbody>
+                <tr><td>Passwort-Manager</td><td></td></tr>
+                <tr><td>Notfallzugang erhält</td><td></td></tr>
+                <tr><td>Handy-Entsperrung</td><td></td></tr>
+                <tr><td>E-Mail-Konto</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <h2 class="page-break"><span class="num">06</span>Im Ernstfall: die ersten Schritte</h2>
+        <p class="hint">Eine Erinnerungsliste, keine Rechtsberatung. Die genauen Fristen stehen in den jeweiligen Verträgen.</p>
+        <ul class="checklist">
+            <li><span class="box" aria-hidden="true"></span><span><strong>Arbeitgeber informieren</strong> und Krankmeldung weitergeben.</span></li>
+            <li><span class="box" aria-hidden="true"></span><span><strong>Krankenkasse kontaktieren</strong> – Krankengeld beginnt, wenn die Lohnfortzahlung endet.</span></li>
+            <li><span class="box" aria-hidden="true"></span><span><strong>Versicherungsmakler anrufen</strong> – er weiß, welche Verträge greifen und welche Fristen laufen.</span></li>
+            <li><span class="box" aria-hidden="true"></span><span><strong>BU- und andere Versicherungen früh informieren</strong> – nicht warten, bis klar ist, wie lange es dauert.</span></li>
+            <li><span class="box" aria-hidden="true"></span><span><strong>Bank wegen Kredit ansprechen</strong>, bevor Raten offen bleiben.</span></li>
+            <li><span class="box" aria-hidden="true"></span><span><strong>Daueraufträge und laufende Kosten prüfen</strong> – was kann pausieren?</span></li>
+            <li><span class="box" aria-hidden="true"></span><span><strong>Hilfe annehmen.</strong> Notiere hier, wer euch im Alltag unterstützen kann:</span></li>
+        </ul>
+        <table style="margin-top:12px">
+            <tbody>
+                <tr><td>Kinder abholen / betreuen</td><td></td></tr>
+                <tr><td>Einkaufen / Haushalt</td><td></td></tr>
+                <tr><td>Behörden & Papierkram</td><td></td></tr>
+            </tbody>
+        </table>
+
+        <div class="cta">
+            <p><strong>Beim Ausfüllen gemerkt, dass bei Versicherungen Felder leer bleiben?</strong></p>
+            <p>Dann weißt du, wo deine Lücke ist. Im <a href="index.html#das-bekommst-du">25-Minuten-Familien-Backup</a> rechnen wir sie gemeinsam in Euro aus – ein Nein reicht.</p>
+        </div>
+
+        <p class="footer-note">backupyourlife · Vorlage zum privaten Gebrauch · keine Rechts- oder Steuerberatung</p>
+    </main>
+
+</body>
+</html>

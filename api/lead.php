@@ -106,7 +106,7 @@ $text = "🔔 <b>Neuer Lead – backupyourlife</b>\n\n"
       . "• Risikoleben: {$rl}\n\n"
       . "💸 <b>Monatliche Lücke: −{$lueckeFormatted} €</b>\n"
       . "{$gapEmoji} <b>{$gaps} offene {$gapsText}</b>\n\n"
-      . "👉 Jetzt anrufen!";
+      . ($phone ? "👉 Jetzt anrufen!" : "👉 Keine Nummer angegeben – Terminwahl abwarten oder per E-Mail melden.");
 
 $tgResponse = curlPost(
     "https://api.telegram.org/bot{$token}/sendMessage",
