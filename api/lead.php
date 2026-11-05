@@ -41,6 +41,42 @@ $answers = $body['answers'] ?? [];
 $luecke  = $body['luecke']  ?? 0;
 $gaps    = $body['gaps']    ?? 0;
 
+// ── Folge-Nachricht nach dem Ergebnis: Termin gebucht oder Rückruf gewünscht ──
+$type = $body['type'] ?? 'lead';
+if ($type === 'termin' || $type === 'anruf') {
+    if ($type === 'termin') {
+        $termin = htmlspecialchars((function_exists('mb_substr') ? mb_substr((string) ($body['termin'] ?? ''), 0, 80) : substr((string) ($body['termin'] ?? ''), 0, 80)), ENT_QUOTES, 'UTF-8');
+        if ($termin === '') {
+            http_response_code(400);
+            echo json_encode(['error' => 'Termin fehlt']);
+            exit;
+        }
+        $text = "📅 <b>Termin gebucht – backupyourlife</b>\n\n"
+              . "👤 <b>{$name}</b>\n"
+              . "📱 " . ($phone ?: '–') . "\n"
+              . "📧 {$email}\n\n"
+              . "🕒 <b>{$termin}</b>\n\n"
+              . "👉 Zu dieser Zeit anrufen (20 Min.). Bitte in den Kalender eintragen.";
+    } else {
+        $text = "📞 <b>Rückruf gewünscht – backupyourlife</b>\n\n"
+              . "👤 <b>{$name}</b>\n"
+              . "📱 " . ($phone ?: '–') . "\n\n"
+              . "👉 Möchte keinen Termin selbst wählen – bitte anrufen und Termin vereinbaren.";
+    }
+
+    $tgResponse = curlPost(
+        "https://api.telegram.org/bot{$token}/sendMessage",
+        ['chat_id' => $chatId, 'text' => $text, 'parse_mode' => 'HTML']
+    );
+    if (!($tgResponse['ok'] ?? false)) {
+        http_response_code(500);
+        echo json_encode(['error' => $tgResponse['description'] ?? 'Telegram-Fehler']);
+        exit;
+    }
+    echo json_encode(['success' => true]);
+    exit;
+}
+
 // ── Mappings ─────────────────────────────────────────────────────────────────
 $kinderMap    = ['1' => '1 Kind', '2' => '2 Kinder', '3p' => '3+ Kinder'];
 $einkommenMap = ['u3k' => 'bis 3.000 €', '3-5k' => '3.000–5.000 €', '5-8k' => '5.000–8.000 €', 'ue8k' => 'über 8.000 €'];

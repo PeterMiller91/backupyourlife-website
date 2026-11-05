@@ -2597,3 +2597,143 @@ h1, h2, h3 {
 }
 
 .quiz-phone-wrap:has(.invalid) { border-color: var(--crayon-red); }
+
+/* ==================== Ergebnis: Entweder-oder (Termin oder Rückruf) ==================== */
+/* Gelb = Optimismus + Handlung, hebt sich vom Blau ab und ist nicht das Rot der Lücken.
+   Schwarze Schrift auf Gelb: Kontrast > 12:1. */
+.btn-booking {
+    background: var(--crayon-sun);
+    color: var(--pencil);
+    box-shadow: 0 3px 0 var(--pencil);
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+.btn-booking:hover { background: #F2B400; color: var(--pencil); }
+.btn-booking:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--pencil); }
+.btn-booking:disabled {
+    background: #FBE7A8;
+    color: rgba(26, 26, 26, 0.55);
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+.btn-booking .ico,
+.quiz-choice-alt .ico { width: 20px; height: 20px; vertical-align: -0.25em; margin-right: 6px; }
+
+.quiz-next-step .btn {
+    white-space: normal;
+    text-align: center;
+    width: 100%;
+}
+
+.quiz-received {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+}
+.quiz-received .ico { color: #1F8A4C; }
+
+.quiz-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.quiz-choice-hint {
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+}
+.quiz-choice-or {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 6px 0;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 22px;
+    color: var(--muted);
+}
+.quiz-choice-or::before,
+.quiz-choice-or::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+}
+.quiz-choice-alt { padding: 14px 24px; font-size: 16px; }
+
+/* Terminwahl */
+.quiz-next-step--booking { border-color: var(--crayon-sun); border-width: 3px; }
+.quiz-next-step--booking .quiz-next-step-title .ico,
+.quiz-next-step--done .quiz-next-step-title .ico { color: var(--pencil); }
+.quiz-picker-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-top: 4px;
+}
+.quiz-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    gap: 8px;
+}
+.quiz-slot {
+    min-height: 48px;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+    color: var(--pencil);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 6px 4px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    touch-action: manipulation;
+}
+.quiz-slot:hover { border-color: var(--pencil); }
+.quiz-slot.selected {
+    border-color: var(--pencil);
+    background: var(--crayon-sun);
+    font-weight: 800;
+}
+.quiz-slot:focus-visible { outline: 3px solid var(--crayon-sky); outline-offset: 2px; }
+.quiz-slot-wd { font-size: 13px; color: var(--muted); line-height: 1.2; }
+.quiz-slot.selected .quiz-slot-wd { color: var(--pencil); }
+.quiz-slot-date { font-size: 16px; line-height: 1.2; }
+
+/* Gebucht */
+.quiz-next-step--done { border-color: #1F8A4C; background: #F3FAF5; }
+.quiz-next-step--done .quiz-next-step-title .ico { color: #1F8A4C; }
+.quiz-booked-slot {
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--pencil);
+    background: var(--crayon-sun);
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.quiz-link-btn {
+    background: none;
+    border: none;
+    padding: 12px 0;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 15px;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    align-self: center;
+}
+.quiz-link-btn:hover { color: var(--pencil); }
+
+.quiz-spinner--dark { border-color: rgba(26, 26, 26, 0.25); border-top-color: var(--pencil); }
+.btn-booking[aria-busy="true"] { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
