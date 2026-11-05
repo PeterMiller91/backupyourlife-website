@@ -76,3 +76,19 @@ In Plausible die Ereignisse oben als „Goals“ anlegen. Vorher Datenschutzerkl
 - Terminwahl im Backup-Check prüft keinen echten Kalender (Doppelbuchungen möglich). Lösung: `BOOKING_URL` in `quiz.js` auf Calendly/Cal.com setzen.
 - Uhrzeiten und Wochentage der Terminwahl (`TERMIN_ZEITEN`, `TERMIN_WOCHENTAGE` in `quiz.js`) an deine echten Zeiten anpassen.
 - Google Fonts werden von Google geladen. Für Datenschutz und Ladezeit wäre Selbst-Hosting der Schriften besser.
+
+---
+
+## 6. Newsletter „Backup-Briefing“ einrichten (Brevo)
+
+Das Formular steht auf `notfallordner.html` und läuft über `api/newsletter.php` mit Double-Opt-in. Bis die folgenden Schritte erledigt sind, zeigt es beim Absenden eine Fehlermeldung.
+
+1. **Liste anlegen:** Brevo → Kontakte → Listen → „BYL Newsletter“. ID notieren.
+2. **Absender einrichten:** Brevo → Absender & Domains → mail@backupyourlife.de hinzufügen und bestätigen; Domain backupyourlife.de authentifizieren (DNS-Einträge bei netcup), sonst landen Mails im Spam.
+3. **Double-Opt-in-Vorlage:** Vorlage mit Tag „optin“ und dem Bestätigungslink `{{ params.DOIurl }}` im Design von backupyourlife (kann Claude anlegen, sobald der Absender existiert). ID notieren.
+4. **API-Schlüssel:** Brevo → SMTP & API → neuen Schlüssel nur für die Website erstellen.
+5. **Auf dem Server** in `api/config.php` eintragen: `brevo_api_key`, `brevo_newsletter_list_id`, `brevo_doi_template_id` (Vorlage: `api/config.example.php`).
+6. **Datenschutzerklärung** um Brevo (Sendinblue GmbH, Berlin) ergänzen und im Formular verlinken.
+7. Einmal mit einer eigenen Adresse testen: Bestätigungs-Mail kommt an → Link → Rückkehr auf den Notfallordner mit „Anmeldung bestätigt“ → Kontakt steht in „BYL Newsletter“.
+
+Hinweis: Das Brevo-Konto „DS Marketing“ enthält auch die Listen anderer Projekte (Morgenlicht, Raus aus dem Gift). Der Website-Schlüssel kann technisch alle Listen ansprechen – daher eigenen Schlüssel verwenden und nur in `config.php` hinterlegen.
