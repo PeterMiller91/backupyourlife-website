@@ -17,6 +17,15 @@ if (hamburger && mobileMenu) {
         });
     });
 
+    // Close menu with Escape and return focus to the button
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.hidden) {
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.hidden = true;
+            hamburger.focus();
+        }
+    });
+
     // Close menu on outside click
     document.addEventListener('click', (e) => {
         if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
@@ -63,14 +72,65 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 // ==================== Tabs (B-2a-B, Rechenbeispiele) ====================
 // Jede .tabs-group schaltet nur ihre eigenen Pills und Panels um.
-document.querySelectorAll('.tab-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-        const group = pill.closest('.tabs-group') || document;
-        group.querySelectorAll('.tab-pill').forEach(p => p.setAttribute('aria-selected', 'false'));
-        group.querySelectorAll('.tab-panel').forEach(panel => panel.setAttribute('aria-hidden', 'true'));
-        pill.setAttribute('aria-selected', 'true');
-        document.getElementById(pill.getAttribute('aria-controls')).setAttribute('aria-hidden', 'false');
+// Tastatur nach WAI-ARIA: Pfeiltasten wechseln, nur der aktive Tab ist per Tab erreichbar.
+document.querySelectorAll('.tabs-group').forEach(group => {
+    const pills = [...group.querySelectorAll('.tab-pill')];
+
+    const select = (pill, focus) => {
+        pills.forEach(p => {
+            const on = p === pill;
+            p.setAttribute('aria-selected', String(on));
+            p.tabIndex = on ? 0 : -1;
+            const panel = document.getElementById(p.getAttribute('aria-controls'));
+            panel.setAttribute('aria-hidden', String(!on));
+            panel.hidden = !on;
+        });
+        if (focus) pill.focus();
+    };
+
+    pills.forEach((pill, i) => {
+        pill.addEventListener('click', () => select(pill));
+        pill.addEventListener('keydown', e => {
+            let next = null;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = pills[(i + 1) % pills.length];
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = pills[(i - 1 + pills.length) % pills.length];
+            if (e.key === 'Home') next = pills[0];
+            if (e.key === 'End') next = pills[pills.length - 1];
+            if (next) { e.preventDefault(); select(next, true); }
+        });
     });
+
+    select(pills.find(p => p.getAttribute('aria-selected') === 'true') || pills[0]);
+});
+
+// ==================== Info-Tooltips an den Backup-Karten ====================
+// Öffnen per Hover, Fokus UND Antippen; schließen per Esc oder Klick daneben.
+const infoWraps = [...document.querySelectorAll('.card-info-wrap')];
+const closeAllTips = (except) => infoWraps.forEach(w => {
+    if (w === except) return;
+    w.classList.remove('is-open');
+    w.querySelector('.card-info-btn').setAttribute('aria-expanded', 'false');
+});
+
+infoWraps.forEach(wrap => {
+    const btn = wrap.querySelector('.card-info-btn');
+    btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = !wrap.classList.contains('is-open');
+        closeAllTips(wrap);
+        wrap.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', String(open));
+    });
+});
+document.addEventListener('click', e => { if (!e.target.closest('.card-info-wrap')) closeAllTips(); });
+document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    const open = infoWraps.find(w => w.classList.contains('is-open') || w.contains(document.activeElement));
+    if (open) { closeAllTips(); open.classList.add('is-dismissed'); }
+});
+infoWraps.forEach(w => {
+    w.addEventListener('mouseleave', () => w.classList.remove('is-dismissed'));
+    w.addEventListener('focusout', () => w.classList.remove('is-dismissed'));
 });
 
 // ==================== Accordion (B-2e) ====================
@@ -176,7 +236,6 @@ if (stickyCta) {
     const hero = document.querySelector('.hero');
     const stickyBtn = stickyCta.querySelector('button');
     const endZones = [...document.querySelectorAll('.cta-section, .footer')];
-    const cookieBanner = document.getElementById('cookie-banner');
     const menu = document.getElementById('mobile-menu');
     let endVisible = false;
 
@@ -190,7 +249,7 @@ if (stickyCta) {
 
     function refresh() {
         const pastHero = hero.getBoundingClientRect().bottom < 0;
-        const blocked = endVisible || (cookieBanner && !cookieBanner.hidden) || (menu && !menu.hidden);
+        const blocked = endVisible || (menu && !menu.hidden);
         const show = pastHero && !blocked;
         stickyCta.classList.toggle('is-visible', show);
         stickyCta.setAttribute('aria-hidden', show ? 'false' : 'true');
