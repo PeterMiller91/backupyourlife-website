@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über mich – backupyourlife</title>
-    <meta name="description" content="Ich bin [Name]. Ich hab backupyourlife gegründet, weil es mir selbst gefehlt hat. Hier findest du meine Geschichte und wofür ich stehe.">
+    <title>Über mich: Warum es backupyourlife gibt | backupyourlife</title>
+    <meta name="description" content="Meine Geschichte: Mit der Diagnose Krebs habe ich gelernt, welche Absicherung im Ernstfall trägt. Deshalb helfe ich heute Familien.">
+    <link rel="canonical" href="https://backupyourlife.de/ueber-uns.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:site_name" content="backupyourlife">
+    <meta property="og:url" content="https://backupyourlife.de/ueber-uns.html">
+    <meta property="og:title" content="Über mich: Warum es backupyourlife gibt">
+    <meta property="og:description" content="Meine Geschichte: Mit der Diagnose Krebs habe ich gelernt, welche Absicherung im Ernstfall trägt. Deshalb helfe ich heute Familien.">
+    <meta property="og:image" content="https://backupyourlife.de/Bilder%20Website/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261106a">
+    <link rel="stylesheet" href="styles.css?v=20261107a">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 </head>
 <body>
+
+    <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
     <!-- Header -->
     <div class="header-wrapper">
@@ -17,14 +30,14 @@
             <div class="container">
                 <div class="header-content">
                     <a href="index.html" class="logo" aria-label="backupyourlife Startseite">
-                        <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img">
+                        <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img" width="223" height="104">
                     </a>
                     <nav class="nav" aria-label="Hauptnavigation">
                         <a href="index.html#die-backups" class="nav-link">Die drei Backups</a>
                         <a href="index.html#muster-auswertung" class="nav-link">Beispiel-Auswertung</a>
                         <a href="index.html#wie-funktioniert" class="nav-link">Ablauf</a>
                         <a href="ueber-uns.html" class="nav-link">Über mich</a>
-                        <button class="btn btn-primary nav-cta" data-quiz-open>Familien-Lücke berechnen</button>
+                        <button class="btn btn-primary nav-cta" type="button" data-quiz-open data-cta="header">Meine Familien-Lücke berechnen</button>
                         <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
                             <span></span><span></span><span></span>
                         </button>
@@ -46,6 +59,8 @@
     </div>
 
     <!-- Page Hero -->
+    <main id="inhalt" tabindex="-1">
+
     <section class="page-hero">
         <div class="container">
             <p class="page-hero-eyebrow">Über mich</p>
@@ -127,18 +142,20 @@
                 <p class="cta-subline">Beantworte fünf kurze Fragen – und bekomm eine klare Grundlage für deine nächsten Entscheidungen.</p>
                 <div class="cta-buttons">
                     <button class="btn btn-primary btn-large" data-quiz-open>Meine Familien-Lücke berechnen</button>
-                    <p class="cta-reassurance">5 Minuten Check · 20 Minuten Gespräch · Kostenlos · Kein Abschlusszwang</p>
+                    <p class="cta-trust">Kostenlos · 5 Minuten · Sofortiges Ergebnis · Ohne Verpflichtung</p>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="logo/logo-dark.svg" alt="backupyourlife" class="logo-img">
+                    <img src="logo/logo-dark.svg" alt="backupyourlife" class="logo-img" width="133" height="64" loading="lazy">
                 </div>
                 <nav class="footer-links" aria-label="Rechtliches">
                     <a href="#" class="footer-link">Impressum</a>
@@ -154,7 +171,7 @@
         <div class="quiz-modal">
             <div class="quiz-header">
                 <div class="quiz-logo">
-                    <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img">
+                    <img src="logo/logo-light.svg" alt="backupyourlife" class="logo-img" width="223" height="104">
                 </div>
                 <button class="quiz-close" type="button" aria-label="Backup-Check schließen" id="quiz-close"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
             </div>
@@ -165,7 +182,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20261106a"></script>
-    <script src="quiz.js?v=20261106a"></script>
+    <script src="script.js?v=20261107a" defer></script>
+    <script src="quiz.js?v=20261107a" defer></script>
 </body>
 </html>

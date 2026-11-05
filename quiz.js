@@ -22,6 +22,9 @@ const ICON = {
 };
 
 // Nutzereingaben nie ungeprüft als HTML ausgeben
+// Messung: nur Ereignisnamen, keine personenbezogenen Daten (siehe script.js)
+const track = (name, props) => { if (typeof window.bylTrack === 'function') window.bylTrack(name, props); };
+
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 // ==================== Quiz State ====================
@@ -151,7 +154,7 @@ function openQuiz(trigger) {
     lastTrigger = trigger || document.activeElement;
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
-    Object.assign(state, { current: 0, answers: {}, name: '', email: '', phone: '', optin: false, leadStatus: 'idle', choice: '', slotDay: '', slotTime: '', booked: false, phoneDraft: '' });
+    Object.assign(state, { current: 0, answers: {}, name: '', email: '', phone: '', optin: false, leadStatus: 'idle', choice: '', slotDay: '', slotTime: '', booked: false, phoneDraft: '', started: false });
     renderStep();
 }
 
@@ -254,6 +257,7 @@ function renderChoice(step) {
     body.querySelectorAll('.quiz-option').forEach(btn => {
         btn.addEventListener('click', () => {
             const val = btn.dataset.value;
+            if (state.current === 0 && !state.started) { state.started = true; track('Check gestartet'); }
             state.answers[step.id] = val;
             body.querySelectorAll('.quiz-option').forEach(b => {
                 const on = b === btn;
@@ -417,6 +421,7 @@ async function submitLead() {
         btn.innerHTML = '<span class="quiz-spinner" aria-hidden="true"></span> Wird gesendet …';
     }
     state.leadStatus = 'sending';
+    track('Check abgeschlossen');
     const ok = await sendLead(leadPayload());
     state.leadStatus = ok ? 'ok' : 'error';
     state.current = steps.length;
@@ -577,7 +582,7 @@ function nextStepHtml() {
                     const url = new URL(BOOKING_URL);
                     if (state.name)  url.searchParams.set('name', state.name);
                     if (state.email) url.searchParams.set('email', state.email);
-                    return `<a href="${esc(url.toString())}" class="btn btn-booking btn-large quiz-choice-main" target="_blank" rel="noopener">${ICON.calendar} Termin jetzt selbst wählen</a>`;
+                    return `<a href="${esc(url.toString())}" class="btn btn-booking btn-large quiz-choice-main" id="quiz-booking-link" target="_blank" rel="noopener">${ICON.calendar} Termin jetzt selbst wählen</a>`;
                 })() : `<button class="btn btn-booking btn-large quiz-choice-main" type="button" id="quiz-pick">${ICON.calendar} Termin jetzt selbst wählen</button>`}
                 <p class="quiz-choice-hint">Dauert 30 Sekunden · du bestimmst die Uhrzeit</p>
                 <p class="quiz-choice-or"><span>oder</span></p>
@@ -659,13 +664,16 @@ function bindNextStep() {
     };
 
     on('quiz-retry', retryLead);
+    on('quiz-booking-link', () => track('Gespräch gewählt', { art: 'kalender' }));
     on('quiz-done', closeQuiz);
     on('quiz-ics', downloadIcs);
-    on('quiz-pick', () => { state.choice = 'termin'; rerenderNextStep('.quiz-slots--times .quiz-slot'); });
+    on('quiz-pick', () => { track('Gespräch gewählt', { art: 'termin' }); state.choice = 'termin'; rerenderNextStep('.quiz-slots--times .quiz-slot'); });
     on('quiz-call', async (btn) => {
+        track('Gespräch gewählt', { art: 'rueckruf' });
         if (!state.phone) { state.choice = 'anruf-nummer'; rerenderNextStep('#quiz-late-phone'); return; }
         btn.disabled = true;
         state.choice = 'anruf';
+        track('Rückruf angefordert');
         sendNote('anruf'); // nur Hinweis für dich – der Lead ist schon angekommen
         rerenderNextStep();
     });
@@ -674,7 +682,7 @@ function bindNextStep() {
         btn.disabled = true;
         btn.innerHTML = '<span class="quiz-spinner" aria-hidden="true"></span> Wird gesendet …';
         const ok = await sendNote('anruf');
-        if (ok) { state.choice = 'anruf'; rerenderNextStep(); return; }
+        if (ok) { track('Rückruf angefordert'); state.choice = 'anruf'; rerenderNextStep(); return; }
         state.phone = '';
         btn.disabled = false;
         btn.textContent = 'Nochmal versuchen';
@@ -701,6 +709,7 @@ function bindNextStep() {
         btn.innerHTML = '<span class="quiz-spinner quiz-spinner--dark" aria-hidden="true"></span> Wird gebucht …';
         const ok = await sendNote('termin');
         if (ok) {
+            track('Termin gebucht');
             state.booked = true;
             rerenderNextStep('#quiz-ics');
         } else {
@@ -774,6 +783,7 @@ function renderResult() {
         </div>`;
 
     bindNextStep();
+    track('Ergebnis angezeigt');
 }
 
 // ==================== Init ====================

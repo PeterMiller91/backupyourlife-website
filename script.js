@@ -1,3 +1,20 @@
+// ==================== Conversion-Messung (datensparsam) ====================
+// Übermittelt nur Ereignisnamen und den Ort des Buttons (z. B. "hero") –
+// niemals Namen, E-Mail, Telefonnummer oder Antworten aus dem Backup-Check.
+// Aktiv erst, wenn ein cookieloses Analytics-Tool eingebunden ist, z. B. Plausible
+// (dann gibt es window.plausible). Ohne Tool passiert nichts außer einer lokalen Liste.
+window.bylTrack = function (name, props) {
+    try {
+        (window.bylEvents = window.bylEvents || []).push({ name: name, props: props || {}, t: Date.now() });
+        if (typeof window.plausible === 'function') window.plausible(name, props ? { props: props } : undefined);
+    } catch (_) { /* Messung darf die Seite nie stören */ }
+};
+
+document.addEventListener('click', (e) => {
+    const cta = e.target.closest('[data-quiz-open]');
+    if (cta) window.bylTrack('CTA Klick', { ort: cta.dataset.cta || 'sonstige' });
+});
+
 // ==================== Hamburger Menu ====================
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -43,6 +60,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) {
             e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
+            openAccordionItem(target);
         }
     });
 });
@@ -134,6 +152,12 @@ infoWraps.forEach(w => {
 });
 
 // ==================== Accordion (B-2e) ====================
+// Sprunglinks auf eine FAQ (z. B. #daten) öffnen die Antwort direkt
+function openAccordionItem(el) {
+    if (!el || !el.classList || !el.classList.contains('accordion-item')) return;
+    const trigger = el.querySelector('.accordion-trigger');
+    if (trigger && trigger.getAttribute('aria-expanded') !== 'true') trigger.click();
+}
 document.querySelectorAll('.accordion-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
         const isOpen = trigger.getAttribute('aria-expanded') === 'true';
@@ -260,3 +284,8 @@ if (stickyCta) {
     document.addEventListener('click', () => setTimeout(refresh, 0));
     refresh();
 }
+
+// Beim Laden mit Anker (z. B. von einer Unterseite auf #daten) die Antwort öffnen
+window.addEventListener('load', () => {
+    if (location.hash.length > 1) openAccordionItem(document.getElementById(decodeURIComponent(location.hash.slice(1))));
+});
