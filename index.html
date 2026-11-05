@@ -7,7 +7,7 @@
     <meta name="description" content="Wenn dein Einkommen wegfällt, laufen eure Kosten weiter. Finde in wenigen Minuten heraus, wie gut deine Familie finanziell geschützt ist – kostenlos und unverbindlich.">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preload" as="image" type="image/webp" imagesrcset="Bilder%20Website/papa-hebt-mich-hoch-720.webp 720w, Bilder%20Website/papa-hebt-mich-hoch-1200.webp 1200w" imagesizes="(max-width: 768px) 100vw, 560px" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20261105b">
+    <link rel="stylesheet" href="styles.css?v=20261105c">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 </head>
 <body class="has-jump-nav">
@@ -343,10 +343,10 @@
             <h2 class="section-headline">Ich weiß, wie es ist, wenn das Leben <span class="highlight">nicht</span> nach Plan läuft.</h2>
             <div class="person-grid">
                 <figure class="person-photo-frame">
-                    <!-- TODO: echtes Foto einsetzen, z. B. <img src="Bilder%20Website/ich.jpg" alt="[Vorname Nachname] mit Familie" class="person-photo"> -->
-                    <div class="drawing-placeholder person-photo-placeholder">
-                        <span class="drawing-placeholder-text">[Echtes Foto von dir – Tageslicht, kein Studio]</span>
-                    </div>
+                    <picture>
+                        <source type="image/webp" srcset="Bilder%20Website/portrait-600.webp 600w, Bilder%20Website/portrait-1000.webp 1000w" sizes="(max-width: 768px) 100vw, 480px">
+                        <img src="Bilder%20Website/portrait-1000.jpg" srcset="Bilder%20Website/portrait-600.jpg 600w, Bilder%20Website/portrait-1000.jpg 1000w" sizes="(max-width: 768px) 100vw, 480px" width="1000" height="1277" alt="Porträt des Gründers von backupyourlife, lächelnd in hellem Hemd" class="person-photo" loading="lazy" decoding="async">
+                    </picture>
                     <figcaption class="drawing-caption">[Vorname Nachname] · Gründer von backupyourlife · Versicherungsmakler</figcaption>
                 </figure>
                 <div class="person-text">
@@ -378,11 +378,11 @@
                 <div class="transparency-card">
                     <p class="transparency-label">Status</p>
                     <p class="transparency-title">Versicherungsmakler</p>
-                    <p class="transparency-text">Mit Erlaubnis nach § 34d Abs. 1 GewO. Als Makler stehe ich auf deiner Seite – nicht auf der eines Versicherers.</p>
+                    <p class="transparency-text">Mit Erlaubnis nach § 34d Abs. 1 GewO, zusätzlich Finanzanlagenvermittler nach § 34f GewO. Als Makler stehe ich auf deiner Seite – nicht auf der eines Versicherers.</p>
                 </div>
                 <div class="transparency-card">
                     <p class="transparency-label">Registrierung</p>
-                    <p class="transparency-title">Reg.-Nr. [D-XXXX-XXXXX-XX]</p>
+                    <p class="transparency-title transparency-title--reg">§ 34d: D-514M-UVR8K-11<br>§ 34f: D-F-155-SI8L-15</p>
                     <p class="transparency-text">Selbst prüfbar im offiziellen <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener">Vermittlerregister</a> der IHK. Zuständig: [IHK …].</p>
                 </div>
                 <div class="transparency-card">
@@ -762,7 +762,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20261105b"></script>
-    <script src="quiz.js?v=20261105b"></script>
+    <script src="script.js?v=20261105c"></script>
+    <script src="quiz.js?v=20261105c"></script>
 </body>
 </html>

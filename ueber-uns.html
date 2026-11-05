@@ -6,7 +6,7 @@
     <title>Über mich – backupyourlife</title>
     <meta name="description" content="Ich bin [Name]. Ich hab backupyourlife gegründet, weil es mir selbst gefehlt hat. Hier findest du meine Geschichte und wofür ich stehe.">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261105b">
+    <link rel="stylesheet" href="styles.css?v=20261105c">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -59,17 +59,18 @@
             <div class="about-grid">
 
                 <div class="about-photo-col">
-                    <!-- TODO: echtes Foto einsetzen, z. B. <img src="Bilder%20Website/ich.jpg" alt="[Vorname Nachname]" class="person-photo"> -->
-                    <div class="drawing-placeholder person-photo-placeholder">
-                        <span class="drawing-placeholder-text">[Echtes Foto von dir – Tageslicht, kein Studio]</span>
-                    </div>
+                    <picture>
+                        <source type="image/webp" srcset="Bilder%20Website/portrait-600.webp 600w, Bilder%20Website/portrait-1000.webp 1000w" sizes="(max-width: 768px) 100vw, 420px">
+                        <img src="Bilder%20Website/portrait-1000.jpg" srcset="Bilder%20Website/portrait-600.jpg 600w, Bilder%20Website/portrait-1000.jpg 1000w" sizes="(max-width: 768px) 100vw, 420px" width="1000" height="1277" alt="Porträt des Gründers von backupyourlife, lächelnd in hellem Hemd" class="person-photo" loading="lazy" decoding="async">
+                    </picture>
 
-                    <div class="about-drawing-frame">
-                        <div class="drawing-placeholder drawing-placeholder--small">
-                            <span class="drawing-placeholder-text">[Kinderzeichnung – nur mit Einwilligung der Eltern]</span>
-                        </div>
-                        <p class="drawing-caption">[Name], [Alter] · „[Titel der Zeichnung]"</p>
-                    </div>
+                    <figure class="about-drawing-frame">
+                        <picture>
+                            <source type="image/webp" srcset="Bilder%20Website/zeichnung-backupyourlife-720.webp 720w, Bilder%20Website/zeichnung-backupyourlife-1200.webp 1200w" sizes="(max-width: 768px) 100vw, 420px">
+                            <img src="Bilder%20Website/zeichnung-backupyourlife-1200.jpg" srcset="Bilder%20Website/zeichnung-backupyourlife-720.jpg 720w, Bilder%20Website/zeichnung-backupyourlife-1200.jpg 1200w" sizes="(max-width: 768px) 100vw, 420px" width="1200" height="800" alt="Kinderzeichnung mit dem Schriftzug backupyourlife: Papa und Tochter halten sich an der Hand, daneben Herz, Haus, Sonne und Blumen" class="about-drawing" loading="lazy" decoding="async">
+                        </picture>
+                        <figcaption class="drawing-caption">Kinderzeichnung · „backupyourlife"</figcaption>
+                    </figure>
                 </div>
 
                 <!-- TODO: Geschichte ist ein Entwurf auf Basis deiner Notizen – bitte mit deinen eigenen Worten und echten Jahreszahlen prüfen. -->
@@ -109,8 +110,9 @@
                     <!-- TODO: Alle Angaben in [Klammern] durch deine echten Daten ersetzen. -->
                     <p class="person-subhead">Zum Nachprüfen</p>
                     <div class="gap-calc gap-calc--facts">
-                        <div class="gap-row"><span>Status</span><span class="mono">Versicherungsmakler, § 34d Abs. 1 GewO</span></div>
-                        <div class="gap-row"><span>Registernummer</span><span class="mono">[D-XXXX-XXXXX-XX]</span></div>
+                        <div class="gap-row"><span>Status</span><span class="mono">Versicherungsmakler, § 34d Abs. 1 GewO · Finanzanlagenvermittler, § 34f GewO</span></div>
+                        <div class="gap-row"><span>Registernummer § 34d</span><span class="mono">D-514M-UVR8K-11</span></div>
+                        <div class="gap-row"><span>Registernummer § 34f</span><span class="mono">D-F-155-SI8L-15</span></div>
                         <div class="gap-row"><span>Vergleich</span><span class="mono">[x] Versicherer, ungebunden</span></div>
                         <div class="gap-row"><span>Vergütung</span><span class="mono">Courtage vom Versicherer, nur bei Abschluss</span></div>
                         <div class="gap-row"><span>Weiterbildung</span><span class="mono">[Zertifikat / Qualifikation]</span></div>
@@ -169,7 +171,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20261105b"></script>
-    <script src="quiz.js?v=20261105b"></script>
+    <script src="script.js?v=20261105c"></script>
+    <script src="quiz.js?v=20261105c"></script>
 </body>
 </html>
