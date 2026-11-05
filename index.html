@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preload" as="image" type="image/webp" imagesrcset="Bilder%20Website/papa-hebt-mich-hoch-480.webp 480w, Bilder%20Website/papa-hebt-mich-hoch-800.webp 800w, Bilder%20Website/papa-hebt-mich-hoch-1200.webp 1200w" imagesizes="(max-width: 768px) 100vw, 560px" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20261107b">
+    <link rel="stylesheet" href="styles.css?v=20261107c">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 
     <script type="application/ld+json">
@@ -359,10 +359,28 @@
                     <span class="sample-badge">Beispielwerte</span>
                 </header>
 
+                <!-- Finanzgrafik: Bedarf aufgeteilt in Staat, vorhanden, Lücke (Werte wie in den Tabellen darunter) -->
+                <div class="plan-chart">
+                    <div class="plan-chart-head">
+                        <p class="plan-block-title">Monatlicher Finanzbedarf, wenn der Vater ausfällt</p>
+                        <p class="plan-chart-total">3.900 €</p>
+                    </div>
+                    <div class="seg-bar" role="group" aria-label="Aufteilung des Finanzbedarfs von 3.900 € im Monat">
+                        <span class="seg seg--staat" style="flex-grow: 1300" tabindex="0" role="img" aria-label="Gesetzliche Leistung: 1.300 €, 33 Prozent" data-tip="Gesetzliche Leistung · 1.300 € · 33 %">1.300 €</span>
+                        <span class="seg seg--da" style="flex-grow: 1700" tabindex="0" role="img" aria-label="Bereits vorhanden: 1.700 €, 44 Prozent" data-tip="Bereits vorhanden · 1.700 € · 44 %">1.700 €</span>
+                        <span class="seg seg--gap" style="flex-grow: 900" tabindex="0" role="img" aria-label="Lücke: 900 €, 23 Prozent" data-tip="Lücke · 900 € · 23 %">900 €</span>
+                    </div>
+                    <ul class="seg-legend" aria-hidden="true">
+                        <li><span class="seg-key seg--staat"></span>Gesetzliche Leistung</li>
+                        <li><span class="seg-key seg--da"></span>Bereits vorhanden <small>(BU über Arbeitgeber, Einkommen Partnerin)</small></li>
+                        <li><span class="seg-key seg--gap"></span>Lücke</li>
+                    </ul>
+                </div>
+
                 <div class="plan-kpi">
-                    <p class="plan-kpi-label">Monatliche Lücke, wenn der Vater dauerhaft nicht mehr arbeiten kann</p>
-                    <p class="plan-kpi-value">900 €</p>
-                    <p class="plan-kpi-sub">fehlen jeden Monat – bis zum Rentenbeginn</p>
+                    <p class="plan-kpi-label">Geschätzte Versorgungslücke</p>
+                    <p class="plan-kpi-value">900 € <span class="plan-kpi-unit">/ Monat</span></p>
+                    <p class="plan-kpi-sub">fehlen jeden Monat, wenn der Vater dauerhaft nicht mehr arbeiten kann – bis zum Rentenbeginn</p>
                 </div>
 
                 <div class="plan-grid">
