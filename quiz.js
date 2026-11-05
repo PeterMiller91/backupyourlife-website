@@ -5,11 +5,19 @@
 // Bleibt er leer, bestätigt das Ergebnis, dass du dich telefonisch meldest.
 const BOOKING_URL = '';
 
+// Eingebaute Terminwahl (wird genutzt, solange BOOKING_URL leer ist).
+// Der gewählte Termin kommt per Telegram bei dir an.
+const TERMIN_TAGE   = 6;                                   // wie viele Werktage zur Auswahl stehen
+const TERMIN_ZEITEN = ['09:00', '12:30', '17:00', '18:30', '19:30'];
+const TERMIN_WOCHENTAGE = [1, 2, 3, 4, 5];                 // 1 = Montag … 6 = Samstag, 0 = Sonntag
+const TERMIN_VORLAUF_STUNDEN = 3;                          // frühester Termin ab jetzt
+
 // ==================== Icons (SVG statt Emoji) ====================
 const ICON = {
     check: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     x:     '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>',
     arrow: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    calendar: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
     phone: '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 3.5h2.6l1.5 4.2-2 1.3a12 12 0 006.3 6.3l1.3-2 4.2 1.5v2.6a2 2 0 01-2.1 2A16.5 16.5 0 014.6 5.6a2 2 0 012-2.1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
 };
 
@@ -25,6 +33,10 @@ const state = {
     phone: '',
     optin: false,
     leadStatus: 'idle', // idle | sending | ok | error
+    choice: '',         // '' | termin | anruf
+    slotDay: '',
+    slotTime: '',
+    booked: false,
 };
 
 // ==================== Quiz Steps (5) ====================
@@ -139,7 +151,7 @@ function openQuiz(trigger) {
     lastTrigger = trigger || document.activeElement;
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
-    Object.assign(state, { current: 0, answers: {}, name: '', email: '', phone: '', optin: false, leadStatus: 'idle' });
+    Object.assign(state, { current: 0, answers: {}, name: '', email: '', phone: '', optin: false, leadStatus: 'idle', choice: '', slotDay: '', slotTime: '', booked: false });
     renderStep();
 }
 
@@ -419,8 +431,33 @@ async function retryLead(btn) {
 }
 
 // ==================== Result Screen ====================
+const WOCHENTAG = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+const WOCHENTAG_LANG = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+const isoDay = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const parseDay = (iso) => { const [y, m, d] = iso.split('-').map(Number); return new Date(y, m - 1, d); };
+const slotDate = (iso, time) => { const d = parseDay(iso); const [h, min] = time.split(':').map(Number); d.setHours(h, min, 0, 0); return d; };
+const earliest = () => new Date(Date.now() + TERMIN_VORLAUF_STUNDEN * 3600 * 1000);
+
+function terminTage() {
+    const days = [];
+    const d = new Date(); d.setHours(0, 0, 0, 0);
+    for (let i = 0; days.length < TERMIN_TAGE && i < 30; i++, d.setDate(d.getDate() + 1)) {
+        if (!TERMIN_WOCHENTAGE.includes(d.getDay())) continue;
+        const iso = isoDay(d);
+        if (TERMIN_ZEITEN.some(t => slotDate(iso, t) > earliest())) days.push(iso);
+    }
+    return days;
+}
+
+function slotLabel(iso, time) {
+    const d = parseDay(iso);
+    return `${WOCHENTAG_LANG[d.getDay()]}, ${d.getDate()}.${d.getMonth() + 1}. um ${time} Uhr`;
+}
+
 function nextStepHtml() {
     const firstName = esc(state.name || '');
+
     if (state.leadStatus === 'error') {
         return `
             <div class="quiz-next-step quiz-next-step--error" id="quiz-next-step" role="alert">
@@ -431,34 +468,170 @@ function nextStepHtml() {
                 </div>
             </div>`;
     }
-    if (BOOKING_URL) {
-        const url = new URL(BOOKING_URL);
-        if (state.name)  url.searchParams.set('name', state.name);
-        if (state.email) url.searchParams.set('email', state.email);
+
+    // Bestätigung: Termin gebucht
+    if (state.choice === 'termin' && state.booked) {
         return `
-            <div class="quiz-next-step" id="quiz-next-step">
+            <div class="quiz-next-step quiz-next-step--done" id="quiz-next-step">
+                <p class="quiz-next-step-title">${ICON.check} Dein Termin steht${firstName ? ', ' + firstName : ''}!</p>
+                <p class="quiz-booked-slot">${slotLabel(state.slotDay, state.slotTime)}</p>
+                <p>Ich rufe dich zu dieser Zeit unter <strong>${esc(state.phone)}</strong> an. Plane rund 20 Minuten ein – Unterlagen brauchst du keine.</p>
                 <div class="quiz-result-cta">
-                    <a href="${esc(url.toString())}" class="btn btn-primary btn-large" target="_blank" rel="noopener">Termin für das Gespräch wählen →</a>
-                    <p class="quiz-result-cta-sub">20 Minuten · kostenlos · unverbindlich · kein Abschlusszwang</p>
+                    <button class="btn btn-booking btn-large" type="button" id="quiz-ics">${ICON.calendar} In meinen Kalender eintragen</button>
+                    <button class="quiz-link-btn" type="button" id="quiz-done">Fertig</button>
                 </div>
             </div>`;
     }
+
+    // Bestätigung: lieber anrufen lassen
+    if (state.choice === 'anruf') {
+        return `
+            <div class="quiz-next-step" id="quiz-next-step">
+                <p class="quiz-next-step-title">${ICON.phone} Alles klar${firstName ? ', ' + firstName : ''}</p>
+                <p>Ich melde mich persönlich unter <strong>${esc(state.phone)}</strong>, um einen Termin für das 20-Minuten-Gespräch zu vereinbaren.</p>
+                <div class="quiz-result-cta">
+                    <button class="btn btn-primary btn-large" type="button" id="quiz-done">Alles klar, fertig</button>
+                    <button class="quiz-link-btn" type="button" id="quiz-pick">Doch lieber selbst einen Termin wählen</button>
+                </div>
+            </div>`;
+    }
+
+    // Terminwahl offen
+    if (state.choice === 'termin') {
+        const days = terminTage();
+        if (!state.slotDay || !days.includes(state.slotDay)) state.slotDay = days[0] || '';
+        const times = state.slotDay ? TERMIN_ZEITEN.filter(t => slotDate(state.slotDay, t) > earliest()) : [];
+        if (!times.includes(state.slotTime)) state.slotTime = '';
+        return `
+            <div class="quiz-next-step quiz-next-step--booking" id="quiz-next-step">
+                <p class="quiz-next-step-title">${ICON.calendar} Wann passt es dir?</p>
+                <p class="quiz-picker-label" id="pick-day-label">Tag</p>
+                <div class="quiz-slots quiz-slots--days" role="radiogroup" aria-labelledby="pick-day-label">
+                    ${days.map(iso => {
+                        const d = parseDay(iso);
+                        const on = iso === state.slotDay;
+                        return `<button type="button" class="quiz-slot${on ? ' selected' : ''}" role="radio" aria-checked="${on}" data-day="${iso}" aria-label="${WOCHENTAG_LANG[d.getDay()]}, ${d.getDate()}.${d.getMonth() + 1}.">
+                            <span class="quiz-slot-wd">${WOCHENTAG[d.getDay()]}</span><span class="quiz-slot-date">${d.getDate()}.${d.getMonth() + 1}.</span>
+                        </button>`;
+                    }).join('')}
+                </div>
+                <p class="quiz-picker-label" id="pick-time-label">Uhrzeit</p>
+                <div class="quiz-slots quiz-slots--times" role="radiogroup" aria-labelledby="pick-time-label">
+                    ${times.map(t => {
+                        const on = t === state.slotTime;
+                        return `<button type="button" class="quiz-slot${on ? ' selected' : ''}" role="radio" aria-checked="${on}" data-time="${t}">${t}</button>`;
+                    }).join('')}
+                </div>
+                <p class="quiz-field-error" id="err-slot" role="alert"></p>
+                <div class="quiz-result-cta">
+                    <button class="btn btn-booking btn-large" type="button" id="quiz-book" ${state.slotTime ? '' : 'disabled'}>
+                        ${state.slotTime ? `Termin am ${WOCHENTAG[parseDay(state.slotDay).getDay()]} um ${state.slotTime} festmachen` : 'Bitte Uhrzeit wählen'}
+                    </button>
+                    <button class="quiz-link-btn" type="button" id="quiz-call">Doch lieber anrufen lassen</button>
+                </div>
+            </div>`;
+    }
+
+    // Entweder-oder: zwei Wege, beide führen zum Gespräch
     return `
-        <div class="quiz-next-step" id="quiz-next-step">
-            <p class="quiz-next-step-title">${ICON.phone} So geht es weiter${firstName ? ', ' + firstName : ''}</p>
-            <p>Deine Angaben sind bei mir angekommen. Ich melde mich persönlich unter <strong>${esc(state.phone)}</strong>, um einen Termin für das 20-Minuten-Gespräch zu vereinbaren.</p>
-            <div class="quiz-result-cta">
-                <button class="btn btn-primary btn-large" type="button" id="quiz-done">Alles klar, fertig</button>
-                <p class="quiz-result-cta-sub">20 Minuten · kostenlos · unverbindlich · kein Abschlusszwang</p>
+        <div class="quiz-next-step quiz-next-step--choice" id="quiz-next-step">
+            <p class="quiz-received">${ICON.check} Deine Angaben sind angekommen.</p>
+            <p class="quiz-next-step-title">Wie ist es dir lieber${firstName ? ', ' + firstName : ''}?</p>
+            <div class="quiz-choice">
+                ${BOOKING_URL ? (() => {
+                    const url = new URL(BOOKING_URL);
+                    if (state.name)  url.searchParams.set('name', state.name);
+                    if (state.email) url.searchParams.set('email', state.email);
+                    return `<a href="${esc(url.toString())}" class="btn btn-booking btn-large quiz-choice-main" target="_blank" rel="noopener">${ICON.calendar} Termin jetzt selbst wählen</a>`;
+                })() : `<button class="btn btn-booking btn-large quiz-choice-main" type="button" id="quiz-pick">${ICON.calendar} Termin jetzt selbst wählen</button>`}
+                <p class="quiz-choice-hint">Dauert 30 Sekunden · du bestimmst die Uhrzeit</p>
+                <p class="quiz-choice-or"><span>oder</span></p>
+                <button class="btn btn-secondary btn-large quiz-choice-alt" type="button" id="quiz-call">${ICON.phone} Ruf mich an, wenn es dir passt</button>
             </div>
+            <p class="quiz-result-cta-sub">20 Minuten · kostenlos · unverbindlich · kein Abschlusszwang</p>
         </div>`;
 }
 
+function rerenderNextStep(focusSel) {
+    const box = document.getElementById('quiz-next-step');
+    if (!box) return;
+    box.outerHTML = nextStepHtml();
+    bindNextStep();
+    const target = (focusSel && document.querySelector(focusSel)) || document.getElementById('quiz-next-step');
+    if (target) {
+        if (target.id === 'quiz-next-step') target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+        document.getElementById('quiz-next-step').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+}
+
+async function sendNote(type) {
+    const extra = type === 'termin'
+        ? { termin: slotLabel(state.slotDay, state.slotTime), termin_iso: slotDate(state.slotDay, state.slotTime).toISOString() }
+        : {};
+    return sendLead({ type, name: state.name, email: state.email, phone: state.phone, ...extra });
+}
+
+function downloadIcs() {
+    const start = slotDate(state.slotDay, state.slotTime);
+    const end = new Date(start.getTime() + 20 * 60 * 1000);
+    const fmt = (d) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    const ics = [
+        'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//backupyourlife//Backup-Check//DE', 'BEGIN:VEVENT',
+        `UID:${Date.now()}@backupyourlife.de`, `DTSTAMP:${fmt(new Date())}`, `DTSTART:${fmt(start)}`, `DTEND:${fmt(end)}`,
+        'SUMMARY:Backup-Gespräch mit backupyourlife (20 Min.)',
+        `DESCRIPTION:Ich rufe dich unter ${state.phone} an. Kostenlos und unverbindlich.`,
+        'BEGIN:VALARM', 'TRIGGER:-PT15M', 'ACTION:DISPLAY', 'DESCRIPTION:Backup-Gespräch in 15 Minuten', 'END:VALARM',
+        'END:VEVENT', 'END:VCALENDAR',
+    ].join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+    a.download = 'backup-gespraech.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
 function bindNextStep() {
-    const retry = document.getElementById('quiz-retry');
-    if (retry) retry.addEventListener('click', () => retryLead(retry));
-    const done = document.getElementById('quiz-done');
-    if (done) done.addEventListener('click', closeQuiz);
+    const on = (id, fn) => { const el = document.getElementById(id); if (el) el.addEventListener('click', () => fn(el)); };
+
+    on('quiz-retry', retryLead);
+    on('quiz-done', closeQuiz);
+    on('quiz-ics', downloadIcs);
+    on('quiz-pick', () => { state.choice = 'termin'; rerenderNextStep('.quiz-slots--times .quiz-slot'); });
+    on('quiz-call', async (btn) => {
+        btn.disabled = true;
+        state.choice = 'anruf';
+        sendNote('anruf'); // nur Hinweis für dich – der Lead ist schon angekommen
+        rerenderNextStep();
+    });
+
+    document.querySelectorAll('.quiz-slot[data-day]').forEach(b => b.addEventListener('click', () => {
+        state.slotDay = b.dataset.day; state.slotTime = '';
+        rerenderNextStep(`.quiz-slot[data-day="${b.dataset.day}"]`);
+    }));
+    document.querySelectorAll('.quiz-slot[data-time]').forEach(b => b.addEventListener('click', () => {
+        state.slotTime = b.dataset.time;
+        rerenderNextStep('#quiz-book');
+    }));
+
+    on('quiz-book', async (btn) => {
+        if (!state.slotTime) return;
+        btn.disabled = true;
+        btn.setAttribute('aria-busy', 'true');
+        btn.innerHTML = '<span class="quiz-spinner quiz-spinner--dark" aria-hidden="true"></span> Wird gebucht …';
+        const ok = await sendNote('termin');
+        if (ok) {
+            state.booked = true;
+            rerenderNextStep('#quiz-ics');
+        } else {
+            btn.disabled = false;
+            btn.removeAttribute('aria-busy');
+            btn.textContent = 'Nochmal versuchen';
+            const err = document.getElementById('err-slot');
+            err.textContent = 'Der Termin ist leider nicht bei mir angekommen. Bitte versuch es noch einmal.';
+            err.style.display = 'block';
+        }
+    });
 }
 
 function renderResult() {
