@@ -2776,3 +2776,24 @@ h1, h2, h3 {
 
 /* Geschichte aus dem Hero, jetzt im Problem-Abschnitt */
 .problem-body--story { font-style: italic; }
+
+/* ==================== Echte Bilder: Porträt + Zeichnung ==================== */
+.person-photo-frame,
+.about-drawing-frame { margin: 0; }
+.person-photo { height: auto; object-position: center 30%; background: #e9e9e9; }
+.about-drawing {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transform: rotate(-1deg);
+    box-shadow: 0 6px 18px rgba(26, 26, 26, 0.10);
+}
+.transparency-title--reg {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
