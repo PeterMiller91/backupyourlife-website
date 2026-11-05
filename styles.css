@@ -2737,3 +2737,42 @@ h1, h2, h3 {
 
 .quiz-spinner--dark { border-color: rgba(26, 26, 26, 0.25); border-top-color: var(--pencil); }
 .btn-booking[aria-busy="true"] { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* ==================== Hero-Claim: was die Seite für dich tut ==================== */
+.hero-claim {
+    font-weight: 800;
+    font-size: clamp(19px, 2.3vw, 22px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--pencil);
+    margin: -4px 0 14px;
+    max-width: 30ch;
+    text-wrap: balance;
+}
+.hero-claim .highlight { padding: 0 2px; }
+
+.hero-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0 0 26px;
+}
+.hero-benefits li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 16px;
+    color: var(--pencil);
+}
+.hero-benefits .ico {
+    width: 22px;
+    height: 22px;
+    padding: 3px;
+    border-radius: 999px;
+    background: var(--crayon-sun);
+    flex-shrink: 0;
+}
+
+/* Geschichte aus dem Hero, jetzt im Problem-Abschnitt */
+.problem-body--story { font-style: italic; }
