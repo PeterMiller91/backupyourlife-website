@@ -5,26 +5,18 @@ Alles hier muss **von dir** (fachlich) bzw. **von einer rechtlichen Stelle** gep
 
 ---
 
-## 1. Platzhalter, die echte Angaben brauchen
+## 1. Platzhalter und Pflichtseiten
 
-| Platzhalter | Datei · Stelle | Was gebraucht wird |
+Erledigt (eingetragen am 5. November 2026): Name (Daniel Schultes), Alter bei Diagnose (33), Jahreszahlen (2022/2024/2025/2026), IHK für München und Oberbayern, 150 Versicherer, Beispiel-Versicherer (Continentale, Allianz, Dialog, Hannoversche), Qualifikation (Geprüfter Versicherungsfachmann IHK), Löschung „umgehend“, E-Mail mail@backupyourlife.de. § 34f wurde von der Website entfernt (keine Anlageberatung). Neue Seiten: `impressum.html`, `erstinformation.html`.
+
+Noch offen:
+
+| Was | Datei · Stelle | Was gebraucht wird |
 |---|---|---|
-| `[Vorname Nachname]` | `index.html` · Bildunterschrift unter dem Porträt; `ueber-uns.html` · Überschrift | Dein voller Name |
-| `[Name]` | `ueber-uns.html` · Text der Seite | Dein Name |
-| `[Alter]` | `index.html` · „Mit [Alter] bekam ich die Diagnose Krebs“ | Alter bei der Diagnose |
-| `[Jahr]` (4×) | `ueber-uns.html` · Zeitstrahl | Jahreszahlen deiner Geschichte |
-| `[IHK …]` | `index.html` · Transparenz → Registrierung | Zuständige IHK |
-| `[x] Versicherer` | `index.html` · Transparenz; `ueber-uns.html`; `fragen.html` (sichtbar + strukturierte Daten) | Anzahl verglichener Versicherer |
-| `[Versicherer A/B/C]` | `index.html` · Transparenz → Vergleichsumfang | Drei echte Gesellschaften |
-| `[Zertifikat / Qualifikation]` | `ueber-uns.html` · „Zum Nachprüfen“ | Echte Qualifikation oder Zeile streichen |
-| `[x Monaten]` | `index.html` · FAQ „Was passiert mit meinen Daten?“ | Löschfrist |
-| `[E-Mail]` | `index.html` · FAQ „Was passiert mit meinen Daten?“ | Kontakt für Datenschutz-Anfragen |
-| `[deine-email@example.com]` | `fragen.html` · „Lieber eine Frage per E-Mail stellen“ | Kontakt-E-Mail |
-| `href="#"` Impressum, Datenschutz, Erstinformation § 15 VersVermV | Footer aller Seiten, `index.html` Transparenz + FAQ | **Gesetzlich Pflicht.** Seiten/Dokumente erstellen und verlinken |
-
-Bereits eingetragen und bitte nur kurz gegenprüfen: Registernummern **§ 34d D-514M-UVR8K-11** und **§ 34f D-F-155-SI8L-15** (Zuordnung im Vermittlerregister kontrollieren).
-
----
+| **Datenschutzerklärung** | Footer aller Seiten, FAQ „Was passiert mit meinen Daten?“ (Link führt noch auf `#`) | **Gesetzlich Pflicht.** Text erstellen (z. B. Generator/Anwalt) – muss netcup (Hosting), Telegram, monday.com, Google Fonts und „Löschung umgehend, wenn keine Beratung zustande kommt“ enthalten |
+| Berufshaftpflicht: Anschrift des Versicherers und räumlicher Geltungsbereich | `impressum.html` | Laut Versicherungsschein der Vermögensschadenhaftpflicht (Allianz) |
+| Erstinformations-PDF | dein eigenes PDF | Enthält noch die alte Anschrift (Vohenstrauß), info@daniel-schultes.de und die Honorar-Option. Die Website-Version nutzt Pullenreuth, mail@backupyourlife.de und „ausschließlich Provision“ – PDF bitte angleichen. Anschrift im Vermittlerregister prüfen. |
+| Beteiligungen über 10 % | `erstinformation.html` | Dein PDF enthält dazu keine Angabe. Prüfen, ob für dich eine Angabe nötig ist. |
 
 ## 2. Fachliche Aussagen, die du prüfen solltest
 
@@ -39,7 +31,7 @@ Bereits eingetragen und bitte nur kurz gegenprüfen: Registernummern **§ 34d D-
 | „Firmen-BU oft gedeckelt, kann bei Jobwechsel enden“ | Mythen-Tabelle, Quiz | Je nach Durchführungsweg der bAV unterschiedlich. |
 | Anonyme Risikovoranfrage bei mehreren Versicherern | Ergebnis-Abschnitt, FAQ | Nur so stehen lassen, wenn du das immer so machst. |
 | „Keine Gesundheitsfragen im Check und im Erstgespräch“ | Ablauf, FAQ, Datenschutz | Muss deinem tatsächlichen Ablauf entsprechen. |
-| „Ich hatte selbst Krebs.“ | Hero (ganz oben), Über mich | Persönliche Aussage – nur veröffentlichen, wenn du das so zeigen willst. |
+| „Ich hatte selbst Krebs.“ / „Mit 33 bekam ich die Diagnose Krebs.“ | Hero (ganz oben), Über mich | Persönliche Aussage – nur veröffentlichen, wenn du das so zeigen willst. |
 
 ## 3. Versprechen und Leistungen (rechtlich prüfen lassen)
 
