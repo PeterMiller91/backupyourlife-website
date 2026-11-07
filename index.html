@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preload" as="image" type="image/webp" imagesrcset="Bilder%20Website/papa-hebt-mich-hoch-480.webp 480w, Bilder%20Website/papa-hebt-mich-hoch-800.webp 800w, Bilder%20Website/papa-hebt-mich-hoch-1200.webp 1200w" imagesizes="(max-width: 768px) 100vw, 560px" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20261107c">
+    <link rel="stylesheet" href="styles.css?v=20261107d">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 
     <script type="application/ld+json">
@@ -47,6 +47,9 @@
     </script>
 </head>
 <body class="has-jump-nav">
+
+    <!-- Wachsmal-Effekt für die gemalten Elemente -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="crayon"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/></filter></svg>
 
     <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
@@ -136,11 +139,18 @@
                         fetchpriority="high"
                         decoding="async"
                     >
-                    <figcaption class="drawing-caption">Mira, 6 · „Mein Papa und ich"</figcaption>
+                    <figcaption class="drawing-caption">Mira, 6 – „Mein Papa und ich“</figcaption>
+                    <span class="doodle doodle--heart"><svg viewBox="0 0 50 46" aria-hidden="true" focusable="false"><path d="M25 42C10 31 3 23 3 14 3 7 8 3 14 3c5 0 8 3 11 7 3-4 6-7 11-7 6 0 11 4 11 11 0 9-7 17-22 28z" fill="#E8412C" stroke="#B8301F" stroke-width="2.5" filter="url(#crayon)"/></svg></span>
                 </figure>
             </div>
         </div>
     </section>
+
+    <!-- Gemaltes Familienband -->
+    <div class="familyband" aria-hidden="true"><svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false"><g filter="url(#crayon)"><path d="M0 108 Q300 98 600 106 T1200 104" stroke="#8BC34A" stroke-width="6" fill="none" stroke-linecap="round"/><g transform="translate(470 6)"><circle cx="20" cy="16" r="13" fill="#F6D2B0" stroke="#1A1A1A" stroke-width="3"/><path d="M20 30v40M20 70l-12 28M20 70l12 28" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M6 36h28l-4 30H10z" fill="#2B59C3" stroke="#1A3E8F" stroke-width="2"/><path d="M34 42l26 14" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/><circle cx="72" cy="48" r="10" fill="#F6D2B0" stroke="#1A1A1A" stroke-width="3"/><path d="M60 48c-2-14 26-14 24 0" fill="#FFC531" stroke="#E0A800" stroke-width="2"/><path d="M64 60l16 0 6 26H58z" fill="#E8417A" stroke="#B8305C" stroke-width="2"/><path d="M66 86l-4 12M78 86l4 12" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/><path d="M86 66l18-8" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/><circle cx="116" cy="62" r="8" fill="#F6D2B0" stroke="#1A1A1A" stroke-width="3"/><path d="M108 72h16l4 18h-24z" fill="#FFC531" stroke="#E0A800" stroke-width="2"/><path d="M112 90l-3 10M120 90l3 10" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/></g><g transform="translate(640 20)"><path d="M6 40L44 8l38 32z" fill="#E8412C" stroke="#B8301F" stroke-width="3"/><rect x="14" y="40" width="60" height="48" fill="#FFF7E2" stroke="#1A1A1A" stroke-width="3"/><rect x="24" y="50" width="16" height="14" fill="#9DB5EA" stroke="#2B59C3" stroke-width="3"/><rect x="50" y="58" width="14" height="30" fill="#FFC531" stroke="#1A1A1A" stroke-width="3"/></g><g transform="translate(330 30)"><path d="M10 70V30M10 30c-10-6-10-22 0-24 10 2 10 18 0 24" stroke="#4E9A2E" stroke-width="4" fill="#8BC34A"/></g><g transform="translate(830 50)"><circle cx="12" cy="12" r="8" fill="#FFC531" stroke="#E8412C" stroke-width="5"/><path d="M12 22v34" stroke="#4E9A2E" stroke-width="4"/></g></g></svg></div>
+
+    <!-- TODO: Kinderfragen nur so stehen lassen, wenn sie für dich passen. -->
+    <div class="kid-bubble"><p>„Papa, wer passt auf uns auf, wenn du krank bist?“</p><small>Eine Frage, die Kinder wirklich stellen</small></div>
 
     <!-- 2 · Problem -->
     <section class="problem-section" id="das-risiko" data-chapter="risiko" aria-labelledby="risiko-title">
@@ -312,6 +322,8 @@
         </div>
     </section>
 
+    <div class="kid-bubble kid-bubble--sun"><p>„Und wie viel fehlt bei uns?“</p><small>Genau das zeigt dir der Check</small></div>
+
     <!-- 5 · Ergebnis: was der Check bringt -->
     <!-- TODO: Jeden Baustein nur so stehen lassen, wenn du ihn genau so lieferst. Rechtlich prüfen lassen (Sondervergütungsverbot § 48b VAG): Diese Leistungen bekommt jeder, unabhängig von einem Abschluss. -->
     <section class="result-section" id="dein-ergebnis" data-chapter="ergebnis" aria-labelledby="ergebnis-title">
@@ -474,6 +486,8 @@
         </div>
     </section>
 
+    <div class="kid-bubble"><p>„Papa, bist du jetzt wieder gesund?“</p><small>Warum es backupyourlife gibt</small></div>
+
     <!-- 7 · Persönliche Geschichte -->
     <!-- TODO: Text ist ein Entwurf auf Basis deiner Notizen – bitte mit deinen eigenen Worten und echten Daten prüfen. -->
     <section class="person-section" data-chapter="berater" id="ueber-mich" aria-labelledby="person-title">
@@ -483,7 +497,7 @@
             <div class="person-grid">
                 <figure class="person-photo-frame">
                     <img src="Bilder%20Website/portrait-600.webp" srcset="Bilder%20Website/portrait-400.webp 400w, Bilder%20Website/portrait-600.webp 600w, Bilder%20Website/portrait-1000.webp 1000w" sizes="(max-width: 768px) 100vw, 480px" width="1000" height="1277" alt="Daniel Schultes, Gründer von backupyourlife, lächelnd in hellem Hemd" class="person-photo" loading="lazy" decoding="async">
-                    <figcaption class="drawing-caption">Daniel Schultes · Gründer von backupyourlife · Versicherungsmakler</figcaption>
+                    <figcaption class="drawing-caption">Daniel Schultes – Gründer von backupyourlife</figcaption>
                 </figure>
                 <div class="person-text">
                     <p class="story-quote">Mit 33 bekam ich die Diagnose Krebs. Von einem Tag auf den anderen ging es nicht mehr um Karriere oder Urlaubspläne – sondern um Behandlung, um meine Familie und um die Frage, wie lange das Geld reicht.</p>
