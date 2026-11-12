@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,800&family=Caveat+Brush&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="preload" as="image" type="image/webp" imagesrcset="Bilder%20Website/papa-hebt-mich-hoch-480.webp 480w, Bilder%20Website/papa-hebt-mich-hoch-800.webp 800w, Bilder%20Website/papa-hebt-mich-hoch-1200.webp 1200w" imagesizes="(max-width: 768px) 100vw, 560px" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20261107d">
+    <link rel="stylesheet" href="styles.css?v=20261112a">
     <link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
 
     <script type="application/ld+json">
@@ -120,12 +120,12 @@
                         <button class="btn btn-primary btn-large" type="button" data-quiz-open data-cta="hero">Meine Familien-Lücke berechnen</button>
                     </div>
                     <p class="cta-trust">Kostenlos · 5 Minuten · Sofortiges Ergebnis · Ohne Verpflichtung</p>
-                    <a href="#wie-funktioniert" class="text-link hero-secondary">Wie läuft der Check ab?</a>
                     <!-- TODO: Satz nur so stehen lassen, wenn er für dich stimmt. -->
                     <a class="hero-proof" href="#ueber-mich">
                         <img src="Bilder%20Website/portrait-400.webp" width="400" height="511" alt="" class="hero-proof-img" decoding="async">
                         <span><strong>Ich hatte selbst Krebs.</strong> Ich weiß, was eine Absicherung im Ernstfall wert ist – und was nicht.</span>
                     </a>
+                    <a href="#wie-funktioniert" class="text-link hero-secondary">Wie läuft der Check ab?</a>
                 </div>
                 <figure class="hero-drawing-frame">
                     <img
@@ -280,9 +280,12 @@
                             <h3 class="card-title">Backup 1 · Einkommen</h3>
                         </div>
                         <p class="card-outcome">Damit jeden Monat weiter Geld reinkommt – auch wenn du deinen Beruf nie wieder ausüben kannst.</p>
-                        <p class="card-product">Berufsunfähigkeits&shy;versicherung</p>
-                        <p class="card-fact">Beispiel: <span class="fact-amount">2.000 €&thinsp;/&thinsp;Monat</span> bis 67</p>
-                        <p class="card-description">Zahlt eine vereinbarte Monatsrente, wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst – etwa nach Burnout, Rückenleiden oder Herzinfarkt. Es gelten die Vertragsbedingungen.</p>
+                        <details class="card-more">
+                            <summary>Mehr zu diesem Baustein</summary>
+                            <p class="card-product">Berufsunfähigkeits&shy;versicherung</p>
+                            <p class="card-fact">Beispiel: <span class="fact-amount">2.000 €&thinsp;/&thinsp;Monat</span> bis 67</p>
+                            <p class="card-description">Zahlt eine vereinbarte Monatsrente, wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst – etwa nach Burnout, Rückenleiden oder Herzinfarkt. Es gelten die Vertragsbedingungen.</p>
+                        </details>
                     </div>
                 </article>
 
@@ -294,9 +297,12 @@
                             <h3 class="card-title">Backup 2 · Gesundheit</h3>
                         </div>
                         <p class="card-outcome">Damit du dich bei einer schweren Diagnose ums Gesundwerden kümmern kannst – nicht ums Geld.</p>
-                        <p class="card-product">Schwere-Krankheiten-Versicherung</p>
-                        <p class="card-fact">Beispiel: <span class="fact-amount">100.000 €</span> einmalig bei Diagnose</p>
-                        <p class="card-description">Zahlt einmalig eine vereinbarte Summe bei einer versicherten Diagnose wie Krebs, Herzinfarkt oder Schlaganfall – egal, ob du weiterarbeitest. Welche Diagnosen versichert sind, regelt der Vertrag.</p>
+                        <details class="card-more">
+                            <summary>Mehr zu diesem Baustein</summary>
+                            <p class="card-product">Schwere-Krankheiten-Versicherung</p>
+                            <p class="card-fact">Beispiel: <span class="fact-amount">100.000 €</span> einmalig bei Diagnose</p>
+                            <p class="card-description">Zahlt einmalig eine vereinbarte Summe bei einer versicherten Diagnose wie Krebs, Herzinfarkt oder Schlaganfall – egal, ob du weiterarbeitest. Welche Diagnosen versichert sind, regelt der Vertrag.</p>
+                        </details>
                     </div>
                 </article>
 
@@ -308,9 +314,12 @@
                             <h3 class="card-title">Backup 3 · Familie</h3>
                         </div>
                         <p class="card-outcome">Damit der Kredit bezahlt ist und euer Zuhause eures bleibt, wenn dir etwas passiert.</p>
-                        <p class="card-product">Risikolebens&shy;versicherung</p>
-                        <p class="card-fact">Beispiel: <span class="fact-amount">350.000 €</span> · Laufzeit wie dein Kredit</p>
-                        <p class="card-description">Zahlt im Todesfall eine vereinbarte Summe an deine Familie – zum Beispiel, um den Kredit zu tilgen. Summe und Laufzeit sollten zu Kredit und Kindern passen.</p>
+                        <details class="card-more">
+                            <summary>Mehr zu diesem Baustein</summary>
+                            <p class="card-product">Risikolebens&shy;versicherung</p>
+                            <p class="card-fact">Beispiel: <span class="fact-amount">350.000 €</span> · Laufzeit wie dein Kredit</p>
+                            <p class="card-description">Zahlt im Todesfall eine vereinbarte Summe an deine Familie – zum Beispiel, um den Kredit zu tilgen. Summe und Laufzeit sollten zu Kredit und Kindern passen.</p>
+                        </details>
                     </div>
                 </article>
             </div>
@@ -607,105 +616,118 @@
         <div class="container">
             <p class="section-eyebrow">Ehrliche Antworten</p>
             <h2 class="section-headline" id="fragen-title">Die Fragen, die du <span class="highlight">wirklich</span> stellen willst</h2>
-            <div class="accordion-section accordion-section--home">
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-0">
-                        Kostet mich der Backup-Check etwas?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-0">
-                        Nein. Check, Ergebnis, Notfallordner und das optionale Gespräch kosten dich nichts. Ich verdiene nur, wenn du über mich einen Vertrag abschließt: Dann zahlt mir der Versicherer eine Provision (Courtage). Sie ist im Beitrag enthalten – du zahlst nichts extra.
+            <div class="faq-layout">
+                <div class="accordion-section accordion-section--home">
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-0">
+                            Kostet mich der Backup-Check etwas?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-0">
+                            Nein. Check, Ergebnis, Notfallordner und das optionale Gespräch kosten dich nichts. Ich verdiene nur, wenn du über mich einen Vertrag abschließt: Dann zahlt mir der Versicherer eine Provision (Courtage). Sie ist im Beitrag enthalten – du zahlst nichts extra.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-1">
+                            Muss ich danach eine Versicherung abschließen?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-1">
+                            Nein. Du kannst nach dem Ergebnis einfach aufhören. Auch nach einem Gespräch musst du nichts abschließen. Wenn du Nein sagst, ist das ein Nein.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-2">
+                            Bekomme ich danach einen Anruf?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-2">
+                            Nur, wenn du das willst. Deine Handynummer ist im Check freiwillig. Nach dem Ergebnis entscheidest du selbst: einen Termin wählen, dich anrufen lassen – oder nichts davon.
+                        </div>
+                    </div>
+                    <div class="accordion-item" id="daten">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-3">
+                            Was passiert mit meinen Daten?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-3">
+                            Im Check frage ich nur: Anzahl der Kinder, Einkommensspanne, ob du eine BU oder Risikoleben hast, deinen Vornamen, deine E-Mail und – wenn du willst – deine Handynummer. <strong>Keine Gesundheitsdaten.</strong> Die Angaben gehen nur an mich (Webserver, Benachrichtigung per Telegram, Kundenverwaltung bei monday.com) – nicht an Versicherer, nicht zu Werbezwecken. Kommt keine Beratung zustande, lösche ich deine Daten umgehend. Auskunft oder Löschung: <a href="mailto:mail@backupyourlife.de">mail@backupyourlife.de</a>. Der Notfallrechner auf dieser Seite speichert und sendet nichts. Alle Details: <a href="#">Datenschutzerklärung</a>.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-4">
+                            Ich bin schon versichert – lohnt sich der Check trotzdem?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-4">
+                            Gerade dann. Viele Verträge stammen aus der Zeit vor Kind oder Kredit. Ich prüfe, ob Summe und Bedingungen noch passen. Gute Verträge bleiben – oft ist Ergänzen sinnvoller als Ersetzen. Bist du gut abgesichert, sage ich dir das schwarz auf weiß.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-5">
+                            Was, wenn ich wegen meiner Gesundheit keine Versicherung bekomme?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-5">
+                            Das hängt von der Erkrankung ab: Möglich sind eine normale Annahme, ein Ausschluss, ein Zuschlag oder eine Ablehnung. Damit du keinen Antrag stellst, der abgelehnt wird, frage ich vorab anonym bei mehreren Versicherern an. Klappt eine BU nicht, schauen wir gemeinsam, welche anderen Bausteine für deine Familie möglich sind.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-6">
+                            Was ist der Unterschied zwischen BU und Schwere-Krankheiten-Versicherung?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-6">
+                            Die <strong>BU</strong> zahlt eine monatliche Rente, wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst – sie ersetzt dein laufendes Einkommen. Die <strong>Schwere-Krankheiten-Versicherung</strong> zahlt einmalig eine vereinbarte Summe bei einer versicherten Diagnose, zum Beispiel Krebs oder Herzinfarkt – auch wenn du weiterarbeiten kannst. Was genau versichert ist, regeln jeweils die Vertragsbedingungen.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-7">
+                            Ich finanziere eine Immobilie – was sollte ich wissen?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-7">
+                            Die Kreditrate läuft weiter, auch wenn dein Einkommen wegfällt. Zwei Fragen sind entscheidend: Reicht eine BU-Rente, um die Rate weiterzuzahlen? Und deckt eine Risikolebensversicherung die heutige Restschuld? Viele Verträge lassen sich nach einem Immobilienkauf ohne neue Gesundheitsfragen erhöhen – oft nur innerhalb einer Frist. Das hängt vom Vertrag ab.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-8">
+                            Kann ich den Check zusammen mit meiner Partnerin machen?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-8">
+                            Ja, gern – das ist sogar sinnvoll. Zu zweit habt ihr eure laufenden Kosten besser im Blick. Auch zum Gespräch könnt ihr gemeinsam kommen. Verdient ihr beide, lohnt sich ein Blick auf beide Einkommen.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-9">
+                            Warum nicht einfach online bei einem Vergleichsportal abschließen?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-9">
+                            Kannst du – für Haftpflicht oder Hausrat ist das oft okay. Bei BU und Risikoleben zählt aber nicht nur der Preis, sondern was im Ernstfall passiert: Wie sind die Bedingungen formuliert? Sind die Gesundheitsfragen richtig beantwortet? Fehler dort können dazu führen, dass die Versicherung später nicht zahlt. Ich vergleiche Bedingungen statt nur Preise – und bin da, wenn du die Leistung brauchst.
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-10">
+                            Muss ich etwas vorbereiten?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="accordion-content" id="hf-10">
+                            Für den Check nicht – es reicht, was du im Kopf hast. Für das Gespräch helfen deine Renteninformation und Fotos deiner Verträge. Sind sie nicht zur Hand, schauen wir sie später an. Gesundheitsfragen stellt erst der Versicherer, wenn du dich für einen Antrag entscheidest.
+                        </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-1">
-                        Muss ich danach eine Versicherung abschließen?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-1">
-                        Nein. Du kannst nach dem Ergebnis einfach aufhören. Auch nach einem Gespräch musst du nichts abschließen. Wenn du Nein sagst, ist das ein Nein.
+                <div class="starter">
+                    <p class="starter-kicker">Noch nicht so weit?</p>
+                    <p class="starter-title" id="starter-title">Fang klein an: der „Wenn Papa ausfällt“-Notfallordner</p>
+                    <p class="starter-text">Kostenlose Vorlage zum Ausdrucken. Verträge, Konten, Kontakte und Vollmachten an einem Ort – damit deine Familie im Ernstfall weiß, was zu tun ist.</p>
+                    <div class="starter-doc" aria-hidden="true">
+                        <div class="starter-sheet"><span class="starter-sheet-title">Wenn Papa ausfällt</span><span class="starter-line"></span><span class="starter-line starter-line--short"></span><span class="starter-line starter-line--sun"></span><span class="starter-line"></span></div>
+                        <div class="starter-sheet"><span class="starter-sheet-title">01 Wichtige Kontakte</span><span class="starter-line"></span><span class="starter-line starter-line--short"></span><span class="starter-line"></span></div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-2">
-                        Bekomme ich danach einen Anruf?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-2">
-                        Nur, wenn du das willst. Deine Handynummer ist im Check freiwillig. Nach dem Ergebnis entscheidest du selbst: einen Termin wählen, dich anrufen lassen – oder nichts davon.
-                    </div>
-                </div>
-                <div class="accordion-item" id="daten">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-3">
-                        Was passiert mit meinen Daten?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-3">
-                        Im Check frage ich nur: Anzahl der Kinder, Einkommensspanne, ob du eine BU oder Risikoleben hast, deinen Vornamen, deine E-Mail und – wenn du willst – deine Handynummer. <strong>Keine Gesundheitsdaten.</strong> Die Angaben gehen nur an mich (Webserver, Benachrichtigung per Telegram, Kundenverwaltung bei monday.com) – nicht an Versicherer, nicht zu Werbezwecken. Kommt keine Beratung zustande, lösche ich deine Daten umgehend. Auskunft oder Löschung: <a href="mailto:mail@backupyourlife.de">mail@backupyourlife.de</a>. Der Notfallrechner auf dieser Seite speichert und sendet nichts. Alle Details: <a href="#">Datenschutzerklärung</a>.
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-4">
-                        Ich bin schon versichert – lohnt sich der Check trotzdem?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-4">
-                        Gerade dann. Viele Verträge stammen aus der Zeit vor Kind oder Kredit. Ich prüfe, ob Summe und Bedingungen noch passen. Gute Verträge bleiben – oft ist Ergänzen sinnvoller als Ersetzen. Bist du gut abgesichert, sage ich dir das schwarz auf weiß.
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-5">
-                        Was, wenn ich wegen meiner Gesundheit keine Versicherung bekomme?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-5">
-                        Das hängt von der Erkrankung ab: Möglich sind eine normale Annahme, ein Ausschluss, ein Zuschlag oder eine Ablehnung. Damit du keinen Antrag stellst, der abgelehnt wird, frage ich vorab anonym bei mehreren Versicherern an. Klappt eine BU nicht, schauen wir gemeinsam, welche anderen Bausteine für deine Familie möglich sind.
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-6">
-                        Was ist der Unterschied zwischen BU und Schwere-Krankheiten-Versicherung?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-6">
-                        Die <strong>BU</strong> zahlt eine monatliche Rente, wenn du deinen Beruf dauerhaft nicht mehr ausüben kannst – sie ersetzt dein laufendes Einkommen. Die <strong>Schwere-Krankheiten-Versicherung</strong> zahlt einmalig eine vereinbarte Summe bei einer versicherten Diagnose, zum Beispiel Krebs oder Herzinfarkt – auch wenn du weiterarbeiten kannst. Was genau versichert ist, regeln jeweils die Vertragsbedingungen.
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-7">
-                        Ich finanziere eine Immobilie – was sollte ich wissen?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-7">
-                        Die Kreditrate läuft weiter, auch wenn dein Einkommen wegfällt. Zwei Fragen sind entscheidend: Reicht eine BU-Rente, um die Rate weiterzuzahlen? Und deckt eine Risikolebensversicherung die heutige Restschuld? Viele Verträge lassen sich nach einem Immobilienkauf ohne neue Gesundheitsfragen erhöhen – oft nur innerhalb einer Frist. Das hängt vom Vertrag ab.
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-8">
-                        Kann ich den Check zusammen mit meiner Partnerin machen?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-8">
-                        Ja, gern – das ist sogar sinnvoll. Zu zweit habt ihr eure laufenden Kosten besser im Blick. Auch zum Gespräch könnt ihr gemeinsam kommen. Verdient ihr beide, lohnt sich ein Blick auf beide Einkommen.
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-9">
-                        Warum nicht einfach online bei einem Vergleichsportal abschließen?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-9">
-                        Kannst du – für Haftpflicht oder Hausrat ist das oft okay. Bei BU und Risikoleben zählt aber nicht nur der Preis, sondern was im Ernstfall passiert: Wie sind die Bedingungen formuliert? Sind die Gesundheitsfragen richtig beantwortet? Fehler dort können dazu führen, dass die Versicherung später nicht zahlt. Ich vergleiche Bedingungen statt nur Preise – und bin da, wenn du die Leistung brauchst.
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" aria-expanded="false" aria-controls="hf-10">
-                        Muss ich etwas vorbereiten?
-                        <span class="accordion-icon" aria-hidden="true">+</span>
-                    </button>
-                    <div class="accordion-content" id="hf-10">
-                        Für den Check nicht – es reicht, was du im Kopf hast. Für das Gespräch helfen deine Renteninformation und Fotos deiner Verträge. Sind sie nicht zur Hand, schauen wir sie später an. Gesundheitsfragen stellt erst der Versicherer, wenn du dich für einen Antrag entscheidest.
-                    </div>
+                    <a class="btn btn-secondary" href="notfallordner.html" data-cta="notfallordner">Notfallordner ansehen</a>
+                    <a class="text-link starter-sub" href="notfallordner.html#newsletter">oder das Backup-Briefing abonnieren</a>
                 </div>
             </div>
             <a href="fragen.html" class="text-link">Alle Fragen und Antworten →</a>
@@ -716,6 +738,7 @@
     <section class="cta-section" id="backup-check" aria-labelledby="abschluss-title">
         <div class="container">
             <div class="cta-content">
+                <div class="cta-copy">
                 <p class="child-voice cta-kid">Hat unser Papa ein Backup?</p>
                 <h2 class="cta-headline" id="abschluss-title">In 5 Minuten weißt du, wo deine Familie steht.</h2>
                 <p class="cta-subline">Ergebnis sofort, dazu der Notfallordner für deine Familie. Und wenn du danach nicht weitermachen willst: Ein Nein reicht.</p>
@@ -723,6 +746,11 @@
                     <button class="btn btn-primary btn-large" type="button" data-quiz-open data-cta="abschluss">Meine Familien-Lücke berechnen</button>
                     <p class="cta-trust">Kostenlos · 5 Minuten · Sofortiges Ergebnis · Ohne Verpflichtung</p>
                 </div>
+                </div>
+                <figure class="cta-polaroid">
+                    <img src="Bilder%20Website/zeichnung-backupyourlife-800.webp" srcset="Bilder%20Website/zeichnung-backupyourlife-480.webp 480w, Bilder%20Website/zeichnung-backupyourlife-800.webp 800w" sizes="(max-width: 768px) 78vw, 420px" width="800" height="533" alt="Kinderzeichnung: Papa und Tochter vor ihrem Haus, darüber ein Herz und die Sonne" loading="lazy" decoding="async">
+                    <figcaption>Damit es so bleibt.</figcaption>
+                </figure>
             </div>
         </div>
     </section>

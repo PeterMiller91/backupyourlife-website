@@ -3464,3 +3464,145 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .hero-drawing-frame, .person-photo-frame, .kid-bubble p { transform: none; }
 }
+
+/* ==================== Review 11/2026: fünf Verbesserungen ==================== */
+
+/* 1 · Notfallordner als leiser zweiter Einstieg neben der FAQ */
+.faq-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    margin: 24px 0 24px;
+}
+.faq-layout .accordion-section--home { margin: 0; max-width: none; }
+.starter {
+    position: sticky;
+    top: 150px;
+    background: #FFFFFF;
+    border: 2px solid var(--pencil);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 6px 6px 0 var(--crayon-sun);
+}
+.starter-kicker {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 24px;
+    color: var(--crayon-sky);
+    transform: rotate(-1.5deg);
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.starter-title { font-weight: 800; font-size: 20px; line-height: 1.25; color: var(--pencil); margin-bottom: 8px; }
+.starter-text { font-size: 15px; color: var(--body); margin-bottom: 16px; }
+.starter-doc { position: relative; height: 150px; margin-bottom: 18px; }
+.starter-sheet {
+    position: absolute;
+    inset: 0 18% 0 6%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #FFFDF7;
+    border: 1px solid var(--album-line);
+    border-radius: 4px;
+    box-shadow: 0 10px 22px rgba(74, 52, 20, 0.14);
+    padding: 14px 16px;
+    transform: rotate(-3deg);
+}
+.starter-sheet + .starter-sheet { transform: rotate(2.5deg) translate(26px, 6px); }
+.starter-sheet-title { font-weight: 800; font-size: 13px; color: var(--pencil); }
+.starter-line { display: block; height: 8px; border-radius: 4px; background: #EFE6D2; }
+.starter-line--short { width: 60%; }
+.starter-line--sun { width: 40%; background: #FFE39A; }
+.starter .btn { width: 100%; text-align: center; white-space: normal; }
+.starter-sub { display: block; text-align: center; margin-top: 10px; font-size: 14px; }
+@media (max-width: 900px) {
+    .faq-layout { grid-template-columns: minmax(0, 1fr); }
+    .starter { position: static; }
+}
+
+/* 2 · Backup-Karten kompakter: Produkt-Details aufklappbar */
+.card-more { margin-top: 4px; }
+.card-more summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--crayon-sky);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.card-more summary::-webkit-details-marker { display: none; }
+.card-more summary::after { content: ' +'; }
+.card-more[open] summary::after { content: ' –'; }
+.card-more > p { margin-top: 8px; }
+
+/* 3 · Vertrauensbeweis direkt unter dem Button, Hero etwas kompakter */
+.hero-proof { margin-top: 14px; }
+.hero-secondary { margin-top: 10px; }
+.hero { padding-top: clamp(24px, 3.5vw, 48px); }
+
+/* 4 · Abschluss mit Familienzeichnung */
+.cta-section .cta-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+}
+.cta-polaroid {
+    margin: 0;
+    background: #FFFFFF;
+    padding: 12px 12px 14px;
+    border-radius: 3px;
+    box-shadow: 0 18px 36px rgba(74, 52, 20, 0.22);
+    transform: rotate(3deg);
+}
+.cta-polaroid img { display: block; width: 100%; height: auto; border-radius: 2px; }
+.cta-polaroid figcaption {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 22px;
+    color: var(--pencil);
+    text-align: center;
+    margin-top: 6px;
+}
+@media (max-width: 768px) {
+    .cta-section .cta-content { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .cta-polaroid { order: -1; max-width: 78%; margin: 0 auto; transform: rotate(2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cta-polaroid, .starter-sheet, .starter-sheet + .starter-sheet, .starter-kicker { transform: none; }
+}
+
+/* 5 · Mythen auf dem Handy als kompakte Karten */
+@media (max-width: 640px) {
+    .myth-table-wrap { border: none; background: transparent; }
+    .reality-section .myth-table-wrap { background: transparent; }
+    .myth-table tr {
+        background: #FFFFFF;
+        border: 1px solid var(--album-line);
+        border-radius: 14px;
+        margin-bottom: 12px;
+        padding: 14px 16px;
+        box-shadow: 0 6px 16px rgba(74, 52, 20, 0.06);
+    }
+    .myth-table tr:last-child { border-bottom: 1px solid var(--album-line); }
+    .myth-table td,
+    .myth-table td:first-child { padding: 0; border: none; }
+    .myth-table td::before { display: none; }
+    .myth-table td:first-child {
+        font-family: 'Caveat Brush', cursive;
+        font-size: 21px;
+        font-style: normal;
+        color: var(--crayon-sky);
+        margin-bottom: 8px;
+    }
+    .myth-table td:first-child::after {
+        content: ' – stimmt so nicht';
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 12px;
+        color: var(--red-text);
+    }
+    .myth-table td:last-child { font-size: 15px; line-height: 1.5; color: var(--body); }
+}
